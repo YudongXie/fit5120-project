@@ -20,13 +20,16 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var lastTestLabel: UILabel!
     
     var timeArray = [String]()
-    var second = 60
+    var responseArray = [Int]()
+    var randomTimeArray = [Int]()
+    var second = 15
     var displayedSecond = 0
     var progressBarTimer: Timer!
     var GameTimer: Timer!
     var displayTimer : Timer!
     var count = 0
     var gameStarted = false
+    var randomNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +61,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBAction func startGame(_ sender: Any) {
         
         //Clear table view cell
+        responseArray = []
+        randomTimeArray = []
         timeArray = []
         tableView.reloadData()
         //Reset progress bar progress
@@ -69,7 +74,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         Start.isEnabled = false
         
         //First game started
-        let randomNumber = Int.random(in: 3...5)
+        randomNumber = Int.random(in: 3...5)
         print(randomNumber)
         Test.backgroundColor = UIColor.red
         self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
@@ -89,6 +94,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         self.displayTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.displayMsecond), userInfo: nil, repeats: true)
         //Show green when timing
         Test.backgroundColor = UIColor.green
+    
+        print("random number is \(TimeInterval(randomNumber))");
         
     }
     
@@ -103,7 +110,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 displayTimer.invalidate()
             }
             
-            let randomNumber = Int.random(in: 3...5)
+            randomNumber = Int.random(in: 3...5)
             print("重新开始 \(randomNumber)")
             Test.backgroundColor = UIColor.red
             self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
@@ -114,16 +121,24 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             displayTimer.invalidate()
             switch count {
             case 1:
-                timeArray.append("The \(count)st test: " + String(displayedSecond) + " MS" )
+                timeArray.append("The \(count)st test: " + String(displayedSecond) + " MS ")
+                responseArray.append(displayedSecond)
             case 2:
-                timeArray.append("The \(count)nd test: " + String(displayedSecond) + " MS" )
+                timeArray.append("The \(count)nd test: " + String(displayedSecond) + " MS ")
+                responseArray.append(displayedSecond)
             case 3:
-                timeArray.append("The \(count)rd test: " + String(displayedSecond) + " MS" )
+                timeArray.append("The \(count)rd test: " + String(displayedSecond) + " MS ")
+                responseArray.append(displayedSecond)
                 
             default:
-                timeArray.append("The \(count)th test: " + String(displayedSecond) + " MS" )
+                timeArray.append("The \(count)th test: " + String(displayedSecond) + " MS ")
+                responseArray.append(displayedSecond)
             }
             
+            /*append random number to array ,
+             make sure button is clicked and append
+            */
+            randomTimeArray.append(randomNumber)
             lastTestLabel.isHidden = false
             lastTestLabel.text = "Last Response Time was \(displayedSecond) MS"
             
@@ -132,7 +147,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
 //            //Set displayedSecond to 0
             displayedSecond = 0
             //Random second before display MS
-            let randomNumber = Int.random(in: 3...5)
+            randomNumber = Int.random(in: 3...5)
             print(randomNumber)
             Test.backgroundColor = UIColor.red
             self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
@@ -143,7 +158,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func updateProgressView(){
         //Updating progress bar
-        progressView.progress += 1/60;
+        progressView.progress += 1/15;
         second = second - 1;
         timeLeft.text = String(second);
         
@@ -151,15 +166,25 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             timeLeft.text = "Test finished"
             displayedTime.text = ""
             Start.isEnabled = true
+            Test.isEnabled = false
             progressBarTimer.invalidate()
             GameTimer.invalidate()
             //Check whether always early click
             if(displayTimer != nil){
                 displayTimer.invalidate()
             }
-            second = 60
+            second = 15
             count = 0
             Test.backgroundColor = UIColor.gray
+            postJson()
+//            print("-----")
+//            for random in randomTimeArray{
+//                print(random)
+//            }
+//
+//            for index in responseArray{
+//                print(index)
+//            }
         }
     }
     
@@ -175,4 +200,44 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(alert, animated: true, completion: nil)
     }
     
+    func postJson(){
+       // prepare json data
+ 
+//        let json: [String: Any] = ["lat":"-37.8767985",
+//        "lon":"144.9882031"]
+        let json: [String : Any] = ["reaction_times":responseArray,"test_times":randomTimeArray]
+        //let valid = JSONSerialization.isValidJSONObject(json)
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json,options: [])
+        
+        // create post request
+//        let url = URL(string: "http://fit5120.herokuapp.com/local_crashes_person")!
+         let url = URL(string: "http://fit5120.herokuapp.com/pvt_data")!
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        
+        /*send the jsonData using json type
+            if there is not declare for "application/json"
+        the server will not know what type i sent, it will be txt?(guess)
+        */
+    
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // insert json data to the request
+        request.httpBody = jsonData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            print(response)
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print("--- \(responseJSON)")
+            }
+        }
+
+        task.resume()
+    }
 }
