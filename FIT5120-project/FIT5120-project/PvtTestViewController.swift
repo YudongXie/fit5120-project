@@ -22,7 +22,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var timeArray = [String]()
     var responseArray = [Double]()
     var randomTimeArray = [Int]()
-    var second = 36
+    var second = 60
     var displayedSecond = 0.0
     var progressBarTimer: Timer!
     var GameTimer: Timer!
@@ -31,8 +31,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var gameStarted = false
     var randomNumber = 0
     var secondString = ""
-    var decisecond = ""
     var earlyClick = 0
+    var startTime = 0.0
     
     var secondTimer : Timer!
     
@@ -53,6 +53,12 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        var presentingViewController: UIViewController! = self.presentingViewController
+//        presentingViewController.dismiss(animated: false, completion: nil)
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -96,34 +102,17 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         Test.isEnabled = true
     }
     
-    func formatTime(displayedSecond: Double){
-        let flooredCount = Int(floor(displayedSecond))
-        
-        let dsecond = (flooredCount % 3600) % 60
-        
-        secondString = "\(dsecond)"
-        
-        if(dsecond < 10){
-            secondString = "\(dsecond)"
-        }
-        
-        decisecond = String(format: "%.1f",displayedSecond).components(separatedBy: ".").last!
-    }
-    
     @objc func displayMsecond(){
-        //        displayedSecond += 1
-        //        displayedTime.text = String(displayedSecond) + " MS"
-        //        if(displayedSecond == 30000){
-        //            print("30s")
-        //        }
-        displayedSecond += 0.1
+        displayedSecond = Date().timeIntervalSinceReferenceDate - startTime
         
-        formatTime(displayedSecond: displayedSecond)
-        
-        self.displayedTime.text = "\(secondString).\(decisecond) S"
+        secondString = String(format: "%.2f", displayedSecond)
+    
+        self.displayedTime.text = "\(secondString) S"
+    //    print(secondString)
+//        print(" - \(Double(secondString))")
         
         //Not click after 30s
-        if(Int(secondString) == 30){
+        if(Double(secondString) == 30){
             timeLeft.text = "Test Finished due to 30s time out"
             displayedTime.text = ""
             Start.isEnabled = true
@@ -132,9 +121,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             GameTimer.invalidate()
             displayTimer.invalidate()
             secondString = ""
-            decisecond = ""
             displayedSecond = 0.0
-            second = 36
+            second = 60
             earlyClick = 0
             count = 0
             Test.backgroundColor = UIColor.gray
@@ -146,8 +134,11 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         Test.isEnabled = true
         //Show green when timing
         Test.backgroundColor = UIColor.green
+        
+        startTime = Date().timeIntervalSinceReferenceDate
+        
         //Set displayed time timer
-        self.displayTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.displayMsecond), userInfo: nil, repeats: true)
+        self.displayTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.displayMsecond), userInfo: nil, repeats: true)
         
         print("random number is \(TimeInterval(randomNumber))");
     }
@@ -155,7 +146,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func oneClick(_ sender: Any) {
         count+=1
-       // print(displayedSecond)
         
         //If it is early Click
         if(displayedSecond == 0.0){
@@ -178,10 +168,10 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         }else{
             //Append time to arrayList
             displayTimer.invalidate()
+           
+            let time = String(format: "%.2f", displayedSecond)
             
-            //format time, -> e.g. 1.2 , 3.2 and so on...
-            let time = String(format: "%.1f",displayedSecond)
-//            print("--- \(time)")
+            
             switch count {
             case 1:
                 timeArray.append("The \(count)st test: " + time + " S ")
@@ -223,7 +213,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func updateProgressView(){
         //Updating progress bar
-        progressView.progress += 1/33;
+        progressView.progress += 1/60;
         second = second - 1;
         timeLeft.text = String(second);
         
@@ -240,12 +230,20 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             if(displayTimer != nil){
                 displayTimer.invalidate()
             }
-            second = 36
+            second = 60
             count = 0
             earlyClick = 0
             Test.backgroundColor = UIColor.gray
             postJson()
             
+            
+//            for index in responseArray{
+//                print(index)
+//            }
+//
+//            for index in timeArray{
+//                print(index)
+//            }
         }
         
        
@@ -265,9 +263,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func postJson(){
         // prepare json data
-        
-        //        let json: [String: Any] = ["lat":"-37.8767985",
-        //        "lon":"144.9882031"]
+        print("xxx")
         let json: [String : Any] = ["reaction_times":responseArray,"test_times":randomTimeArray,"false_clicks":earlyClick]
         //let valid = JSONSerialization.isValidJSONObject(json)
         
@@ -288,7 +284,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         // insert json data to the request
         request.httpBody = jsonData
-        
+    
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
