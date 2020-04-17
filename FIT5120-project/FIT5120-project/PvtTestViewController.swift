@@ -268,7 +268,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         
         //        let json: [String: Any] = ["lat":"-37.8767985",
         //        "lon":"144.9882031"]
-        let json: [String : Any] = ["reaction_times":responseArray,"test_times":randomTimeArray]
+        let json: [String : Any] = ["reaction_times":responseArray,"test_times":randomTimeArray,"false_clicks":earlyClick]
         //let valid = JSONSerialization.isValidJSONObject(json)
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json,options: [])

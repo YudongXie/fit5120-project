@@ -21,7 +21,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0oo-Mr-B42"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4v1-qp-9mO"/>
                             <constraint firstItem="FLC-CP-LAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ag8-ft-yVA"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HCo-yX-Nqd"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Mz5-fU-zZm"/>
                             <constraint firstItem="FLC-CP-LAx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SZG-aX-62m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FLC-CP-LAx" secondAttribute="bottom" id="XfA-i7-XdK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FLC-CP-LAx" secondAttribute="trailing" id="Xwz-07-b3a"/>

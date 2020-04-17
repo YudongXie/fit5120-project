@@ -65,5 +65,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your GPS to locate your location!</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your GPS to locate your location!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your GPS to locate your location!</string>
 </dict>
 </plist>
