@@ -66,8 +66,8 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
             CLLocationManager.authorizationStatus() == .authorizedAlways) {
             currentlocation = locationManager.location
         }
-        print(currentlocation.coordinate.latitude)
-        print(currentlocation.coordinate.longitude)
+       // print(currentlocation.coordinate.latitude)
+       // print(currentlocation.coordinate.longitude)
         
         centerLocation()
     

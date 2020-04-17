@@ -204,7 +204,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currentTemp" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-7r-Tz5">
-                                <rect key="frame" x="30" y="140.5" width="132" height="25.5"/>
+                                <rect key="frame" x="30" y="140.5" width="136" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -216,9 +216,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZhO-hd-Tx1">
-                                <rect key="frame" x="222" y="115" width="89" height="67"/>
+                                <rect key="frame" x="226" y="115" width="85" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="HrK-qq-QBn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="OxH-l8-PQk"/>
+                                    <constraint firstAttribute="width" constant="85" id="tXL-fr-TWf"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5y-wW-hK6">
