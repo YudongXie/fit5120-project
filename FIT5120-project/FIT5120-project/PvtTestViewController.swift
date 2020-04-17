@@ -38,6 +38,10 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
         let title = "Test Rule"
         let message = "1.Total Test Time : 2 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
         let alert = UIAlertController(title: title, message: message, preferredStyle:
@@ -51,14 +55,12 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         displayedTime.layer.zPosition = 1
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
-//        var presentingViewController: UIViewController! = self.presentingViewController
-//        presentingViewController.dismiss(animated: false, completion: nil)
-
+        var window : UIWindow
+        if let tabBarController = self.view.window!.rootViewController as? UITabBarController {
+            //Change the selected index to the one you want (starts from 0)
+            tabBarController.selectedIndex = 0
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

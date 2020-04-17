@@ -31,9 +31,23 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         locationManager.requestWhenInUseAuthorization()
         //Updating the location
         locationManager.startUpdatingLocation()
+//        if(locationManager.startUpdatingLocation() == ()){
+//            let title = "Fail to track user's location"
+//            let message = "Open GPS -> Setting - privacy - location service"
+//            let alert = UIAlertController(title: title, message: message, preferredStyle:
+//                UIAlertController.Style.alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style:
+//                UIAlertAction.Style.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
         scrollView.maximumZoomScale = 5
         scrollView.minimumZoomScale = 1
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //view controller changed, enable map and hide image
+        self.scrollView.isHidden = true
+        self.mkMapView.isUserInteractionEnabled = true
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -54,7 +68,9 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         }
         print(currentlocation.coordinate.latitude)
         print(currentlocation.coordinate.longitude)
+        
         centerLocation()
+    
     }
     
     func centerLocation(){

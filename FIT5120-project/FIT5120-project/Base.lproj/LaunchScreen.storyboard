@@ -16,18 +16,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="FLC-CP-LAx">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="FLC-CP-LAx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0oo-Mr-B42"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="0oo-Mr-B42"/>
                             <constraint firstItem="FLC-CP-LAx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4v1-qp-9mO"/>
-                            <constraint firstItem="FLC-CP-LAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ag8-ft-yVA"/>
-                            <constraint firstItem="FLC-CP-LAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HCo-yX-Nqd"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="Ag8-ft-yVA"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="HCo-yX-Nqd"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HWi-5h-ZTZ"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="L7V-M3-65l"/>
                             <constraint firstItem="FLC-CP-LAx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Mz5-fU-zZm"/>
+                            <constraint firstItem="FLC-CP-LAx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nic-vO-PWY"/>
                             <constraint firstItem="FLC-CP-LAx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SZG-aX-62m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FLC-CP-LAx" secondAttribute="bottom" id="XfA-i7-XdK"/>
+                            <constraint firstAttribute="bottom" secondItem="FLC-CP-LAx" secondAttribute="bottom" id="SwU-ir-w9f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FLC-CP-LAx" secondAttribute="bottom" constant="-34" id="XfA-i7-XdK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FLC-CP-LAx" secondAttribute="trailing" id="Xwz-07-b3a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
