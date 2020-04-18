@@ -43,7 +43,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
         let title = "Test Rule"
-        let message = "1.Total Test Time : 2 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
+        let message = "1.Total Test Time : 3 mintues\n 2.False clicks will be recorded\n 3.Reaction time for each click is recorded\n 4.Test times out if there is no activity for 30 secs\n 5.Click 'Start' to start test"
         let alert = UIAlertController(title: title, message: message, preferredStyle:
             UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style:
