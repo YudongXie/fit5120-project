@@ -8,23 +8,43 @@
 
 import UIKit
 
-class userLocationGraphViewController: UIViewController {
+class userLocationGraphViewController: UIViewController, UIScrollViewDelegate{
 
+    @IBOutlet weak var imageView1: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
+   // @IBOutlet weak var imageView3: UIImageView!
+    @IBOutlet weak var scrollView1: UIScrollView!
+    @IBOutlet weak var scrollView2: UIScrollView!
+   // @IBOutlet weak var scrollView3: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//        scrollView1.delegate = self
+//        scrollView2.delegate = self
+       // scrollView3.delegate = self
+//        scrollView1.minimumZoomScale = 1
+//        scrollView1.maximumZoomScale = 5
+//        scrollView2.minimumZoomScale = 1
+//        scrollView2.maximumZoomScale = 5
+//        scrollView3.minimumZoomScale = 1
+//        scrollView3.maximumZoomScale = 5
     }
+
+//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+//        return imageView1
+//    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+//    func viewForZooming2(in scrollView2: UIScrollView) -> UIView? {
+//        return imageView2
+//    }
+    
+//    func viewForZooming3(in scrollView3: UIScrollView) -> UIView? {
+//        return imageView3
+//    }
+    
+//    func viewForZooming2(in scrollView: UIScrollView) -> UIView? {
+//        return imageView2
+//    }
+    
+    
 }

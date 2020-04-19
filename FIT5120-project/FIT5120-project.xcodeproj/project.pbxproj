@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A01DCA76244C64A400F33FAE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */; };
+		A0462FC1244CA54B008A55C4 /* graphOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0462FC0244CA54B008A55C4 /* graphOneViewController.swift */; };
+		A0462FC5244CAA7F008A55C4 /* TestResultJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */; };
+		A0462FC7244CAFED008A55C4 /* ReactionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */; };
 		A047D6F02445E19F000FE1F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */; };
 		A047D6F22445EDBA000FE1F0 /* weatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6F12445EDBA000FE1F0 /* weatherApi.swift */; };
 		A047D6F424496FBE000FE1F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6F324496FBE000FE1F0 /* MapViewController.swift */; };
@@ -24,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		A0462FC0244CA54B008A55C4 /* graphOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphOneViewController.swift; sourceTree = "<group>"; };
+		A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultJson.swift; sourceTree = "<group>"; };
+		A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionResultViewController.swift; sourceTree = "<group>"; };
 		A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A047D6F12445EDBA000FE1F0 /* weatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherApi.swift; sourceTree = "<group>"; };
 		A047D6F324496FBE000FE1F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -76,14 +82,17 @@
 				A05CEDE5243C52C9002C4FDF /* SceneDelegate.swift */,
 				A05CEDF7243C532B002C4FDF /* PvtTestViewController.swift */,
 				A047D6F324496FBE000FE1F0 /* MapViewController.swift */,
-				A047D6F12445EDBA000FE1F0 /* weatherApi.swift */,
 				A047D6F5244972B4000FE1F0 /* LocationAnnotation.swift */,
 				A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */,
+				A047D6FB24498FC8000FE1F0 /* userLocationGraphViewController.swift */,
+				A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */,
+				A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */,
+				A047D6F12445EDBA000FE1F0 /* weatherApi.swift */,
 				A05CEDE9243C52C9002C4FDF /* Main.storyboard */,
 				A05CEDEC243C52CC002C4FDF /* Assets.xcassets */,
 				A05CEDEE243C52CC002C4FDF /* LaunchScreen.storyboard */,
 				A05CEDF1243C52CC002C4FDF /* Info.plist */,
-				A047D6FB24498FC8000FE1F0 /* userLocationGraphViewController.swift */,
+				A0462FC0244CA54B008A55C4 /* graphOneViewController.swift */,
 			);
 			path = "FIT5120-project";
 			sourceTree = "<group>";
@@ -161,11 +170,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A047D6F02445E19F000FE1F0 /* HomeViewController.swift in Sources */,
+				A0462FC5244CAA7F008A55C4 /* TestResultJson.swift in Sources */,
 				A01DCA76244C64A400F33FAE /* AboutUsViewController.swift in Sources */,
 				A047D6FC24498FC8000FE1F0 /* userLocationGraphViewController.swift in Sources */,
 				A047D6F424496FBE000FE1F0 /* MapViewController.swift in Sources */,
+				A0462FC1244CA54B008A55C4 /* graphOneViewController.swift in Sources */,
 				A05CEDE4243C52C9002C4FDF /* AppDelegate.swift in Sources */,
 				A047D6F22445EDBA000FE1F0 /* weatherApi.swift in Sources */,
+				A0462FC7244CAFED008A55C4 /* ReactionResultViewController.swift in Sources */,
 				A047D6F6244972B4000FE1F0 /* LocationAnnotation.swift in Sources */,
 				A05CEDE6243C52C9002C4FDF /* SceneDelegate.swift in Sources */,
 				A05CEDF8243C532B002C4FDF /* PvtTestViewController.swift in Sources */,

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol getDataDelegate{
+    func itemDownloaded(resultJson:[TestResultJson])
+}
+
 class PvtTestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
@@ -33,8 +37,11 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var secondString = ""
     var earlyClick = 0
     var startTime = 0.0
-    
+    var resultArray = [TestResultJson]()
     var secondTimer : Timer!
+    var resultComments = ""
+    var resultRating = 0
+    var resultLevel = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +58,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         Start.setImage(UIImage(named:"icons8-in-progress-48"), for: .disabled)
         Start.setTitle("Test Running", for: .disabled)
         
-    
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +76,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         Test.isEnabled = false
         displayedTime.layer.zPosition = 1
         Start.pluse()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,7 +106,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     @IBAction func startGame(_ sender: UIButton) {
-//        Start.pluse()
+        //        Start.pluse()
         Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0);
         //Clear table view cell
         responseArray = []
@@ -234,7 +243,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func updateProgressView(){
         //Updating progress bar
-        progressView.progress += 1/60;
+        progressView.progress += 1/180;
         second = second - 1;
         timeLeft.text = String(second);
         
@@ -284,7 +293,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func postJson(){
         // prepare json data
-        print("xxx")
+        
         let json: [String : Any] = ["reaction_times":responseArray,"test_times":randomTimeArray,"false_clicks":earlyClick]
         //let valid = JSONSerialization.isValidJSONObject(json)
         
@@ -292,7 +301,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // create post request
         //        let url = URL(string: "http://fit5120.herokuapp.com/local_crashes_person")!
-        let url = URL(string: "http://fit5120.herokuapp.com/pvt_data")!
+        let url = URL(string: "https://fit5120.herokuapp.com/pvt_data/summary")!
         var request = URLRequest(url: url)
         
         request.httpMethod = "POST"
@@ -314,32 +323,71 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             print(response)
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
-                print("--- \(responseJSON)")
+                // print("--- \(responseJSON)")
+                //print(responseJSON["comment"])
+                
+                self.resultComments = responseJSON["comment"]! as! String
+                self.resultRating = responseJSON["rating"]! as! Int
+                self.resultLevel = responseJSON["fatigue_level"]! as! String
+                
+                DispatchQueue.main.async {
+                    
+                    let title = "Reaction Test Report Generated!"
+                    let message = "Click Go to see your test report"
+                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    
+                    let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+                        (_)in
+                        self.performSegue(withIdentifier: "ReactionResultSegue", sender: self)
+                        
+                    })
+                    
+                    alert.addAction(OKAction)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
         
         task.resume()
     }
+    
+    
+    //Unwind segue pass data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "ReactionResultSegue"){
+            if let nextViewController = segue.destination as? ReactionResultViewController {
+                nextViewController.comment = self.resultComments
+                nextViewController.rating = Double(self.resultRating)
+                nextViewController.fatigue_level = self.resultLevel
+            }
+        }
+        
+        
+    }
+    
 }
 
+
 extension UIView{
-//    func shake(buttonPositionX: CGFloat, buttonPositionY: CGFloat){
-//        let shake = CASpringAnimation(keyPath: "position")
-//        shake.duration = 0.3
-//        shake.repeatCount = 100000
-//        shake.autoreverses = true
-//
-//        let fromPoint = CGPoint(x:center.x-5, y:center.y-5)
-//        let fromValue = NSValue(cgPoint:fromPoint)
-//
-//        let toPoint = CGPoint(x:center.x+5, y:center.y+5)
-//        let toValue = NSValue(cgPoint: toPoint)
-//
-//        shake.fromValue = fromValue
-//        shake.toValue = toValue
-//
-//        self.layer.add(shake,forKey:nil)
-//    }
+    //    func shake(buttonPositionX: CGFloat, buttonPositionY: CGFloat){
+    //        let shake = CASpringAnimation(keyPath: "position")
+    //        shake.duration = 0.3
+    //        shake.repeatCount = 100000
+    //        shake.autoreverses = true
+    //
+    //        let fromPoint = CGPoint(x:center.x-5, y:center.y-5)
+    //        let fromValue = NSValue(cgPoint:fromPoint)
+    //
+    //        let toPoint = CGPoint(x:center.x+5, y:center.y+5)
+    //        let toValue = NSValue(cgPoint: toPoint)
+    //
+    //        shake.fromValue = fromValue
+    //        shake.toValue = toValue
+    //
+    //        self.layer.add(shake,forKey:nil)
+    //    }
     
     func pluse(){
         let pluse = CASpringAnimation(keyPath: "transform.scale")
