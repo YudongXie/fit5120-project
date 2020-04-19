@@ -38,10 +38,24 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "testBg3")
+        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+        Test.layer.cornerRadius = 15
+        Test.layer.borderWidth = 2
+        
+        Start.setTitleColor(UIColor.white, for: .normal)
+        Start.setTitleColor(UIColor.gray, for: .disabled)
+        Start.setImage(UIImage(named:"icons8-in-progress-48"), for: .disabled)
+        Start.setTitle("Test Running", for: .disabled)
+        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
+        //        super.viewWillAppear(animated)
         let title = "Test Rule"
         let message = "1.Total Test Time : 2 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
         let alert = UIAlertController(title: title, message: message, preferredStyle:
@@ -53,6 +67,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         Test.isEnabled = false
         displayedTime.layer.zPosition = 1
+        Start.pluse()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -76,13 +91,14 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         
         cell.textLabel!.text = timeArray[indexPath.row]
-        
+        cell.textLabel?.textColor = UIColor.black
         return cell
     }
     
     
-    @IBAction func startGame(_ sender: Any) {
-        
+    @IBAction func startGame(_ sender: UIButton) {
+//        Start.pluse()
+        Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0);
         //Clear table view cell
         responseArray = []
         randomTimeArray = []
@@ -95,23 +111,23 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         //Set progressbar updated every second
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
         Start.isEnabled = false
-        
         //First game started
         randomNumber = Int.random(in: 3...5)
         print("random number \(randomNumber)")
         Test.backgroundColor = UIColor.red
         self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
         Test.isEnabled = true
+        
     }
     
     @objc func displayMsecond(){
         displayedSecond = Date().timeIntervalSinceReferenceDate - startTime
         
         secondString = String(format: "%.2f", displayedSecond)
-    
+        
         self.displayedTime.text = "\(secondString) S"
-    //    print(secondString)
-//        print(" - \(Double(secondString))")
+        //    print(secondString)
+        //        print(" - \(Double(secondString))")
         
         //Not click after 30s
         if(Double(secondString) == 30){
@@ -128,10 +144,12 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             earlyClick = 0
             count = 0
             Test.backgroundColor = UIColor.gray
+            Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0);
         }
     }
     
     @objc func startMSTimer(){
+        
         //When MS time is displaying , enable to click
         Test.isEnabled = true
         //Show green when timing
@@ -160,7 +178,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             
             randomNumber = Int.random(in: 3...5)
             
-            print("重新开始 \(randomNumber)")
+            print("Restarted \(randomNumber)")
             
             Test.backgroundColor = UIColor.red
             displayedTime.text = "Waiting..."
@@ -170,7 +188,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         }else{
             //Append time to arrayList
             displayTimer.invalidate()
-           
+            
             let time = String(format: "%.2f", displayedSecond)
             
             
@@ -213,6 +231,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
+    
     @objc func updateProgressView(){
         //Updating progress bar
         progressView.progress += 1/60;
@@ -237,18 +256,18 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             earlyClick = 0
             Test.backgroundColor = UIColor.gray
             postJson()
+            Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0);
             
-            
-//            for index in responseArray{
-//                print(index)
-//            }
-//
-//            for index in timeArray{
-//                print(index)
-//            }
+            //            for index in responseArray{
+            //                print(index)
+            //            }
+            //
+            //            for index in timeArray{
+            //                print(index)
+            //            }
         }
         
-       
+        
     }
     
     //Get test rule
@@ -286,7 +305,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         // insert json data to the request
         request.httpBody = jsonData
-    
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
@@ -300,5 +319,38 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         task.resume()
+    }
+}
+
+extension UIView{
+//    func shake(buttonPositionX: CGFloat, buttonPositionY: CGFloat){
+//        let shake = CASpringAnimation(keyPath: "position")
+//        shake.duration = 0.3
+//        shake.repeatCount = 100000
+//        shake.autoreverses = true
+//
+//        let fromPoint = CGPoint(x:center.x-5, y:center.y-5)
+//        let fromValue = NSValue(cgPoint:fromPoint)
+//
+//        let toPoint = CGPoint(x:center.x+5, y:center.y+5)
+//        let toValue = NSValue(cgPoint: toPoint)
+//
+//        shake.fromValue = fromValue
+//        shake.toValue = toValue
+//
+//        self.layer.add(shake,forKey:nil)
+//    }
+    
+    func pluse(){
+        let pluse = CASpringAnimation(keyPath: "transform.scale")
+        pluse.duration = 0.7
+        pluse.fromValue = 0.85
+        pluse.toValue = 1.0
+        pluse.repeatCount = 100000
+        pluse.autoreverses = true
+        pluse.initialVelocity = 0.7
+        pluse.damping = 1.0
+        
+        self.layer.add(pluse,forKey:nil)
     }
 }

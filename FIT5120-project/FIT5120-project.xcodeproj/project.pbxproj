@@ -28,7 +28,7 @@
 		A047D6F5244972B4000FE1F0 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		A047D6F92449809F000FE1F0 /* Mel gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Mel gpx.gpx"; sourceTree = "<group>"; };
 		A047D6FB24498FC8000FE1F0 /* userLocationGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userLocationGraphViewController.swift; sourceTree = "<group>"; };
-		A05CEDE0243C52C9002C4FDF /* FIT5120-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FIT5120-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A05CEDE0243C52C9002C4FDF /* Safety Driving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Safety Driving.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05CEDE3243C52C9002C4FDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A05CEDE5243C52C9002C4FDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A05CEDEA243C52C9002C4FDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		A05CEDE1243C52C9002C4FDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A05CEDE0243C52C9002C4FDF /* FIT5120-project.app */,
+				A05CEDE0243C52C9002C4FDF /* Safety Driving.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,7 +102,7 @@
 			);
 			name = "FIT5120-project";
 			productName = "FIT5120-project";
-			productReference = A05CEDE0243C52C9002C4FDF /* FIT5120-project.app */;
+			productReference = A05CEDE0243C52C9002C4FDF /* Safety Driving.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -316,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "simon.FIT5120-project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Safety Driving";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "simon.FIT5120-project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Safety Driving";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
