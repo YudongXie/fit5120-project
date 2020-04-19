@@ -50,6 +50,15 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         self.mkMapView.isUserInteractionEnabled = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let title = "Click User Marker to see graph information"
+        let alert = UIAlertController(title: title, message: "", preferredStyle:
+            UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style:
+            UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return userLocationImage
     }
@@ -82,14 +91,17 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     
      
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+       
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
             if annotationView == nil{
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
             }
-
+        
           //If the mark is not user location, set mark image
             if annotation is MKUserLocation{
-                annotationView?.image=UIImage(named:"icons8-user-location-30")
+                annotationView?.image=UIImage(named:"icons8-user-40")
+                
                 //set the popup
                 annotationView?.canShowCallout = true
                 let btn = UIButton(type: .detailDisclosure)
