@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A01DCA76244C64A400F33FAE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */; };
 		A047D6F02445E19F000FE1F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */; };
 		A047D6F22445EDBA000FE1F0 /* weatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6F12445EDBA000FE1F0 /* weatherApi.swift */; };
 		A047D6F424496FBE000FE1F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6F324496FBE000FE1F0 /* MapViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A047D6F12445EDBA000FE1F0 /* weatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherApi.swift; sourceTree = "<group>"; };
 		A047D6F324496FBE000FE1F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				A047D6F324496FBE000FE1F0 /* MapViewController.swift */,
 				A047D6F12445EDBA000FE1F0 /* weatherApi.swift */,
 				A047D6F5244972B4000FE1F0 /* LocationAnnotation.swift */,
+				A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */,
 				A05CEDE9243C52C9002C4FDF /* Main.storyboard */,
 				A05CEDEC243C52CC002C4FDF /* Assets.xcassets */,
 				A05CEDEE243C52CC002C4FDF /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A047D6F02445E19F000FE1F0 /* HomeViewController.swift in Sources */,
+				A01DCA76244C64A400F33FAE /* AboutUsViewController.swift in Sources */,
 				A047D6FC24498FC8000FE1F0 /* userLocationGraphViewController.swift in Sources */,
 				A047D6F424496FBE000FE1F0 /* MapViewController.swift in Sources */,
 				A05CEDE4243C52C9002C4FDF /* AppDelegate.swift in Sources */,

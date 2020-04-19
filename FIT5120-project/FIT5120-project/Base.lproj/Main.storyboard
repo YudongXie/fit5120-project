@@ -194,7 +194,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="We are trying to keep your safety!" id="WCL-v0-dVd"/>
+                                    <navigationItem title="We are trying to keep your safety!🤝" id="WCL-v0-dVd"/>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="weather" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBs-6f-2UF">
@@ -334,6 +334,69 @@
             </objects>
             <point key="canvasLocation" x="1915.9420289855075" y="825"/>
         </scene>
+        <!--About us-->
+        <scene sceneID="W7l-oz-vG1">
+            <objects>
+                <viewController id="cKW-lR-evU" customClass="AboutUsViewController" customModule="Safety_Driving" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fXe-F3-6mS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chr-aZ-4Nu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="😋About us😋" id="FgM-TJ-qpE"/>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WjJ-BZ-OCj">
+                                <rect key="frame" x="0.0" y="98" width="414" height="725"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSn-K9-4nd">
+                                        <rect key="frame" x="30" y="20" width="152" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="33"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-qJ-Hy4">
+                                        <rect key="frame" x="30" y="80" width="354" height="364"/>
+                                        <string key="text">In transit is a team that consists of members from different nationalities working remotely aiming to use technical power to prevent safety for our clients. The science will help us to make the world a better place.  Our team consists of 4 members with a strong IT background with expertise in data analytics, visualization, mobile application development, and project management. We are a dedicated, hardworking and results-driven team. We ensuring that what we build helps create the best possible world.</string>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QSn-K9-4nd" firstAttribute="top" secondItem="WjJ-BZ-OCj" secondAttribute="top" constant="20" id="0ZT-qt-WFl"/>
+                                    <constraint firstItem="taF-G6-MVW" firstAttribute="trailing" secondItem="fWA-qJ-Hy4" secondAttribute="trailing" constant="30" id="TSh-kz-yku"/>
+                                    <constraint firstItem="QSn-K9-4nd" firstAttribute="leading" secondItem="WjJ-BZ-OCj" secondAttribute="leading" constant="30" id="bTz-uA-e7h"/>
+                                    <constraint firstItem="fWA-qJ-Hy4" firstAttribute="leading" secondItem="WjJ-BZ-OCj" secondAttribute="leading" constant="30" id="cMw-gR-z2i"/>
+                                    <constraint firstAttribute="trailing" secondItem="fWA-qJ-Hy4" secondAttribute="trailing" constant="30" id="lFs-4o-0wJ"/>
+                                    <constraint firstItem="fWA-qJ-Hy4" firstAttribute="top" secondItem="QSn-K9-4nd" secondAttribute="bottom" constant="20" id="rSg-iw-MKr"/>
+                                    <constraint firstAttribute="bottom" secondItem="fWA-qJ-Hy4" secondAttribute="bottom" constant="281" id="rfQ-h0-hSE"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="6dj-oy-xb5"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="taF-G6-MVW"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="height" secondItem="fXe-F3-6mS" secondAttribute="height" multiplier="0.809152" id="9bz-5B-mub"/>
+                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="width" secondItem="fXe-F3-6mS" secondAttribute="width" id="CkB-Jh-jqm"/>
+                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="centerX" secondItem="fXe-F3-6mS" secondAttribute="centerX" id="CoM-G3-Q6k"/>
+                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="trailing" secondItem="WjJ-BZ-OCj" secondAttribute="trailing" id="MYr-DK-ZwZ"/>
+                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="leading" secondItem="WjJ-BZ-OCj" secondAttribute="leading" id="PZG-wH-zUN"/>
+                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="width" secondItem="fXe-F3-6mS" secondAttribute="height" multiplier="207:448" id="U2B-Zf-ipf"/>
+                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="top" secondItem="kha-RW-amh" secondAttribute="top" id="UdS-oa-IAW"/>
+                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="top" secondItem="chr-aZ-4Nu" secondAttribute="bottom" constant="10" id="jnk-hc-Sjw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kha-RW-amh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About us" image="icons8-info-30" id="bqF-xB-FOF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwM-VD-GN2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2850.7246376811595" y="608.70535714285711"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3uS-6W-KJ6">
             <objects>
@@ -358,6 +421,7 @@
                     <connections>
                         <segue destination="oy6-iD-XoA" kind="relationship" relationship="viewControllers" id="opr-km-FPv"/>
                         <segue destination="hUW-3O-EN6" kind="relationship" relationship="viewControllers" id="4eL-F4-AR4"/>
+                        <segue destination="cKW-lR-evU" kind="relationship" relationship="viewControllers" id="Zth-1E-rCj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EzG-7r-ccX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -369,6 +433,7 @@
         <image name="icons8-ask-question-30" width="30" height="30"/>
         <image name="icons8-australia-map-35 (1)" width="35" height="35"/>
         <image name="icons8-home-50_meitu_2" width="30" height="30"/>
+        <image name="icons8-info-30" width="30" height="30"/>
         <image name="icons8-start-48" width="48" height="48"/>
         <image name="icons8-test-35" width="35" height="35"/>
         <image name="icons8-test-60" width="60" height="60"/>
