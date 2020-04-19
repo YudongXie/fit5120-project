@@ -62,14 +62,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚗🚗🚗" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNA-Zo-cN5">
-                                <rect key="frame" x="0.0" y="152.5" width="414" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ewd-QR-ASn">
-                                <rect key="frame" x="0.0" y="470" width="414" height="372"/>
+                                <rect key="frame" x="0.0" y="470" width="414" height="323"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -84,6 +78,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZu-FJ-4T1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Xpo-C2-Atx">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8-ask-question-30" style="plain" id="Z5H-oR-XQq">
+                                            <connections>
+                                                <action selector="questionMark:" destination="BYZ-38-t0r" id="rRx-lc-bQz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚗🚗🚗" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNA-Zo-cN5">
+                                <rect key="frame" x="0.0" y="142" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -104,7 +117,7 @@
                             <constraint firstItem="RaU-B0-mbS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QgW-kc-SCW"/>
                             <constraint firstItem="38e-wW-WNA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="THG-UU-hxF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eNA-Zo-cN5" secondAttribute="trailing" id="XCz-gc-hjT"/>
-                            <constraint firstItem="RaU-B0-mbS" firstAttribute="top" secondItem="eNA-Zo-cN5" secondAttribute="bottom" constant="25" id="XDx-xs-uDS"/>
+                            <constraint firstItem="RaU-B0-mbS" firstAttribute="top" secondItem="eNA-Zo-cN5" secondAttribute="bottom" constant="35.5" id="XDx-xs-uDS"/>
                             <constraint firstItem="8ad-Ur-Yne" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="247" id="Xgq-g3-aac"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JQB-zq-pBI" secondAttribute="trailing" id="aJ1-c9-jbW"/>
                             <constraint firstItem="MQl-cG-ocf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="byG-S8-xJV"/>
@@ -124,13 +137,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Test" image="icons8-test-35" selectedImage="icons8-test-35" id="VvL-RD-lrG"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="AmV-42-p2Y"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Title" id="so4-it-dNx">
-                        <barButtonItem key="rightBarButtonItem" title="Rules" image="questionmark.diamond" catalog="system" id="ZPB-yW-7rz">
-                            <connections>
-                                <action selector="questionMark:" destination="BYZ-38-t0r" id="ZRJ-aD-3eN"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Rules" image="questionmark.diamond" catalog="system" id="ZPB-yW-7rz"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Start" destination="38e-wW-WNA" id="LVd-Qp-s2N"/>
                         <outlet property="Test" destination="RaU-B0-mbS" id="ngX-IV-RlJ"/>
@@ -353,6 +366,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-ask-question-30" width="30" height="30"/>
         <image name="icons8-australia-map-35 (1)" width="35" height="35"/>
         <image name="icons8-home-50_meitu_2" width="30" height="30"/>
         <image name="icons8-start-48" width="48" height="48"/>

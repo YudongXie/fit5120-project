@@ -22,7 +22,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var timeArray = [String]()
     var responseArray = [Double]()
     var randomTimeArray = [Int]()
-    var second = 60
+    var second = 180
     var displayedSecond = 0.0
     var progressBarTimer: Timer!
     var GameTimer: Timer!
@@ -57,7 +57,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         //        super.viewWillAppear(animated)
         let title = "Test Rule"
-        let message = "1.Total Test Time : 3 mintues\n 2.False clicks will be recorded\n 3.Reaction time for each click is recorded\n 4.Test times out if there is no activity for 30 secs\n 5.Click 'Start' to start test"
+        let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
         let alert = UIAlertController(title: title, message: message, preferredStyle:
             UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style:
@@ -112,7 +112,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
         Start.isEnabled = false
         //First game started
-        randomNumber = Int.random(in: 3...5)
+        randomNumber = Int.random(in: 5...10)
         print("random number \(randomNumber)")
         Test.backgroundColor = UIColor.red
         self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
@@ -140,7 +140,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             displayTimer.invalidate()
             secondString = ""
             displayedSecond = 0.0
-            second = 60
+            second = 180
             earlyClick = 0
             count = 0
             Test.backgroundColor = UIColor.gray
@@ -176,7 +176,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 displayTimer.invalidate()
             }
             
-            randomNumber = Int.random(in: 3...5)
+            randomNumber = Int.random(in: 5...10)
             
             print("Restarted \(randomNumber)")
             
@@ -221,7 +221,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             //Set displayedSecond to 0
             displayedSecond = 0.0
             //Random second before display MS
-            randomNumber = Int.random(in: 3...5)
+            randomNumber = Int.random(in: 5...10)
             print("random number \(randomNumber)")
             Test.backgroundColor = UIColor.red
             displayedTime.text = "Waiting..."
@@ -251,7 +251,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             if(displayTimer != nil){
                 displayTimer.invalidate()
             }
-            second = 60
+            second = 180
             count = 0
             earlyClick = 0
             Test.backgroundColor = UIColor.gray
@@ -274,7 +274,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBAction func questionMark(_ sender: Any) {
         //Reactions Test rule
         let title = "Test Rule"
-        let message = "1.Total Test Time : 2 mintues\n 2.Failed if touch before color changed\n 3.Each touch will be recorded 4.Click 'Start' to start test"
+        let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
         let alert = UIAlertController(title: title, message: message, preferredStyle:
             UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style:
