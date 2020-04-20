@@ -23,6 +23,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lastTestLabel: UILabel!
     
+    
     var timeArray = [String]()
     var responseArray = [Double]()
     var randomTimeArray = [Int]()
@@ -38,7 +39,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var earlyClick = 0
     var startTime = 0.0
     var resultArray = [TestResultJson]()
-    var secondTimer : Timer!
     var resultComments = ""
     var resultRating = 0
     var resultLevel = ""
@@ -59,12 +59,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         Start.setImage(UIImage(named:"icons8-in-progress-48"), for: .disabled)
         Start.setTitle("Test Running", for: .disabled)
         
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //        super.viewWillAppear(animated)
         let title = "Test Rule"
         let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
         let alert = UIAlertController(title: title, message: message, preferredStyle:
@@ -75,6 +69,46 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         Test.isEnabled = false
+        displayedTime.layer.zPosition = 1
+//        Start.pluse()
+        
+//        displayedTime.text = "Waiting for start...😉😉"
+//        timeLeft.text = "🚗🚗🚗"
+//        second = 180
+//        progressView.progress = 0
+//        if(GameTimer != nil){
+//            GameTimer.invalidate()
+//        }
+//        if(progressBarTimer != nil){
+//            progressBarTimer.invalidate()
+//        }
+//        if(displayTimer != nil){
+//            displayTimer.invalidate()
+//        }
+//        Test.backgroundColor = UIColor.gray
+//        Start.isEnabled = true
+
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       // self.viewDidLoad()
+
+        let title = "Test Rule"
+        let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
+        let alert = UIAlertController(title: title, message: message, preferredStyle:
+            UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style:
+            UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        if(GameTimer == nil && displayTimer == nil && progressBarTimer == nil){
+            Test.isEnabled = false
+        }else{
+            Test.isEnabled = true
+        }
         displayedTime.layer.zPosition = 1
         Start.pluse()
         
