@@ -42,6 +42,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var resultComments = ""
     var resultRating = 0
     var resultLevel = ""
+    var resultImage : Data!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -264,7 +265,18 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             count = 0
             earlyClick = 0
             Test.backgroundColor = UIColor.gray
-            postJson()
+            if(responseArray.count != 0){
+                postJson()
+            }
+            else{
+                let title = "Warning"
+                let message = "No any clicks, please re-start test"
+                let alert = UIAlertController(title: title, message: message, preferredStyle:
+                    UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style:
+                    UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
             Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0);
             
             //            for index in responseArray{
@@ -299,12 +311,17 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json,options: [])
         
+        let jsonData2 = try? JSONSerialization.data(withJSONObject: json,options: [])
         // create post request
         //        let url = URL(string: "http://fit5120.herokuapp.com/local_crashes_person")!
         let url = URL(string: "https://fit5120.herokuapp.com/pvt_data/summary")!
+        let url2 = URL(string: "https://fit5120.herokuapp.com/pvt_data/chart")!
+
         var request = URLRequest(url: url)
+        var request2 = URLRequest(url: url2)
         
         request.httpMethod = "POST"
+        request2.httpMethod = "POST"
         
         /*send the jsonData using json type
          if there is not declare for "application/json"
@@ -312,8 +329,10 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
          */
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request2.setValue("application/json", forHTTPHeaderField: "Content-Type")
         // insert json data to the request
         request.httpBody = jsonData
+        request2.httpBody = jsonData2
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
@@ -325,42 +344,73 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             if let responseJSON = responseJSON as? [String: Any] {
                 // print("--- \(responseJSON)")
                 //print(responseJSON["comment"])
-                
+
                 self.resultComments = responseJSON["comment"]! as! String
                 self.resultRating = responseJSON["rating"]! as! Int
                 self.resultLevel = responseJSON["fatigue_level"]! as! String
-                
-                DispatchQueue.main.async {
-                    
-                    let title = "Reaction Test Report Generated!"
-                    let message = "Click Go to see your test report"
-                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                    
-                    let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
-                        (_)in
-                        self.performSegue(withIdentifier: "ReactionResultSegue", sender: self)
-                        
-                    })
-                    
-                    alert.addAction(OKAction)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
+
+                //Commented -> let task2 completed to pop up window
+//                DispatchQueue.main.async {
+//                    let title = "Reaction Test Report Generated!"
+//                    let message = "Click Go to see your test report"
+//                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//
+//                    let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+//                        (_)in
+//                        self.performSegue(withIdentifier: "ReactionResultSegue", sender: self)
+//
+//                    })
+//
+//                    alert.addAction(OKAction)
+//                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+//                    self.present(alert, animated: true, completion: nil)
+//                }
             }
         }
         
         task.resume()
+        
+        let task2 = URLSession.shared.dataTask(with: request2) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            self.resultImage = data
+            DispatchQueue.main.async {
+                    self.dismiss(animated: false) { () -> Void in
+                        let title = "Reaction Test Report Generated!"
+                        let message = "Click Go to see your test report"
+                        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                        let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+                            (_)in
+                            self.performSegue(withIdentifier: "ReactionResultSegue", sender: self)
+                            
+                        })
+                        alert.addAction(OKAction)
+                        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+            }
+        }
+        task2.resume()
+        let title = "Generating a report...👻"
+        let message = "Please wait for few seconds...👻"
+               let alert = UIAlertController(title: title, message: "", preferredStyle:
+                   UIAlertController.Style.alert)
+               self.present(alert, animated: true, completion: nil)
     }
     
     
     //Unwind segue pass data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+         print(" --- \(resultImage)")
         if(segue.identifier == "ReactionResultSegue"){
             if let nextViewController = segue.destination as? ReactionResultViewController {
                 nextViewController.comment = self.resultComments
                 nextViewController.rating = Double(self.resultRating)
                 nextViewController.fatigue_level = self.resultLevel
+               
+                nextViewController.imageResult = self.resultImage
             }
         }
         

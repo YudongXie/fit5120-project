@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReactionResultViewController: UIViewController {
+class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
 
     
     @IBOutlet weak var image1: UIImageView!
@@ -19,29 +19,37 @@ class ReactionResultViewController: UIViewController {
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet var imageViewArray: [UIImageView]!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     var rating = 0.0
     var comment = ""
     var fatigue_level = ""
+    var imageResult : Data!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         //Set the background image and fit it to screen
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "homeBg3")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
+        scrollView.minimumZoomScale = 1
+        scrollView.maximumZoomScale = 5
     }
     
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(imageResult)
         commentLabel.text = comment
         levelLabel.text = fatigue_level
-        rating = 4.5
+        imageView.image = UIImage(data:imageResult)
         if (rating - floor(rating) > 0.000001) {
-            print(rating)
-            
             for index in 0..<imageViewArray.count{
                 if(index <= Int(floor(rating)) - 1){
                     imageViewArray[index].image = UIImage(named:"star1")
@@ -63,7 +71,7 @@ class ReactionResultViewController: UIViewController {
                     imageViewArray[index].image = UIImage(named:"emptyStar")
                 }
             }
-            
+        
             
 //            switch rating {
 //            case 1:

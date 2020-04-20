@@ -241,14 +241,35 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBi-Jz-dYj">
+                                <rect key="frame" x="0.0" y="470" width="414" height="289"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GhU-KB-iWT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GhU-KB-iWT" firstAttribute="width" secondItem="cBi-Jz-dYj" secondAttribute="width" id="8YN-hK-VBU"/>
+                                    <constraint firstAttribute="trailing" secondItem="GhU-KB-iWT" secondAttribute="trailing" id="Pfk-Yu-UhK"/>
+                                    <constraint firstItem="GhU-KB-iWT" firstAttribute="leading" secondItem="cBi-Jz-dYj" secondAttribute="leading" id="Sdb-Tf-ilp"/>
+                                    <constraint firstAttribute="bottom" secondItem="GhU-KB-iWT" secondAttribute="bottom" id="c9P-Z2-a0G"/>
+                                    <constraint firstItem="GhU-KB-iWT" firstAttribute="top" secondItem="cBi-Jz-dYj" secondAttribute="top" id="r39-rp-FyZ"/>
+                                    <constraint firstItem="GhU-KB-iWT" firstAttribute="height" secondItem="cBi-Jz-dYj" secondAttribute="height" id="zAo-9V-Z1L"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="FTO-7b-f1j"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="5Im-ng-rpq"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="H2a-O0-QML" firstAttribute="trailing" secondItem="x8y-fe-I4c" secondAttribute="trailing" constant="30" id="046-XK-69n"/>
+                            <constraint firstItem="cBi-Jz-dYj" firstAttribute="top" secondItem="YJj-hX-RJg" secondAttribute="bottom" constant="10" id="0Fe-6i-hRm"/>
                             <constraint firstItem="N4X-yb-A7j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2a-O0-QML" secondAttribute="leading" id="5AW-J1-DSb"/>
                             <constraint firstItem="qT7-oG-D17" firstAttribute="top" secondItem="N4X-yb-A7j" secondAttribute="bottom" constant="13" id="5T7-uC-IH8"/>
                             <constraint firstItem="x8y-fe-I4c" firstAttribute="top" secondItem="ctx-rZ-laV" secondAttribute="bottom" constant="38" id="5fH-zw-81S"/>
+                            <constraint firstItem="H2a-O0-QML" firstAttribute="trailing" secondItem="cBi-Jz-dYj" secondAttribute="trailing" id="5l9-6z-EyC"/>
                             <constraint firstItem="N4X-yb-A7j" firstAttribute="centerX" secondItem="dgX-Kx-nI5" secondAttribute="centerX" id="86H-b4-wWT"/>
+                            <constraint firstItem="H2a-O0-QML" firstAttribute="bottom" secondItem="cBi-Jz-dYj" secondAttribute="bottom" id="8dR-Gb-UUu"/>
                             <constraint firstItem="x8y-fe-I4c" firstAttribute="centerX" secondItem="dgX-Kx-nI5" secondAttribute="centerX" id="ANJ-91-6Yd"/>
                             <constraint firstItem="AI5-Qe-fqu" firstAttribute="centerX" secondItem="dgX-Kx-nI5" secondAttribute="centerX" id="APV-tn-UFv"/>
                             <constraint firstItem="mrd-e3-ZUE" firstAttribute="centerX" secondItem="dgX-Kx-nI5" secondAttribute="centerX" id="C2y-Sh-rbq"/>
@@ -275,6 +296,7 @@
                             <constraint firstItem="YJj-hX-RJg" firstAttribute="leading" secondItem="H2a-O0-QML" secondAttribute="leading" id="a38-C2-hy0"/>
                             <constraint firstItem="4UA-bW-TRa" firstAttribute="centerX" secondItem="dgX-Kx-nI5" secondAttribute="centerX" id="aD2-SU-lMI"/>
                             <constraint firstItem="H2a-O0-QML" firstAttribute="trailing" secondItem="AI5-Qe-fqu" secondAttribute="trailing" id="aHP-2J-Xxj"/>
+                            <constraint firstItem="cBi-Jz-dYj" firstAttribute="leading" secondItem="H2a-O0-QML" secondAttribute="leading" id="d4u-Xj-LOK"/>
                             <constraint firstItem="4UA-bW-TRa" firstAttribute="leading" secondItem="qT7-oG-D17" secondAttribute="trailing" constant="10" id="mgW-ZG-DiW"/>
                             <constraint firstItem="H2a-O0-QML" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N4X-yb-A7j" secondAttribute="trailing" id="yu7-Kj-ei5"/>
                         </constraints>
@@ -288,7 +310,9 @@
                         <outlet property="image3" destination="4UA-bW-TRa" id="Vcf-dF-3jG"/>
                         <outlet property="image4" destination="bqY-G7-1eB" id="7aM-cT-gDP"/>
                         <outlet property="image5" destination="eeu-Qj-G2V" id="qPy-KP-r5q"/>
+                        <outlet property="imageView" destination="GhU-KB-iWT" id="WeQ-kn-Kf3"/>
                         <outlet property="levelLabel" destination="YJj-hX-RJg" id="b64-tX-i5N"/>
+                        <outlet property="scrollView" destination="cBi-Jz-dYj" id="W2f-B7-aNZ"/>
                         <outletCollection property="imageViewArray" destination="ctx-rZ-laV" collectionClass="NSMutableArray" id="G9J-3v-eKp"/>
                         <outletCollection property="imageViewArray" destination="qT7-oG-D17" collectionClass="NSMutableArray" id="CXp-UK-7W0"/>
                         <outletCollection property="imageViewArray" destination="4UA-bW-TRa" collectionClass="NSMutableArray" id="kAx-cv-DIc"/>
