@@ -16,12 +16,17 @@ class HomeViewController: UIViewController {
     //    @IBOutlet weak var tempMaxLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var weatherImg: UIImageView!
+    @IBOutlet weak var tipsLabel: UILabel!
+    @IBOutlet weak var contentView: UIView!
+    
     
     var datas : weatherApi?
     var stringIcon : String!
-    var imageTimer : Timer!
+    var tipsTimer: Timer!
     var originX : CGFloat = 0.0
     var imageData : Data!
+    var tipsArray = ["Get a good night's sleep before heading off on a long trip","don't travel for more than eight to ten hours a day","take regular breaks – at least every two hours","share the driving wherever possible","don't travel at times when you'd usually be sleeping","take a 15 minute powernap if you feel yourself becoming drowsy","don't drink alcohol before your trip."]
+    
     //var originTransform = CGAffineTransform()
     
     override func viewDidLoad() {
@@ -36,7 +41,8 @@ class HomeViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "homeBg3")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
+        self.contentView.insertSubview(backgroundImage, at: 0)
+        self.tipsTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.randomTips), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,10 +54,18 @@ class HomeViewController: UIViewController {
         //self.weatherImg.frame.origin.x = 0
         //self.weatherImg.alpha = 1
         //animationImage()
+        randomTips()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         self.weatherImg.image = nil
+    }
+    
+    @objc func randomTips(){
+        
+        let randomTipsString = tipsArray.randomElement()
+        tipsLabel.fadeTransition(0.7)
+        tipsLabel.text = "DO YOU KNOW how to beat driver fatigue? \n \(randomTipsString!)"
     }
     
     //Calling weather api to get today's weather information
@@ -121,4 +135,15 @@ class HomeViewController: UIViewController {
         self.weatherImg.frame.origin.x = self.originX
     }
     
+}
+
+extension UIView {
+    func fadeTransition(_ duration:CFTimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:
+            CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = duration
+        layer.add(animation, forKey: CATransitionType.fade.rawValue)
+    }
 }

@@ -11,16 +11,18 @@ import UIKit
 class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
 
     
-    @IBOutlet weak var image1: UIImageView!
-    @IBOutlet weak var image2: UIImageView!
-    @IBOutlet weak var image3: UIImageView!
-    @IBOutlet weak var image4: UIImageView!
-    @IBOutlet weak var image5: UIImageView!
+//    @IBOutlet weak var image1: UIImageView!
+//    @IBOutlet weak var image2: UIImageView!
+//    @IBOutlet weak var image3: UIImageView!
+//    @IBOutlet weak var image4: UIImageView!
+//    @IBOutlet weak var image5: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet var imageViewArray: [UIImageView]!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var imageScrollView: UIScrollView!
+    @IBOutlet weak var firstScrollView: UIScrollView!
     
     
     var rating = 0.0
@@ -30,17 +32,18 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
+        imageScrollView.delegate = self
         //Set the background image and fit it to screen
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "homeBg3")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
-        scrollView.minimumZoomScale = 1
-        scrollView.maximumZoomScale = 5
+        self.contentView.insertSubview(backgroundImage, at: 0)
+        imageScrollView.minimumZoomScale = 1
+        imageScrollView.maximumZoomScale = 5
+
     }
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in imageScrollView: UIScrollView) -> UIView? {
         return imageView
     }
     
@@ -72,42 +75,10 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
                 }
             }
         
-            
-//            switch rating {
-//            case 1:
-//                image1.image = UIImage(named:"star1")
-//                image2.image = UIImage(named:"emptyStar")
-//                image3.image = UIImage(named:"emptyStar")
-//                image4.image = UIImage(named:"emptyStar")
-//                image5.image = UIImage(named:"emptyStar")
-//            case 2:
-//                image1.image = UIImage(named:"star1")
-//                image2.image = UIImage(named:"star1")
-//                image3.image = UIImage(named:"emptyStar")
-//                image4.image = UIImage(named:"emptyStar")
-//                image5.image = UIImage(named:"emptyStar")
-//            case 3:
-//                image1.image = UIImage(named:"star1")
-//                image2.image = UIImage(named:"star1")
-//                image3.image = UIImage(named:"star1")
-//                image4.image = UIImage(named:"emptyStar")
-//                image5.image = UIImage(named:"emptyStar")
-//            case 4:
-//                image1.image = UIImage(named:"star1")
-//                image2.image = UIImage(named:"star1")
-//                image3.image = UIImage(named:"star1")
-//                image4.image = UIImage(named:"star1")
-//                image5.image = UIImage(named:"emptyStar")
-//            case 5:
-//                image1.image = UIImage(named:"star1")
-//                image2.image = UIImage(named:"star1")
-//                image3.image = UIImage(named:"star1")
-//                image4.image = UIImage(named:"star1")
-//                image5.image = UIImage(named:"star1")
-//            default:
-//                break;
-//            }
         }
+        
+//        image1.image = UIImage(named:"logo")
+//        image4.image = UIImage(named:"logo1")
     }
     
     

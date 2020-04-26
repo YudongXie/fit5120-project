@@ -12,7 +12,6 @@ protocol getDataDelegate{
     func itemDownloaded(resultJson:[TestResultJson])
 }
 
-
 class PvtTestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
@@ -23,7 +22,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var timeLeft: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lastTestLabel: UILabel!
-    @IBOutlet weak var contentView: UIView!
     
     
     var timeArray = [String]()
@@ -51,7 +49,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "testBg3")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.contentView.insertSubview(backgroundImage, at: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
         Test.layer.cornerRadius = 15
         Test.layer.borderWidth = 2
@@ -59,8 +57,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         Start.setTitleColor(UIColor.white, for: .normal)
         Start.setTitleColor(UIColor.gray, for: .disabled)
         Start.setImage(UIImage(named:"icons8-in-progress-48"), for: .disabled)
-        Start.setTitle("Running", for: .disabled)
-        //Start.alignVertical()
+        Start.setTitle("Test Running", for: .disabled)
+        
         let title = "Test Rule"
         let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
         let alert = UIAlertController(title: title, message: message, preferredStyle:
@@ -144,9 +142,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func startGame(_ sender: UIButton) {
         //        Start.pluse()
-       // Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0);
-        Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0);
-        Start.titleEdgeInsets = UIEdgeInsets(top: 45, left: -47, bottom: 0, right: 0);
+        Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0);
         //Clear table view cell
         responseArray = []
         randomTimeArray = []
