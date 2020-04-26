@@ -750,6 +750,6 @@ don't drink alcohol before your trip.</string>
         <image name="icons8-start-48" width="48" height="48"/>
         <image name="icons8-test-35" width="35" height="35"/>
         <image name="icons8-test-60" width="60" height="60"/>
-        <image name="questionmark.diamond" catalog="system" width="128" height="122"/>
+        <image name="questionmark.diamond" catalog="system" width="32" height="32"/>
     </resources>
 </document>
