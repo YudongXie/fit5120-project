@@ -24,12 +24,13 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lastTestLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     var timeArray = [String]()
     var responseArray = [Double]()
     var randomTimeArray = [Int]()
-    var second = 10
+    var second = 5
     var displayedSecond = 0.0
     var progressBarTimer: Timer!
     var GameTimer: Timer!
@@ -53,6 +54,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
         
+        backgroundImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
         Test.layer.cornerRadius = 15
         Test.layer.borderWidth = 2
         
@@ -72,24 +75,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         Test.isEnabled = false
         displayedTime.layer.zPosition = 1
-//        Start.pluse()
-        
-//        displayedTime.text = "Waiting for start...😉😉"
-//        timeLeft.text = "🚗🚗🚗"
-//        second = 10
-//        progressView.progress = 0
-//        if(GameTimer != nil){
-//            GameTimer.invalidate()
-//        }
-//        if(progressBarTimer != nil){
-//            progressBarTimer.invalidate()
-//        }
-//        if(displayTimer != nil){
-//            displayTimer.invalidate()
-//        }
-//        Test.backgroundColor = UIColor.gray
-//        Start.isEnabled = true
-
         
     }
     
@@ -188,7 +173,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             displayTimer.invalidate()
             secondString = ""
             displayedSecond = 0.0
-            second = 10
+            second = 5
             earlyClick = 0
             count = 0
             Test.backgroundColor = UIColor.gray
@@ -261,6 +246,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
              */
             randomTimeArray.append(randomNumber)
             lastTestLabel.isHidden = false
+            lastTestLabel.fadeTransition(0.5)
             lastTestLabel.text = "Last Response Time was \(time) S"
             
             //Refresh tableView Cell
@@ -282,8 +268,9 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func updateProgressView(){
         //Updating progress bar
-        progressView.progress += 1/10;
+        progressView.progress += 1/180;
         second = second - 1;
+        timeLeft.fadeTransition(0.7)
         timeLeft.text = String(second);
         
         if(second == 0){
@@ -299,7 +286,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             if(displayTimer != nil){
                 displayTimer.invalidate()
             }
-            second = 10
+            second = 5
             count = 0
             earlyClick = 0
             Test.backgroundColor = UIColor.gray
@@ -387,22 +374,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.resultRating = responseJSON["rating"]! as! Int
                 self.resultLevel = responseJSON["fatigue_level"]! as! String
 
-                //Commented -> let task2 completed to pop up window
-//                DispatchQueue.main.async {
-//                    let title = "Reaction Test Report Generated!"
-//                    let message = "Click Go to see your test report"
-//                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//
-//                    let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
-//                        (_)in
-//                        self.performSegue(withIdentifier: "ReactionResultSegue", sender: self)
-//
-//                    })
-//
-//                    alert.addAction(OKAction)
-//                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-//                    self.present(alert, animated: true, completion: nil)
-//                }
             }
         }
         
@@ -459,24 +430,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
 
 
 extension UIView{
-    //    func shake(buttonPositionX: CGFloat, buttonPositionY: CGFloat){
-    //        let shake = CASpringAnimation(keyPath: "position")
-    //        shake.duration = 0.3
-    //        shake.repeatCount = 100000
-    //        shake.autoreverses = true
-    //
-    //        let fromPoint = CGPoint(x:center.x-5, y:center.y-5)
-    //        let fromValue = NSValue(cgPoint:fromPoint)
-    //
-    //        let toPoint = CGPoint(x:center.x+5, y:center.y+5)
-    //        let toValue = NSValue(cgPoint: toPoint)
-    //
-    //        shake.fromValue = fromValue
-    //        shake.toValue = toValue
-    //
-    //        self.layer.add(shake,forKey:nil)
-    //    }
-    
     func pluse(){
         let pluse = CASpringAnimation(keyPath: "transform.scale")
         pluse.duration = 0.7
@@ -486,7 +439,6 @@ extension UIView{
         pluse.autoreverses = true
         pluse.initialVelocity = 0.7
         pluse.damping = 1.0
-        
         self.layer.add(pluse,forKey:nil)
     }
 }

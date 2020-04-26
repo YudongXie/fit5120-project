@@ -38,6 +38,10 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
         backgroundImage.image = UIImage(named: "homeBg3")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
+        
+        /* resize the background image to fit in scroll view*/
+        backgroundImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
         imageScrollView.minimumZoomScale = 1
         imageScrollView.maximumZoomScale = 5
 
@@ -79,6 +83,11 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
         
 //        image1.image = UIImage(named:"logo")
 //        image4.image = UIImage(named:"logo1")
+    }
+    
+    
+    @IBAction func backHome(_ sender: Any) {
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     

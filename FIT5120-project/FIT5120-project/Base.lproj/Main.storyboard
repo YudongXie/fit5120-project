@@ -139,6 +139,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="RVS-FC-K19" firstAttribute="width" secondItem="IU4-Pk-haF" secondAttribute="width" id="2Zc-qR-7De"/>
                                     <constraint firstItem="RVS-FC-K19" firstAttribute="bottom" secondItem="ytw-Y8-vPu" secondAttribute="bottom" id="DJ5-OL-xIJ"/>
@@ -150,7 +151,6 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="IU4-Pk-haF"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.2156862745" green="0.50980392159999999" blue="0.2156862745" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mnG-Wv-pal" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fo5-gq-zDX"/>
                             <constraint firstItem="mnG-Wv-pal" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gRA-FP-EzM"/>
@@ -174,6 +174,7 @@
                         <outlet property="displayedTime" destination="8ad-Ur-Yne" id="k67-C5-eEL"/>
                         <outlet property="lastTestLabel" destination="MQl-cG-ocf" id="GeJ-ub-Rsg"/>
                         <outlet property="progressView" destination="Vhp-h7-bev" id="Hbe-za-iWL"/>
+                        <outlet property="scrollView" destination="mnG-Wv-pal" id="dfh-Jh-mG5"/>
                         <outlet property="tableView" destination="Ewd-QR-ASn" id="V53-K2-PcK"/>
                         <outlet property="timeLeft" destination="eNA-Zo-cN5" id="e9S-jh-Lll"/>
                         <segue destination="qYk-8z-bs2" kind="show" identifier="ReactionResultSegue" id="jtf-ly-GdI"/>
@@ -192,9 +193,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhc-zP-wJA">
-                                <rect key="frame" x="0.0" y="0.0" width="310" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="325" height="56"/>
                                 <items>
-                                    <navigationItem title="Title" id="tea-oY-lHi"/>
+                                    <navigationItem title="Reaction Test Report" id="doL-mq-yE3">
+                                        <barButtonItem key="leftBarButtonItem" image="icons8-back-40" id="Uz9-YQ-u2n">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="backHome:" destination="qYk-8z-bs2" id="Qaj-cD-7nN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGN-PM-eb2">
@@ -204,13 +212,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-e3-ZUE">
-                                                <rect key="frame" x="87.5" y="30" width="145" height="33"/>
+                                                <rect key="frame" x="0.0" y="30" width="320" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4X-yb-A7j">
-                                                <rect key="frame" x="107" y="78" width="106" height="24"/>
+                                                <rect key="frame" x="0.0" y="78" width="320" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -289,9 +297,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="mrd-e3-ZUE" secondAttribute="trailing" constant="87.5" id="4t5-er-Lpy"/>
+                                            <constraint firstAttribute="trailing" secondItem="mrd-e3-ZUE" secondAttribute="trailing" id="4t5-er-Lpy"/>
                                             <constraint firstItem="bqY-G7-1eB" firstAttribute="leading" secondItem="4UA-bW-TRa" secondAttribute="trailing" constant="10" id="5VB-ea-yJS"/>
                                             <constraint firstItem="AI5-Qe-fqu" firstAttribute="top" secondItem="x8y-fe-I4c" secondAttribute="bottom" constant="50" id="BBn-b8-MSo"/>
                                             <constraint firstItem="4UA-bW-TRa" firstAttribute="centerX" secondItem="Prc-s9-zSK" secondAttribute="centerX" id="BEf-7w-tJ5"/>
@@ -307,15 +315,15 @@
                                             <constraint firstAttribute="trailing" secondItem="x8y-fe-I4c" secondAttribute="trailing" constant="97.5" id="Tdg-oN-LRP"/>
                                             <constraint firstAttribute="trailing" secondItem="cBi-Jz-dYj" secondAttribute="trailing" constant="20" id="VDR-pe-TIQ"/>
                                             <constraint firstItem="AI5-Qe-fqu" firstAttribute="centerX" secondItem="Prc-s9-zSK" secondAttribute="centerX" id="W9U-v7-Qrg"/>
-                                            <constraint firstItem="N4X-yb-A7j" firstAttribute="leading" secondItem="Prc-s9-zSK" secondAttribute="leading" constant="107" id="ZOp-GE-Raf"/>
+                                            <constraint firstItem="N4X-yb-A7j" firstAttribute="leading" secondItem="Prc-s9-zSK" secondAttribute="leading" id="ZOp-GE-Raf"/>
                                             <constraint firstAttribute="trailing" secondItem="cBi-Jz-dYj" secondAttribute="trailing" constant="20" id="aRu-XR-aLR"/>
                                             <constraint firstItem="4UA-bW-TRa" firstAttribute="top" secondItem="N4X-yb-A7j" secondAttribute="bottom" constant="10" id="coo-Ke-EXN"/>
-                                            <constraint firstAttribute="trailing" secondItem="N4X-yb-A7j" secondAttribute="trailing" constant="107" id="e1I-FD-c1E"/>
+                                            <constraint firstAttribute="trailing" secondItem="N4X-yb-A7j" secondAttribute="trailing" id="e1I-FD-c1E"/>
                                             <constraint firstItem="qT7-oG-D17" firstAttribute="top" secondItem="ctx-rZ-laV" secondAttribute="top" id="ecX-uO-spX"/>
                                             <constraint firstItem="eeu-Qj-G2V" firstAttribute="top" secondItem="ctx-rZ-laV" secondAttribute="top" id="gJu-Rb-zcC"/>
                                             <constraint firstItem="x8y-fe-I4c" firstAttribute="leading" secondItem="Prc-s9-zSK" secondAttribute="leading" constant="98" id="gfE-uk-fYG"/>
                                             <constraint firstItem="N4X-yb-A7j" firstAttribute="top" secondItem="mrd-e3-ZUE" secondAttribute="bottom" constant="15" id="kpH-vu-Qrb"/>
-                                            <constraint firstItem="mrd-e3-ZUE" firstAttribute="leading" secondItem="Prc-s9-zSK" secondAttribute="leading" constant="87.5" id="mvK-Ol-Ekh"/>
+                                            <constraint firstItem="mrd-e3-ZUE" firstAttribute="leading" secondItem="Prc-s9-zSK" secondAttribute="leading" id="mvK-Ol-Ekh"/>
                                             <constraint firstItem="qT7-oG-D17" firstAttribute="leading" secondItem="ctx-rZ-laV" secondAttribute="trailing" constant="10" id="nFO-3J-aNY"/>
                                             <constraint firstItem="bqY-G7-1eB" firstAttribute="top" secondItem="ctx-rZ-laV" secondAttribute="top" id="orC-qd-Vmc"/>
                                             <constraint firstItem="eeu-Qj-G2V" firstAttribute="leading" secondItem="bqY-G7-1eB" secondAttribute="trailing" constant="10" id="qIb-JN-Dbh"/>
@@ -337,14 +345,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bhc-zP-wJA" firstAttribute="leading" secondItem="H2a-O0-QML" secondAttribute="leading" id="2eH-Vc-3Uz"/>
-                            <constraint firstItem="bhc-zP-wJA" firstAttribute="trailing" secondItem="H2a-O0-QML" secondAttribute="trailing" id="5Kw-Wt-6sD"/>
-                            <constraint firstItem="bGN-PM-eb2" firstAttribute="trailing" secondItem="H2a-O0-QML" secondAttribute="trailing" constant="5" id="5b6-iN-JUw"/>
+                            <constraint firstItem="bhc-zP-wJA" firstAttribute="trailing" secondItem="H2a-O0-QML" secondAttribute="trailing" constant="10" id="5Kw-Wt-6sD"/>
+                            <constraint firstItem="bGN-PM-eb2" firstAttribute="trailing" secondItem="H2a-O0-QML" secondAttribute="trailing" id="5b6-iN-JUw"/>
                             <constraint firstItem="bGN-PM-eb2" firstAttribute="bottom" secondItem="H2a-O0-QML" secondAttribute="bottom" constant="49" id="Am7-kI-XqV"/>
                             <constraint firstItem="bGN-PM-eb2" firstAttribute="top" secondItem="bhc-zP-wJA" secondAttribute="bottom" id="NcO-lF-COX"/>
                             <constraint firstItem="bGN-PM-eb2" firstAttribute="leading" secondItem="H2a-O0-QML" secondAttribute="leading" id="SLi-eS-R1J"/>
                             <constraint firstItem="bhc-zP-wJA" firstAttribute="top" secondItem="H2a-O0-QML" secondAttribute="top" id="YVV-q0-vAD"/>
                             <constraint firstItem="bGN-PM-eb2" firstAttribute="top" secondItem="bhc-zP-wJA" secondAttribute="bottom" id="kzL-Pg-X1L"/>
-                            <constraint firstItem="bGN-PM-eb2" firstAttribute="width" secondItem="H2a-O0-QML" secondAttribute="width" constant="5" id="y2V-tf-qEw"/>
+                            <constraint firstItem="bGN-PM-eb2" firstAttribute="width" secondItem="H2a-O0-QML" secondAttribute="width" id="y2V-tf-qEw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H2a-O0-QML"/>
                     </view>
@@ -375,26 +383,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igt-23-K1T">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="igt-23-K1T">
                                 <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhz-IV-n1f">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="Our Purpose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIZ-M6-bkJ">
-                                                <rect key="frame" x="20" y="241.5" width="175" height="36"/>
+                                                <rect key="frame" x="20" y="267" width="175" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WE DO OUR BEST to provide drivers with the risk level of accidents around their location." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i78-Eg-Cwn">
-                                                <rect key="frame" x="20" y="373" width="280" height="65.5"/>
+                                                <rect key="frame" x="20" y="398.5" width="280" height="65.5"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WE HOPE to reduce the number of traffic accidents and potential injuries." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yi-HX-RH8">
-                                                <rect key="frame" x="20" y="292.5" width="280" height="65.5"/>
+                                                <rect key="frame" x="20" y="318" width="280" height="65.5"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -425,7 +433,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5y-wW-hK6">
-                                                <rect key="frame" x="95.5" y="549" width="129" height="70"/>
+                                                <rect key="frame" x="95.5" y="574.5" width="129" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="6jU-J8-7x0"/>
                                                     <constraint firstAttribute="width" constant="129" id="sEe-P6-0sx"/>
@@ -442,7 +450,10 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqu-SV-wpQ">
-                                                <rect key="frame" x="0.0" y="137" width="320" height="74.5"/>
+                                                <rect key="frame" x="0.0" y="137" width="320" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="qfI-1b-Smj"/>
+                                                </constraints>
                                                 <string key="text">Do you know how to beat driver fatigue?
 don't drink alcohol before your trip.</string>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="19"/>
@@ -450,13 +461,13 @@ don't drink alcohol before your trip.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WE CAN test the fatigue level to guide you to have safe driving conditions." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59f-zF-iRu">
-                                                <rect key="frame" x="20" y="453.5" width="280" height="65.5"/>
+                                                <rect key="frame" x="20" y="479" width="280" height="65.5"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="59f-zF-iRu" firstAttribute="leading" secondItem="Fhz-IV-n1f" secondAttribute="leading" constant="20" id="0Sr-zy-Zu0"/>
                                             <constraint firstItem="a5y-wW-hK6" firstAttribute="centerX" secondItem="Fhz-IV-n1f" secondAttribute="centerX" id="0Sy-Ei-9Nu"/>
@@ -486,6 +497,7 @@ don't drink alcohol before your trip.</string>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Fhz-IV-n1f" firstAttribute="leading" secondItem="rSN-NG-TTk" secondAttribute="leading" id="Cf5-0s-2uL"/>
                                     <constraint firstItem="Fhz-IV-n1f" firstAttribute="bottom" secondItem="rSN-NG-TTk" secondAttribute="bottom" id="FAa-Dp-rD6"/>
@@ -529,6 +541,7 @@ don't drink alcohol before your trip.</string>
                         <outlet property="contentView" destination="Fhz-IV-n1f" id="4JN-5S-jLg"/>
                         <outlet property="currentTempLabel" destination="VVN-7r-Tz5" id="Nno-76-YB9"/>
                         <outlet property="humidityLabel" destination="BpM-6z-sm2" id="ABf-1I-uE2"/>
+                        <outlet property="scrollView" destination="igt-23-K1T" id="29j-LN-SI4"/>
                         <outlet property="tipsLabel" destination="Aqu-SV-wpQ" id="Os0-pX-24p"/>
                         <outlet property="weatherImg" destination="ZhO-hd-Tx1" id="9CS-N0-MkY"/>
                         <outlet property="weatherLabel" destination="zBs-6f-2UF" id="2fc-Og-kmI"/>
@@ -656,59 +669,75 @@ don't drink alcohol before your trip.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chr-aZ-4Nu">
-                                <rect key="frame" x="49" y="0.0" width="222" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="😋About us😋" id="FgM-TJ-qpE"/>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WjJ-BZ-OCj">
-                                <rect key="frame" x="49" y="54" width="222" height="388.5"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfO-Rw-CQV">
+                                <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSn-K9-4nd">
-                                        <rect key="frame" x="30" y="20" width="152" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="33"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-qJ-Hy4">
-                                        <rect key="frame" x="30" y="80" width="162" height="884"/>
-                                        <string key="text">In transit is a team that consists of members from different nationalities working remotely aiming to use technical power to prevent safety for our clients. The science will help us to make the world a better place.  Our team consists of 4 members with a strong IT background with expertise in data analytics, visualization, mobile application development, and project management. We are a dedicated, hardworking and results-driven team. We ensuring that what we build helps create the best possible world.</string>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot2-37-61S">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT US" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-Js-Ier">
+                                                <rect key="frame" x="74" y="25" width="172" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="33"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPs-e9-zgQ">
+                                                <rect key="frame" x="10" y="95" width="300" height="348"/>
+                                                <string key="text">In transit is a team that consists of members from different nationalities working remotely aiming to use technical power to prevent safety for our clients. The science will help us to make the world a better place.  Our team consists of 4 members with a strong IT background with expertise in data analytics, visualization, mobile application development, and project management. We are a dedicated, hardworking and results-driven team. We ensuring that what we build helps create the best possible world.</string>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RNS-Js-Ier" firstAttribute="centerX" secondItem="Ot2-37-61S" secondAttribute="centerX" id="FLh-go-4qy"/>
+                                            <constraint firstAttribute="trailing" secondItem="TPs-e9-zgQ" secondAttribute="trailing" constant="10" id="dOo-qa-BEh"/>
+                                            <constraint firstAttribute="height" constant="600" id="eDq-Xf-IEQ"/>
+                                            <constraint firstItem="TPs-e9-zgQ" firstAttribute="leading" secondItem="Ot2-37-61S" secondAttribute="leading" constant="10" id="egV-cp-nMs"/>
+                                            <constraint firstItem="TPs-e9-zgQ" firstAttribute="centerX" secondItem="Ot2-37-61S" secondAttribute="centerX" id="pVY-hF-sgf"/>
+                                            <constraint firstItem="RNS-Js-Ier" firstAttribute="top" secondItem="Ot2-37-61S" secondAttribute="top" constant="25" id="rMs-if-OrO"/>
+                                            <constraint firstItem="TPs-e9-zgQ" firstAttribute="top" secondItem="RNS-Js-Ier" secondAttribute="bottom" constant="30" id="ztK-Zt-BdE"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="QSn-K9-4nd" firstAttribute="top" secondItem="WjJ-BZ-OCj" secondAttribute="top" constant="20" id="0ZT-qt-WFl"/>
-                                    <constraint firstItem="taF-G6-MVW" firstAttribute="trailing" secondItem="fWA-qJ-Hy4" secondAttribute="trailing" constant="30" id="TSh-kz-yku"/>
-                                    <constraint firstItem="QSn-K9-4nd" firstAttribute="leading" secondItem="WjJ-BZ-OCj" secondAttribute="leading" constant="30" id="bTz-uA-e7h"/>
-                                    <constraint firstItem="fWA-qJ-Hy4" firstAttribute="leading" secondItem="WjJ-BZ-OCj" secondAttribute="leading" constant="30" id="cMw-gR-z2i"/>
-                                    <constraint firstAttribute="trailing" secondItem="fWA-qJ-Hy4" secondAttribute="trailing" constant="30" id="lFs-4o-0wJ"/>
-                                    <constraint firstItem="fWA-qJ-Hy4" firstAttribute="top" secondItem="QSn-K9-4nd" secondAttribute="bottom" constant="20" id="rSg-iw-MKr"/>
-                                    <constraint firstAttribute="bottom" secondItem="fWA-qJ-Hy4" secondAttribute="bottom" constant="281" id="rfQ-h0-hSE"/>
+                                    <constraint firstItem="Ot2-37-61S" firstAttribute="bottom" secondItem="UrD-mX-ZWt" secondAttribute="bottom" id="KZu-rg-xmP"/>
+                                    <constraint firstItem="Ot2-37-61S" firstAttribute="top" secondItem="UrD-mX-ZWt" secondAttribute="top" id="TGl-X1-cFt"/>
+                                    <constraint firstItem="Ot2-37-61S" firstAttribute="width" secondItem="sfM-k6-HMW" secondAttribute="width" id="k8h-ii-mVL"/>
+                                    <constraint firstItem="Ot2-37-61S" firstAttribute="trailing" secondItem="UrD-mX-ZWt" secondAttribute="trailing" id="t80-Hn-b6n"/>
+                                    <constraint firstItem="Ot2-37-61S" firstAttribute="leading" secondItem="UrD-mX-ZWt" secondAttribute="leading" id="xkm-ze-7wF"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="6dj-oy-xb5"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="taF-G6-MVW"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="UrD-mX-ZWt"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="sfM-k6-HMW"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="height" secondItem="fXe-F3-6mS" secondAttribute="height" multiplier="0.809152" id="9bz-5B-mub"/>
-                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="width" secondItem="fXe-F3-6mS" secondAttribute="width" id="CkB-Jh-jqm"/>
-                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="centerX" secondItem="fXe-F3-6mS" secondAttribute="centerX" id="CoM-G3-Q6k"/>
-                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="trailing" secondItem="WjJ-BZ-OCj" secondAttribute="trailing" id="MYr-DK-ZwZ"/>
-                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="leading" secondItem="WjJ-BZ-OCj" secondAttribute="leading" id="PZG-wH-zUN"/>
-                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="width" secondItem="fXe-F3-6mS" secondAttribute="height" multiplier="207:448" id="U2B-Zf-ipf"/>
-                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="top" secondItem="kha-RW-amh" secondAttribute="top" id="UdS-oa-IAW"/>
-                            <constraint firstItem="WjJ-BZ-OCj" firstAttribute="top" secondItem="chr-aZ-4Nu" secondAttribute="bottom" constant="10" id="jnk-hc-Sjw"/>
+                            <constraint firstItem="dfO-Rw-CQV" firstAttribute="bottom" secondItem="kha-RW-amh" secondAttribute="bottom" id="0TC-yd-erK"/>
+                            <constraint firstItem="dfO-Rw-CQV" firstAttribute="top" secondItem="chr-aZ-4Nu" secondAttribute="bottom" id="25x-4x-xkp"/>
+                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="top" secondItem="kha-RW-amh" secondAttribute="top" id="RDn-5a-NBB"/>
+                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="leading" secondItem="kha-RW-amh" secondAttribute="leading" id="TFu-C9-yYu"/>
+                            <constraint firstItem="dfO-Rw-CQV" firstAttribute="top" secondItem="chr-aZ-4Nu" secondAttribute="bottom" id="XOt-ot-ynx"/>
+                            <constraint firstItem="chr-aZ-4Nu" firstAttribute="trailing" secondItem="kha-RW-amh" secondAttribute="trailing" id="Xcu-Mb-WDA"/>
+                            <constraint firstItem="dfO-Rw-CQV" firstAttribute="trailing" secondItem="kha-RW-amh" secondAttribute="trailing" id="cFv-2o-mgL"/>
+                            <constraint firstItem="dfO-Rw-CQV" firstAttribute="leading" secondItem="kha-RW-amh" secondAttribute="leading" id="lgW-ak-npQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kha-RW-amh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="About us" image="icons8-info-30" id="bqF-xB-FOF"/>
+                    <connections>
+                        <outlet property="contentView" destination="Ot2-37-61S" id="tWF-X4-utR"/>
+                        <outlet property="scrollView" destination="dfO-Rw-CQV" id="bNZ-u4-DkB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwM-VD-GN2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2856" y="1065"/>
+            <point key="canvasLocation" x="3206.25" y="1075"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3uS-6W-KJ6">
@@ -745,6 +774,7 @@ don't drink alcohol before your trip.</string>
     <resources>
         <image name="icons8-ask-question-30" width="30" height="30"/>
         <image name="icons8-australia-map-35 (1)" width="35" height="35"/>
+        <image name="icons8-back-40" width="40" height="40"/>
         <image name="icons8-home-50_meitu_2" width="30" height="30"/>
         <image name="icons8-info-30" width="30" height="30"/>
         <image name="icons8-start-48" width="48" height="48"/>
