@@ -30,7 +30,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var timeArray = [String]()
     var responseArray = [Double]()
     var randomTimeArray = [Int]()
-    var second = 5
+    var second = 180
     var displayedSecond = 0.0
     var progressBarTimer: Timer!
     var GameTimer: Timer!
@@ -50,7 +50,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "testBg3")
+        backgroundImage.image = UIImage(named: "WechatIMG8981")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
         
@@ -145,7 +145,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
         Start.isEnabled = false
         //First game started
-        randomNumber = Int.random(in: 1...1)
+        randomNumber = Int.random(in: 5...10)
         print("random number \(randomNumber)")
         Test.backgroundColor = UIColor.red
         self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
@@ -173,7 +173,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             displayTimer.invalidate()
             secondString = ""
             displayedSecond = 0.0
-            second = 5
+            second = 180
             earlyClick = 0
             count = 0
             Test.backgroundColor = UIColor.gray
@@ -209,7 +209,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 displayTimer.invalidate()
             }
             
-            randomNumber = Int.random(in: 1...1)
+            randomNumber = Int.random(in: 5...10)
             
             print("Restarted \(randomNumber)")
             
@@ -255,7 +255,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             //Set displayedSecond to 0
             displayedSecond = 0.0
             //Random second before display MS
-            randomNumber = Int.random(in: 1...1)
+            randomNumber = Int.random(in: 5...10)
             print("random number \(randomNumber)")
             Test.backgroundColor = UIColor.red
             displayedTime.text = "Waiting..."
@@ -286,7 +286,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             if(displayTimer != nil){
                 displayTimer.invalidate()
             }
-            second = 5
+            second = 180
             count = 0
             earlyClick = 0
             Test.backgroundColor = UIColor.gray
