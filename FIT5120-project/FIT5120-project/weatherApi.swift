@@ -9,24 +9,28 @@
 import UIKit
 
 class weatherApi: NSObject,Decodable{
-       var currentWeather: String?
-       var weatherDescription: String?
-       var currentTemp : Double?
-//       var temp_min: Double?
-//       var temp_max: Double?
-       var humidity: Double?
-       var currentIcon: String?
+    var currentWeather: String?
+    var weatherDescription: String?
+    var currentTemp : Double?
+    var humidity: Double?
+    var currentIcon: String?
+    var sunset : Int?
+    var sunrise : Int?
     
     enum CodingKeys: String, CodingKey{
         case weathers = "weather"
         case tempData = "main"
+        case sysData = "sys"
     }
     
     enum TempKeys: String, CodingKey {
         case currentTemp = "temp"
-//        case temp_min
-//        case temp_max
         case humidity
+    }
+    
+    enum SysData: String, CodingKey {
+        case sunset
+        case sunrise
     }
     
     struct WeatherData: Decodable {
@@ -37,17 +41,20 @@ class weatherApi: NSObject,Decodable{
     
     
     required init(from decoder: Decoder) throws {
-           let rootContainer = try decoder.container(keyedBy: CodingKeys.self)
-           let weatherContainer = try? rootContainer.decode([WeatherData].self, forKey: .weathers)
-           self.currentWeather = weatherContainer![0].main
-           self.weatherDescription = weatherContainer![0].description
-           self.currentIcon = weatherContainer![0].icon
-           
-           
-           let tempContainer = try rootContainer.nestedContainer(keyedBy: TempKeys.self, forKey: .tempData)
-           self.currentTemp = try tempContainer.decode(Double.self, forKey: .currentTemp) - 273.15
-//           self.temp_min = try tempContainer.decode(Double.self, forKey: .temp_min) - 273.15
-//           self.temp_max = try tempContainer.decode(Double.self, forKey: .temp_max) - 273.15
-           self.humidity = try tempContainer.decode(Double.self, forKey: .humidity)
-       }
+        let rootContainer = try decoder.container(keyedBy: CodingKeys.self)
+        let weatherContainer = try? rootContainer.decode([WeatherData].self, forKey: .weathers)
+        self.currentWeather = weatherContainer![0].main
+        self.weatherDescription = weatherContainer![0].description
+        self.currentIcon = weatherContainer![0].icon
+        
+        //Decode temp from "main" Array in APIS
+        let tempContainer = try rootContainer.nestedContainer(keyedBy: TempKeys.self, forKey: .tempData)
+        self.currentTemp = try tempContainer.decode(Double.self, forKey: .currentTemp) - 273.15
+        self.humidity = try tempContainer.decode(Double.self, forKey: .humidity)
+        
+        //Decode sunrise + sunset
+        let sysContainer = try rootContainer.nestedContainer(keyedBy: SysData.self, forKey: .sysData)
+        self.sunrise = try sysContainer.decode(Int.self, forKey: .sunrise)
+        self.sunset = try sysContainer.decode(Int.self, forKey: .sunset)
+    }
 }

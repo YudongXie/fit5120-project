@@ -22,6 +22,8 @@ class HomeViewController: UIViewController {
     
     
     var datas : weatherApi?
+    var sunrise : Int!
+    var sunset : Int!
     var stringIcon : String!
     var tipsTimer: Timer!
     var originX : CGFloat = 0.0
