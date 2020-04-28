@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A05CEDDF243C52C9002C4FDF"
-               BuildableName = "Safety Driving.app"
+               BuildableName = "SafetyDriving.app"
                BlueprintName = "FIT5120-project"
                ReferencedContainer = "container:FIT5120-project.xcodeproj">
             </BuildableReference>
@@ -45,14 +45,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A05CEDDF243C52C9002C4FDF"
-            BuildableName = "Safety Driving.app"
+            BuildableName = "SafetyDriving.app"
             BlueprintName = "FIT5120-project"
             ReferencedContainer = "container:FIT5120-project.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
-         referenceType = "1">
+         identifier = "../../FIT5120-project/Mel gpx.gpx"
+         referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A05CEDDF243C52C9002C4FDF"
-            BuildableName = "Safety Driving.app"
+            BuildableName = "SafetyDriving.app"
             BlueprintName = "FIT5120-project"
             ReferencedContainer = "container:FIT5120-project.xcodeproj">
          </BuildableReference>
