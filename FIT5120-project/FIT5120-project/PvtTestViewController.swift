@@ -13,7 +13,7 @@ protocol getDataDelegate{
 }
 
 
-class PvtTestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class PvtTestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,DatabaseListener{
     
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -25,12 +25,16 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var lastTestLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tapMeLabel: UILabel!
     
     
+    var listenerType = ListenerType.all
+    var allVar = [CheckList]()
+    weak var databaseController: DatabaseProtocol?
     var timeArray = [String]()
     var responseArray = [Double]()
     var randomTimeArray = [Int]()
-    var second = 180
+    var second = 30
     var displayedSecond = 0.0
     var progressBarTimer: Timer!
     var GameTimer: Timer!
@@ -49,45 +53,56 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        databaseController = appDelegate.databaseController
+        
+        let img = UIImage(named: "testBg4")
+        navigationController?.navigationBar.setBackgroundImage(img, for: .default)
+        
+        //set background image for view
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "testBg4"))
+        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "testBg3")
+        backgroundImage.image = UIImage(named: "testBg4")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
-        
+
         backgroundImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         Test.layer.cornerRadius = 15
         Test.layer.borderWidth = 2
+//        Test.layer.borderColor = UIColor(red: 52/255, green: 68/255, blue: 106/255, alpha: 1).cgColor
+        Test.layer.borderColor = UIColor.white.cgColor
+        Test.layer.cornerRadius = 0.5 * Test.bounds.size.width
+        Test.clipsToBounds = true
         
+        Test.backgroundColor = UIColor(red: 97/255, green: 204/255, blue: 200/255, alpha: 0.1)
+        
+//        Test.backgroundColor = color
         Start.setTitleColor(UIColor.white, for: .normal)
         Start.setTitleColor(UIColor.gray, for: .disabled)
         Start.setImage(UIImage(named:"icons8-in-progress-48"), for: .disabled)
         Start.setTitle("Running", for: .disabled)
-        //Start.alignVertical()
-        let title = "Test Rule"
-        let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
-        let alert = UIAlertController(title: title, message: message, preferredStyle:
-            UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style:
-            UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
         tableView.delegate = self
         tableView.dataSource = self
         Test.isEnabled = false
         displayedTime.layer.zPosition = 1
+        tapMeLabel.layer.zPosition = 1
+        tapMeLabel.isHidden = true
+        
+        let appearance = UINavigationBarAppearance()
+               appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
+               appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
+               UINavigationBar.appearance().standardAppearance = appearance
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //Before the view appeared, set the default question index and text, also add the listenter for this view controller
+        databaseController?.addListener(listener: self)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-       // self.viewDidLoad()
-
-        let title = "Test Rule"
-        let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
-        let alert = UIAlertController(title: title, message: message, preferredStyle:
-            UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style:
-            UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -103,9 +118,31 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillDisappear(_ animated: Bool) {
         var window : UIWindow
+        super.viewWillDisappear(animated)
+        databaseController?.removeListener(listener: self)
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
+        appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
+        UINavigationBar.appearance().standardAppearance = appearance
         if let tabBarController = self.view.window!.rootViewController as? UITabBarController {
             //Change the selected index to the one you want (starts from 0)
             tabBarController.selectedIndex = 0
+        }
+        
+    }
+    
+    func onCheckListChange(change: DatabaseChange, checkList: [CheckList]) {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let currentDate = formatter.string(from: date)
+        allVar = []
+        print(checkList.count)
+        for index in checkList{
+            if(index.time == currentDate){
+                allVar.append(index)
+            }
+            print(index)
         }
     }
     
@@ -121,15 +158,15 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         
+        
         cell.textLabel!.text = timeArray[indexPath.row]
-        cell.textLabel?.textColor = UIColor.black
+        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel!.font = UIFont(name:"LexendGiga-Regular", size:15)
         return cell
     }
     
     
     @IBAction func startGame(_ sender: UIButton) {
-        //        Start.pluse()
-       // Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0);
         Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0);
         Start.titleEdgeInsets = UIEdgeInsets(top: 45, left: -47, bottom: 0, right: 0);
         //Clear table view cell
@@ -140,18 +177,27 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         //Reset progress bar progress
         progressView.progress = 0
         //Reset display time text to "MS"
-        displayedTime.text = "Waiting..."
+        displayedTime.text = "waiting"
         //Set progressbar updated every second
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
         Start.isEnabled = false
         //First game started
-        randomNumber = Int.random(in: 5...10)
-        print("random number \(randomNumber)")
-        Test.backgroundColor = UIColor.red
+        randomNumber = Int.random(in: 1...1)
         self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
         Test.isEnabled = true
+
         
     }
+    
+    
+    @IBAction func backToHome(_ sender: UIBarButtonItem) {
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @objc func displayMsecond(){
         displayedSecond = Date().timeIntervalSinceReferenceDate - startTime
@@ -159,13 +205,14 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         secondString = String(format: "%.2f", displayedSecond)
         
         self.displayedTime.text = "\(secondString) S"
-        //    print(secondString)
-        //        print(" - \(Double(secondString))")
+        tapMeLabel.isHidden = false
         
         //Not click after 30s
         if(Double(secondString) == 30){
+
             timeLeft.text = "Test Finished due to 30s time out"
             displayedTime.text = ""
+            tapMeLabel.isHidden = true
             Start.isEnabled = true
             Test.isEnabled = false
             progressBarTimer.invalidate()
@@ -173,29 +220,38 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             displayTimer.invalidate()
             secondString = ""
             displayedSecond = 0.0
-            second = 180
+            second = 30
             earlyClick = 0
             count = 0
-            Test.backgroundColor = UIColor.gray
+            Test.backgroundColor = UIColor(red: 97/255, green: 204/255, blue: 200/255, alpha: 0.1)
             Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0);
         }
     }
     
     @objc func startMSTimer(){
-        
         //When MS time is displaying , enable to click
         Test.isEnabled = true
         //Show green when timing
-        Test.backgroundColor = UIColor.green
         
         startTime = Date().timeIntervalSinceReferenceDate
         
         //Set displayed time timer
         self.displayTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.displayMsecond), userInfo: nil, repeats: true)
-        
-        print("random number is \(TimeInterval(randomNumber))");
+      //  print("random number is \(TimeInterval(randomNumber))");
     }
     
+    @objc func noBorder(){
+        let opacity:CGFloat = 0
+        let borderColor = UIColor.white
+        Test.layer.borderColor = borderColor.withAlphaComponent(opacity).cgColor
+    }
+
+    @objc func border(){
+        let opacity:CGFloat = 1
+        let borderColor = UIColor.white
+        Test.layer.borderColor = borderColor.withAlphaComponent(opacity).cgColor
+    }
+
     
     @IBAction func oneClick(_ sender: Any) {
         count+=1
@@ -209,19 +265,20 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 displayTimer.invalidate()
             }
             
-            randomNumber = Int.random(in: 5...10)
+            randomNumber = Int.random(in: 1...1)
             
-            print("Restarted \(randomNumber)")
+            //print("Restarted \(randomNumber)")
             
-            Test.backgroundColor = UIColor.red
-            displayedTime.text = "Waiting..."
+            //Test.backgroundColor = UIColor.red
+            displayedTime.text = "waiting"
+            tapMeLabel.isHidden = true
+            
             self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
             lastTestLabel.isHidden = false
             lastTestLabel.text = "Early Touch, new test starting..."
         }else{
             //Append time to arrayList
             displayTimer.invalidate()
-            
             let time = String(format: "%.2f", displayedSecond)
             
             
@@ -255,10 +312,11 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             //Set displayedSecond to 0
             displayedSecond = 0.0
             //Random second before display MS
-            randomNumber = Int.random(in: 5...10)
-            print("random number \(randomNumber)")
-            Test.backgroundColor = UIColor.red
-            displayedTime.text = "Waiting..."
+            randomNumber = Int.random(in: 1...1)
+          //  print("random number \(randomNumber)")
+            //Test.backgroundColor = UIColor.red
+            displayedTime.text = "waiting"
+            tapMeLabel.isHidden = true
             self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
         }
         
@@ -268,7 +326,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func updateProgressView(){
         //Updating progress bar
-        progressView.progress += 1/180;
+        progressView.progress += 1/5;
         second = second - 1;
         timeLeft.fadeTransition(0.7)
         timeLeft.text = String(second);
@@ -278,6 +336,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             print("early touch = \(earlyClick)")
             displayedSecond = 0.0
             displayedTime.text = ""
+            tapMeLabel.isHidden = true
             Start.isEnabled = true
             Test.isEnabled = false
             progressBarTimer.invalidate()
@@ -286,10 +345,10 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             if(displayTimer != nil){
                 displayTimer.invalidate()
             }
-            second = 180
+            second = 30
             count = 0
             earlyClick = 0
-            Test.backgroundColor = UIColor.gray
+            Test.backgroundColor = UIColor(red: 97/255, green: 204/255, blue: 200/255, alpha: 0.1)
             if(responseArray.count != 0){
                 postJson()
             }
@@ -303,29 +362,9 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.present(alert, animated: true, completion: nil)
             }
             Start.imageEdgeInsets = UIEdgeInsets(top: 0, left: 21, bottom: 0, right: 0);
-            
-            //            for index in responseArray{
-            //                print(index)
-            //            }
-            //
-            //            for index in timeArray{
-            //                print(index)
-            //            }
         }
         
         
-    }
-    
-    //Get test rule
-    @IBAction func questionMark(_ sender: Any) {
-        //Reactions Test rule
-        let title = "Test Rule"
-        let message = "1.Total Test Time : 3 mintues\n 2.Failed if click before color changed\n 3.Each click will be recorded\n 4.No click within 30s, test will be finished\n 5.Click 'Start' to start test"
-        let alert = UIAlertController(title: title, message: message, preferredStyle:
-            UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style:
-            UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
     func postJson(){
@@ -349,8 +388,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         request2.httpMethod = "POST"
         
         /*send the jsonData using json type
-         if there is not declare for "application/json"
-         the server will not know what type i sent, it will be txt?(guess)
          */
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -364,7 +401,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 print(error?.localizedDescription ?? "No data")
                 return
             }
-            print(response)
+           // print(response)
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
                 // print("--- \(responseJSON)")
@@ -373,6 +410,11 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.resultComments = responseJSON["comment"]! as! String
                 self.resultRating = responseJSON["rating"]! as! Int
                 self.resultLevel = responseJSON["fatigue_level"]! as! String
+                DispatchQueue.main.async{
+                    for index in self.allVar{
+                        self.databaseController?.updatePvtResultToCoredata(checkList: index, fatigueLevel: self.resultLevel, rating: self.resultRating)
+                    }
+                }
 
             }
         }
@@ -387,13 +429,13 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             self.resultImage = data
             DispatchQueue.main.async {
                     self.dismiss(animated: false) { () -> Void in
+                        
                         let title = "Reaction Test Report Generated!"
-                        let message = "Click Go to see your test report"
+                        let message = ""
                         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                        let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+                        let OKAction = UIAlertAction(title: "Report", style: UIAlertAction.Style.default, handler: {
                             (_)in
                             self.performSegue(withIdentifier: "ReactionResultSegue", sender: self)
-                            
                         })
                         alert.addAction(OKAction)
                         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
@@ -412,13 +454,12 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //Unwind segue pass data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         print(" --- \(resultImage)")
+         //print(" --- \(resultImage)")
         if(segue.identifier == "ReactionResultSegue"){
             if let nextViewController = segue.destination as? ReactionResultViewController {
                 nextViewController.comment = self.resultComments
                 nextViewController.rating = Double(self.resultRating)
                 nextViewController.fatigue_level = self.resultLevel
-               
                 nextViewController.imageResult = self.resultImage
             }
         }

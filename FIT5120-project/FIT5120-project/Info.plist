@@ -25,6 +25,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your GPS to locate your location!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your GPS to locate your location!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your GPS to locate your location!</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LexendGiga-Regular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -44,8 +54,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -65,11 +73,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your GPS to locate your location!</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need your GPS to locate your location!</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your GPS to locate your location!</string>
 </dict>
 </plist>

@@ -35,7 +35,7 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
         imageScrollView.delegate = self
         //Set the background image and fit it to screen
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "homeBg3")
+        backgroundImage.image = UIImage(named: "testBg4")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
         
@@ -44,7 +44,21 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
         
         imageScrollView.minimumZoomScale = 1
         imageScrollView.maximumZoomScale = 5
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
+        appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
+        UINavigationBar.appearance().standardAppearance = appearance
+    
 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
+        appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
+        UINavigationBar.appearance().standardAppearance = appearance
     }
     
     func viewForZooming(in imageScrollView: UIScrollView) -> UIView? {
@@ -88,6 +102,10 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
     
     @IBAction func backHome(_ sender: Any) {
         self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     

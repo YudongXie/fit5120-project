@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "../../FIT5120-project/Mel gpx.gpx"
+         identifier = "../FIT5120-project/Mel gpx.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>

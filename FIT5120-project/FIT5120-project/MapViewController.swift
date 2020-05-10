@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.delegate = self
+       // scrollView.delegate = self
         mkMapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -40,13 +40,13 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
 //                UIAlertAction.Style.default, handler: nil))
 //            self.present(alert, animated: true, completion: nil)
 //        }
-        scrollView.maximumZoomScale = 5
-        scrollView.minimumZoomScale = 1
+      //  scrollView.maximumZoomScale = 5
+      //  scrollView.minimumZoomScale = 1
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         //view controller changed, enable map and hide image
-        self.scrollView.isHidden = true
+     //   self.scrollView.isHidden = true
         self.mkMapView.isUserInteractionEnabled = true
     }
     
@@ -59,9 +59,9 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         self.present(alert, animated: true, completion: nil)
     }
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return userLocationImage
-    }
+//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+//        return userLocationImage
+//    }
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -149,16 +149,16 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
                 return
             }
             DispatchQueue.main.async {
-                self.scrollView.isHidden = false
+                //self.scrollView.isHidden = false
               //  self.userLocationImage.isHidden = false
-                self.userLocationImage.image = UIImage(data: data)
-                self.userLocationImage.layer.zPosition = 1
+               // self.userLocationImage.image = UIImage(data: data)
+               // self.userLocationImage.layer.zPosition = 1
                 self.mkMapView.isUserInteractionEnabled=false
                 let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(tapGestureRecognizer:)))
-                self.userLocationImage.isUserInteractionEnabled = true
-                self.userLocationImage.addGestureRecognizer(tapGestureRecognizer)
+              //  self.userLocationImage.isUserInteractionEnabled = true
+               // self.userLocationImage.addGestureRecognizer(tapGestureRecognizer)
                 
-                print(self.scrollView.zoomScale)
+              //  print(self.scrollView.zoomScale)
             }
             
 //            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
@@ -171,7 +171,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        self.scrollView.isHidden = true
+      //  self.scrollView.isHidden = true
         self.mkMapView.isUserInteractionEnabled = true
     }
 }

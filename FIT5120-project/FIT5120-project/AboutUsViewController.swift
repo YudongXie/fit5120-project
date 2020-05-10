@@ -18,7 +18,7 @@ class AboutUsViewController: UIViewController {
         
         //Set the background image and fit it to screen
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "homeBg3")
+        backgroundImage.image = UIImage(named: "newHomeBg")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
         /* resize the background image to fit in scroll view*/
