@@ -15,15 +15,16 @@ class passwordViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
-        // Do any additional setup after loading the view.
     }
     
+    /*Click return to hide keyboard*/
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
     @IBAction func button(_ sender: Any) {
+        /*If correct then render to next controller, else enter again*/
         if(textField.text == "1122"){
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController

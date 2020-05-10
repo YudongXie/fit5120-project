@@ -34,37 +34,33 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+       
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
         
         
         datePicker.datePickerMode = .date
         
-        //Set table view delegate
+        /*Set table view delegate*/
         tableView.delegate = self
         tableView.dataSource = self
         
-        //Set default date format
+        /*Set default date format*/
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        //Set the datepicker text color to white
+        /*Set the datepicker text color to white*/
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.setValue(false, forKey: "highlightsToday")
         
-        //Set confirmbutton radius and border
+        /*Set confirmbutton radius and border*/
         confirmButton.layer.cornerRadius = 10
         confirmButton.layer.borderWidth = 2
         confirmButton.layer.borderColor = UIColor.white.cgColor
         
-        
-        
-        
-        //Table View adds background image
+        /*Table View adds background image*/
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "testBg4"))
         
-        //View adds background image
+        /*View adds background image*/
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "testBg4")
         
@@ -74,7 +70,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         /* resize the background image to fit in scroll view*/
         backgroundImage.anchor(top: secondView.topAnchor, left: secondView.leftAnchor, bottom: secondView.bottomAnchor, right: secondView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
-        //Set the color and font of Nav bar
+        /*Set the color and font of Nav bar*/
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
         appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
@@ -84,7 +80,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     
     func onCheckListChange(change: DatabaseChange, checkList: [CheckList]) {
         getLast7Days()
-        //Check the date whether exsits in LastSevenDays Array
+        /*Check the date whether exsits in LastSevenDays Array*/
         
         for index in checkList{
             if sevenDays.contains(index.time!){
@@ -98,12 +94,12 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         
         let minDateStr = existDays[0]
         let maxDateStr = existDays[existDays.count-1]
-        //The date that in array is currently AEST timezone, therefore it is GMT+0:00
+        /*The date that in array is currently AEST timezone, therefore it is GMT+0:00*/
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
         let minDate = dateFormatter.date(from: minDateStr)!
         let maxDate = dateFormatter.date(from: maxDateStr)!
         
-        //Set the min/max date for datePicker
+        /*Set the min/max date for datePicker*/
         datePicker.minimumDate = minDate
         datePicker.maximumDate = maxDate
         
@@ -111,7 +107,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     }
     
     @IBAction func confirmButton(_ sender: UIButton) {
-        //The datePicker date is "UTC", so set the time zone to AEST
+        /*The datePicker date is "UTC", so set the time zone to AEST*/
         dateFormatter.timeZone = TimeZone(abbreviation: "AEST")
         
         let somedateString = dateFormatter.string(from: datePicker.date)
@@ -124,6 +120,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             let position = 205 * indexPath.row
             scrollView.contentOffset = CGPoint(x: 0, y: position)
         }else{
+            /*Pop up window for no date found in table*/
             let title = "No this date found!"
             let message = ""
             let alert = UIAlertController(title: title, message: message, preferredStyle:
@@ -158,7 +155,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         /* Dynamiclly set the height of secondView*/
         secondViewHeightConstraint.constant = secondViewHeight
         
-        //Get the table view current Y position
+        /*Get the table view current Y position*/
         tableViewPositionY = Double(tableView.frame.origin.y)
         
     }
@@ -166,11 +163,11 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     
     func getLast7Days()
     {
-        //Set the format of dates
+        /*Set the format of dates*/
         let cal = Calendar.current
         let date = cal.startOfDay(for: Date())
         
-        //Append last 8 existDays to array list
+        /*Append last 8 existDays to array list*/
         for i in 0 ... 7 {
             let newdate = cal.date(byAdding: .day, value: -i, to: date)!
             let str = dateFormatter.string(from: newdate)
@@ -179,7 +176,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //Before the view appeared, set the default question index and text, also add the listenter for this view controller
+        /*Before the view appeared, set the default question index and text, also add the listenter for this view controller*/
         super.viewWillAppear(animated)
         databaseController?.addListener(listener: self)
     }
@@ -188,6 +185,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         databaseController?.removeListener(listener: self)
+        /*Set nav bar color and font size*/
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
         appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
@@ -205,10 +203,11 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
+        /*Get cell ID*/
         let cell = tableView.dequeueReusableCell(withIdentifier: "reportViewCell", for: indexPath) as! ReportTableViewCell
         cell.dateLabel.text = allVar[indexPath.row].time
         
+        /*Set the cell value*/
         if(allVar[indexPath.row].questionOne){
             cell.questionOneLabel.text = "Q1.Yes"
         }else{
@@ -239,13 +238,13 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             cell.questionFiveLabel.text = "Q5.No"
         }
         
-        
         cell.levelLabel.text = "Fatigue Level: \(allVar[indexPath.row].fatigueLevel!)"
         cell.ratingLabel.text = "Rating: \(String(allVar[indexPath.row].rating)) ⭐"
         cell.tempLabel.text = "Temp: \(allVar[indexPath.row].weatherTemp!)"
         return cell
     }
     
+    /*Set cell height*/
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 205
     }

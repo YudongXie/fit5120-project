@@ -18,10 +18,7 @@ class secondLanuchViewController: UIViewController {
         super.viewDidAppear(animated)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            //let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "passwordController") as! UIViewController
-//            self.navigationController?.pushViewController(viewController, animated: false)
-            
+            /*Sleep for 3 second then render to next controller */
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = mainStoryboard.instantiateViewController(withIdentifier: "passwordController") as! UIViewController
             UIApplication.shared.keyWindow?.rootViewController = viewController;

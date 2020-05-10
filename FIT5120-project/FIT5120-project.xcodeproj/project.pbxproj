@@ -10,12 +10,10 @@
 		21D65A370F4B6239559F8968 /* libPods-FIT5120-project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA87C2B9494AB0F211409EAA /* libPods-FIT5120-project.a */; };
 		A018BB9024572B1800227A9D /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BB8F24572B1800227A9D /* passwordViewController.swift */; };
 		A01DCA76244C64A400F33FAE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */; };
-		A0462FC1244CA54B008A55C4 /* graphOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0462FC0244CA54B008A55C4 /* graphOneViewController.swift */; };
 		A0462FC5244CAA7F008A55C4 /* TestResultJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */; };
 		A0462FC7244CAFED008A55C4 /* ReactionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */; };
 		A047D6F02445E19F000FE1F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */; };
 		A047D6F22445EDBA000FE1F0 /* weatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6F12445EDBA000FE1F0 /* weatherApi.swift */; };
-		A047D6F424496FBE000FE1F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6F324496FBE000FE1F0 /* MapViewController.swift */; };
 		A047D6F6244972B4000FE1F0 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047D6F5244972B4000FE1F0 /* LocationAnnotation.swift */; };
 		A047D6FA2449809F000FE1F0 /* Mel gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A047D6F92449809F000FE1F0 /* Mel gpx.gpx */; };
 		A04CC9FC2462C145008AF4E9 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04CC9FB2462C145008AF4E9 /* RulesViewController.swift */; };
@@ -47,12 +45,10 @@
 		063F950A5F12858731D4F7CB /* Pods-FIT5120-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5120-project.release.xcconfig"; path = "Target Support Files/Pods-FIT5120-project/Pods-FIT5120-project.release.xcconfig"; sourceTree = "<group>"; };
 		A018BB8F24572B1800227A9D /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
 		A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
-		A0462FC0244CA54B008A55C4 /* graphOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphOneViewController.swift; sourceTree = "<group>"; };
 		A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultJson.swift; sourceTree = "<group>"; };
 		A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionResultViewController.swift; sourceTree = "<group>"; };
 		A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A047D6F12445EDBA000FE1F0 /* weatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherApi.swift; sourceTree = "<group>"; };
-		A047D6F324496FBE000FE1F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A047D6F5244972B4000FE1F0 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		A047D6F92449809F000FE1F0 /* Mel gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Mel gpx.gpx"; sourceTree = "<group>"; };
 		A04CC9FB2462C145008AF4E9 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -154,13 +150,11 @@
 				A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */,
 				A05CEDE5243C52C9002C4FDF /* SceneDelegate.swift */,
 				A05CEDF7243C532B002C4FDF /* PvtTestViewController.swift */,
-				A047D6F324496FBE000FE1F0 /* MapViewController.swift */,
 				A047D6F5244972B4000FE1F0 /* LocationAnnotation.swift */,
 				A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */,
 				A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */,
 				A07D10BB245903DA00AAE395 /* secondLanuchViewController.swift */,
 				A018BB8F24572B1800227A9D /* passwordViewController.swift */,
-				A0462FC0244CA54B008A55C4 /* graphOneViewController.swift */,
 				A07D10BD245AA14900AAE395 /* webMapViewController.swift */,
 				A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */,
 				A047D6F12445EDBA000FE1F0 /* weatherApi.swift */,
@@ -323,9 +317,7 @@
 				A0DA04FC2463F7CF001F9F55 /* CheckList+CoreDataProperties.swift in Sources */,
 				A04F14E02460320A008ED224 /* dataModel.xcdatamodeld in Sources */,
 				A04F14D9246031BE008ED224 /* CoreDataController.swift in Sources */,
-				A047D6F424496FBE000FE1F0 /* MapViewController.swift in Sources */,
 				A018BB9024572B1800227A9D /* passwordViewController.swift in Sources */,
-				A0462FC1244CA54B008A55C4 /* graphOneViewController.swift in Sources */,
 				A05CEDE4243C52C9002C4FDF /* AppDelegate.swift in Sources */,
 				A047D6F22445EDBA000FE1F0 /* weatherApi.swift in Sources */,
 				A0462FC7244CAFED008A55C4 /* ReactionResultViewController.swift in Sources */,

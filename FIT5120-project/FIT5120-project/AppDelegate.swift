@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        //Add google places SDK key
         GMSPlacesClient.provideAPIKey("AIzaSyBCI3i1usIcHgacrg0Hg6qmtycIPztheC0")
         
         // Override point for customization after application launch.
@@ -31,12 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
         UINavigationBar.appearance().standardAppearance = appearance
 
-
+        //Set the tab bar color to white
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
         
+        //Set the location manager
         locationManager = CLLocationManager()
         locationManager.delegate = self
+        //Ask for permission
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         

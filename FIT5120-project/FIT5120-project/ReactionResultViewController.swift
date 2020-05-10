@@ -11,11 +11,6 @@ import UIKit
 class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
 
     
-//    @IBOutlet weak var image1: UIImageView!
-//    @IBOutlet weak var image2: UIImageView!
-//    @IBOutlet weak var image3: UIImageView!
-//    @IBOutlet weak var image4: UIImageView!
-//    @IBOutlet weak var image5: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet var imageViewArray: [UIImageView]!
@@ -33,18 +28,20 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         imageScrollView.delegate = self
-        //Set the background image and fit it to screen
+        /*Set the background image and fit it to screen*/
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "testBg4")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
         
-        /* resize the background image to fit in scroll view*/
+        /* Resize the background image to fit in scroll view*/
         backgroundImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
+        /*Scroll view zoom scale*/
         imageScrollView.minimumZoomScale = 1
         imageScrollView.maximumZoomScale = 5
         
+        /*Set nav bar color and font size*/
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
         appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
@@ -56,6 +53,7 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let appearance = UINavigationBarAppearance()
+        /*Set nav bar color and font size */
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
         appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
         UINavigationBar.appearance().standardAppearance = appearance
@@ -66,10 +64,11 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(imageResult)
+        /*Set value */
         commentLabel.text = comment
         levelLabel.text = fatigue_level
         imageView.image = UIImage(data:imageResult)
+        /*Set star for rating*/
         if (rating - floor(rating) > 0.000001) {
             for index in 0..<imageViewArray.count{
                 if(index <= Int(floor(rating)) - 1){
@@ -94,9 +93,6 @@ class ReactionResultViewController: UIViewController,UIScrollViewDelegate{
             }
         
         }
-        
-//        image1.image = UIImage(named:"logo")
-//        image4.image = UIImage(named:"logo1")
     }
     
     
