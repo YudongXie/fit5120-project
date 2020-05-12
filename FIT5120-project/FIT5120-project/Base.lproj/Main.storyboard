@@ -500,7 +500,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="akp-gx-8jb"/>
                     <connections>
-                        <outlet property="conclusionLabel" destination="zK4-r8-iKU" id="xIc-2T-XLq"/>
+                        <outlet property="conclusionLabel" destination="zK4-r8-iKU" id="INF-uU-xlW"/>
                         <outlet property="confirmButton" destination="juw-rk-1Gv" id="s7g-9X-rdv"/>
                         <outlet property="datePicker" destination="X5d-eq-HhR" id="HFr-JG-wej"/>
                         <outlet property="scrollView" destination="okO-4G-zFN" id="Ccb-ax-tTq"/>
@@ -508,7 +508,7 @@
                         <outlet property="secondViewHeightConstraint" destination="wBK-1v-D5W" id="wTr-iG-Mu7"/>
                         <outlet property="tableView" destination="i0v-xM-fpG" id="BJt-ZA-coX"/>
                         <outlet property="tableViewHeightConstarint" destination="csm-hD-iq3" id="7nS-kI-765"/>
-                        <outlet property="viewConclusionButton" destination="u65-fq-PW3" id="tMW-kW-NyL"/>
+                        <outlet property="viewConclusionButton" destination="u65-fq-PW3" id="guK-r4-LPc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mag-z6-vy0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
