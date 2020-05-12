@@ -30,6 +30,7 @@
 		A07D10BE245AA14900AAE395 /* webMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D10BD245AA14900AAE395 /* webMapViewController.swift */; };
 		A07D10C1245AA42F00AAE395 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D10C0245AA42F00AAE395 /* WebKit.framework */; };
 		A07D10C3245AA43400AAE395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D10C2245AA43400AAE395 /* MapKit.framework */; };
+		A0922BE9246AC4390064D6DA /* QuestionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0922BE8246AC4390064D6DA /* QuestionObject.swift */; };
 		A0B50A0E245D7BAE008D19C2 /* LexendGiga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0B50A0D245D7BAE008D19C2 /* LexendGiga-Regular.ttf */; };
 		A0B50A10245D7CC1008D19C2 /* PurposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B50A0F245D7CC1008D19C2 /* PurposeViewController.swift */; };
 		A0B7406F245F1F84009AB388 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7406E245F1F84009AB388 /* QuestionViewController.swift */; };
@@ -67,6 +68,7 @@
 		A07D10BD245AA14900AAE395 /* webMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webMapViewController.swift; sourceTree = "<group>"; };
 		A07D10C0245AA42F00AAE395 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A07D10C2245AA43400AAE395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A0922BE8246AC4390064D6DA /* QuestionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionObject.swift; sourceTree = "<group>"; };
 		A0B50A0D245D7BAE008D19C2 /* LexendGiga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendGiga-Regular.ttf"; sourceTree = "<group>"; };
 		A0B50A0F245D7CC1008D19C2 /* PurposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeViewController.swift; sourceTree = "<group>"; };
 		A0B7406E245F1F84009AB388 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				A047D6F12445EDBA000FE1F0 /* weatherApi.swift */,
 				A0B50A0F245D7CC1008D19C2 /* PurposeViewController.swift */,
 				A0B7406E245F1F84009AB388 /* QuestionViewController.swift */,
+				A0922BE8246AC4390064D6DA /* QuestionObject.swift */,
 				A04CC9FB2462C145008AF4E9 /* RulesViewController.swift */,
 				A0DA04F12463DA7E001F9F55 /* GeneralReportViewController.swift */,
 				A0DA04F32463E2B2001F9F55 /* ReportTableViewCell.swift */,
@@ -320,6 +323,7 @@
 				A018BB9024572B1800227A9D /* passwordViewController.swift in Sources */,
 				A05CEDE4243C52C9002C4FDF /* AppDelegate.swift in Sources */,
 				A047D6F22445EDBA000FE1F0 /* weatherApi.swift in Sources */,
+				A0922BE9246AC4390064D6DA /* QuestionObject.swift in Sources */,
 				A0462FC7244CAFED008A55C4 /* ReactionResultViewController.swift in Sources */,
 				A07D10BE245AA14900AAE395 /* webMapViewController.swift in Sources */,
 				A047D6F6244972B4000FE1F0 /* LocationAnnotation.swift in Sources */,

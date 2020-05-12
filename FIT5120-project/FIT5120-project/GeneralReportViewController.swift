@@ -22,6 +22,9 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     @IBOutlet weak var secondViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var conclusionLabel: UILabel!
+    @IBOutlet weak var viewConclusionButton: UIButton!
+    
     
     
     var listenerType = ListenerType.all
@@ -29,8 +32,13 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     weak var databaseController: DatabaseProtocol?
     var sevenDays = [String]()
     var existDays = [String]()
-    let dateFormatter = DateFormatter()
+    var noTodayArray = [CheckList]()
     var tableViewPositionY = 0.0
+    var yesArray = [0,0,0,0,0]
+    var noArray = [0,0,0,0,0]
+    let yesArrayStr = ["you have enough sleeping time almost every day","you always drive less than two hours last week, It is good for your health","you avoid drink coffee before driving","you taken regular breaks during driving, you are a healthy driver","you try to avoid longtime driving"]
+    let noArrayStr = ["you should get plenty of sleep before your drive, which is incredibly important for your health","you may fatigue driving. Please remember to find a place and have a rest every two hours","coffee has badly affected driving. You will experience serious lapses in concentration and slower reaction times","Long-time driving will cause fatigue and increase your risk of traffic accident. You should plan your rest stop","you much more likely to be fat and inactive than other people in their age group"]
+    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +60,14 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.setValue(false, forKey: "highlightsToday")
         
-        /*Set confirmbutton radius and border*/
+        /*Set confirmbutton and viewConclusionButton radius and border*/
         confirmButton.layer.cornerRadius = 10
         confirmButton.layer.borderWidth = 2
         confirmButton.layer.borderColor = UIColor.white.cgColor
+        
+        viewConclusionButton.layer.cornerRadius = 10
+        viewConclusionButton.layer.borderWidth = 2
+        viewConclusionButton.layer.borderColor = UIColor.white.cgColor
         
         /*Table View adds background image*/
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "testBg4"))
@@ -86,6 +98,9 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             if sevenDays.contains(index.time!){
                 allVar.append(index)
             }
+            if sevenDays.contains(index.time!) && (index.time != sevenDays[0]){
+                noTodayArray.append(index)
+            }
         }
         
         for index in allVar{
@@ -102,6 +117,140 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         /*Set the min/max date for datePicker*/
         datePicker.minimumDate = minDate
         datePicker.maximumDate = maxDate
+        
+        computeConclusion()
+    }
+    
+    func computeConclusion(){
+        /*For loop to count number of yes/no for each question in past 7 days*/
+        for index in noTodayArray{
+            if(index.questionOne == true){
+                yesArray[0]+=1
+            }else{
+                noArray[0]+=1
+            }
+            
+            if(index.questionTwo == true){
+                yesArray[1]+=1
+            }else{
+                noArray[1]+=1
+            }
+            
+            if(index.questionThree == true){
+                yesArray[2]+=1
+            }else{
+                noArray[2]+=1
+            }
+            
+            if(index.questionFour == true){
+                yesArray[3]+=1
+            }else{
+                noArray[3]+=1
+            }
+            
+            if(index.questionFive == true){
+                yesArray[4]+=1
+            }else{
+                noArray[4]+=1
+            }
+        }
+
+        /*Init variable for yes*/
+        var yesValueCount = 0
+        var filterYes = [QuestionObject]()
+//        yesArray = [4,4,4,0,2]
+        
+        /*Find the count is more than or equal to 4 and append to filterYes Array*/
+        for i in 0..<yesArray.count{
+            if(yesArray[i] >= 4){
+                yesValueCount+=1
+                let object = QuestionObject()
+                object.count = yesArray[i]
+                object.index = i
+                filterYes.append(object)
+            }
+        }
+
+        /*Init variable for no*/
+        var noValueCount = 0
+        var filterNo = [QuestionObject]()
+//        noArray = [3,3,3,7,5]
+        
+        /*Find the count is more than or equal to 4 and append to filterNo Array*/
+        for i in 0..<noArray.count{
+            if(noArray[i] >= 4){
+                noValueCount+=1
+                let object = QuestionObject()
+                object.count = noArray[i]
+                object.index = i
+                filterNo.append(object)
+            }
+        }
+
+        var yesStr_1 = ""
+        var yesStr_2 = ""
+
+        /*Find highest count number and set output string*/
+        if(yesValueCount >= 2){
+            var yesMax = 0
+            var checkObjectForYes = QuestionObject()
+            for x in filterYes{
+                if(x.count > yesMax){
+                    yesMax = x.count
+                    yesStr_1 = yesArrayStr[x.index]
+                    checkObjectForYes = x
+                }
+            }
+
+            for y in filterYes{
+                if(checkObjectForYes != y){
+                    yesMax = y.count
+                    yesStr_2 = yesArrayStr[y.index]
+                }
+            }
+        }else if(yesValueCount == 1){
+            let arrayIndex = filterYes[0].index
+            yesStr_1 = yesArrayStr[arrayIndex]
+        }
+
+        var noStr_1 = ""
+        var noStr_2 = ""
+
+        /*Find highest count number and set output string*/
+        if(noValueCount >= 2){
+            var noMax = 0
+            var checkObjectForNo = QuestionObject()
+            for x in filterNo{
+                if(x.count > noMax){
+                    noMax = x.count
+                    noStr_1 = noArrayStr[x.index]
+                    checkObjectForNo = x
+                }
+            }
+
+            for y in filterNo{
+                if(checkObjectForNo != y){
+                    noMax = y.count
+                    noStr_2 = noArrayStr[y.index]
+                }
+            }
+        }else if(noValueCount == 1){
+            let arrayIndex = filterNo[0].index
+            noStr_1 = noArrayStr[arrayIndex]
+        }
+
+        /*Set output string to label text*/
+        if(yesValueCount >= 2 && noValueCount >= 2){
+            conclusionLabel.text = "In last seven days, \(yesStr_1) and \(yesStr_2).But \(noStr_1) and also we think \(noStr_2)."
+        }else if(yesValueCount >= 2 && noValueCount == 1){
+            conclusionLabel.text = "In last seven days, you did a good job in reduce your driving fatigue, \(yesStr_1) and \(yesStr_2).But we found \(noStr_1)."
+        }else if(yesValueCount >= 2 && noValueCount == 0){
+            conclusionLabel.text = "In last seven days, you met the requirement of healthy driving. Please keep doing."
+        }else if(yesValueCount == 1 && noValueCount >= 2){
+            conclusionLabel.text = "In last seven days, we found \(yesStr_1). But \(noStr_1) and, we think \(noStr_2). You may have high risk of fatigue driving."
+        }else if(yesValueCount == 0 && noValueCount >= 2){
+            conclusionLabel.text = "In last seven days,  you had high risk of fatigue driving. We suggest you pay more attention on your health."
+        }
         
         
     }

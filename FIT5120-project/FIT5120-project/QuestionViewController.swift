@@ -22,7 +22,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     /*Set defaul questions*/
-    let questionList = ["In last 24 hours, do you have at least 8 hours sleeping time?","Is your driving going to be longer than 2 hours?","Do you feel tired if you continue driving for more than 2 hours?","Have you taken regular breaks at least every two hours? Get out of the car, get some fresh air and some exercise.","You always travel more than 8 hours a day."]
+    let questionList = ["In last 24 hours, do you have at least 8 hours sleeping time?","Is your driving going to be less than 2 hours today?","You do not drink coffee before you start driving today?","Have you taken regular breaks at least every two hours today?","Is your journey less than 8 hours today?"]
     
     /*Set default question index*/
     var currentQuestionIndex = 0;
