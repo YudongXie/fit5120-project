@@ -429,6 +429,9 @@
                                                 <state key="normal" title="View Conclusion">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="viewConclusion:" destination="I7M-X9-bED" eventType="touchUpInside" id="yBX-Ty-eFU"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK4-r8-iKU">
                                                 <rect key="frame" x="20" y="1164" width="280" height="21.5"/>
@@ -486,7 +489,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="CBA-O4-1qD"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="okO-4G-zFN" firstAttribute="top" secondItem="hBw-jN-PJE" secondAttribute="bottom" id="4Nr-jr-COu"/>
                             <constraint firstItem="okO-4G-zFN" firstAttribute="leading" secondItem="FCo-Sc-qxh" secondAttribute="leading" id="Jft-DU-lnE"/>

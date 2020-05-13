@@ -34,6 +34,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     var tableViewPositionY = 0.0
     var yesArray = [0,0,0,0,0]
     var noArray = [0,0,0,0,0]
+    var secondViewHeight : CGFloat = 0.0
     let yesArrayStr = ["you have enough sleeping time almost every day","you always drive less than two hours last week, It is good for your health","you avoid drink coffee before driving","you taken regular breaks during driving, you are a healthy driver","you try to avoid longtime driving"]
     let noArrayStr = ["you should get plenty of sleep before your drive, which is incredibly important for your health","you may fatigue driving. Please remember to find a place and have a rest every two hours","coffee has badly affected driving. You will experience serious lapses in concentration and slower reaction times","Long-time driving will cause fatigue and increase your risk of traffic accident. You should plan your rest stop","you much more likely to be fat and inactive than other people in their age group"]
     let dateFormatter = DateFormatter()
@@ -254,10 +255,6 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             conclusionLabel.text = "We are unable to give you a report conclusion because it needs continuous 7 days records"
         }
         
-        //            else if(yesMoreThanFour == 0 && noValueCount == 0){
-        //                conclusionLabel.text = "We are unable to give you a report conclusion because you have no any records before today"
-        //            }
-        
     }
     
     @IBAction func confirmButton(_ sender: UIButton) {
@@ -272,7 +269,8 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
             
             let position = 205 * indexPath.row
-            scrollView.contentOffset = CGPoint(x: 0, y: position)
+           // scrollView.contentOffset = CGPoint(x: 0, y: position)
+            scrollView.setContentOffset(CGPoint(x: 0, y: position), animated: true)
         }else{
             /*Pop up window for no date found in table*/
             let title = "No this date found!"
@@ -284,6 +282,13 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func viewConclusion(_ sender: UIButton) {
+        /*Scroll to bottom*/
+        let bottomOffset = CGPoint(x: 0, y:scrollView.contentSize.height - scrollView.bounds.size.height)
+        scrollView.setContentOffset(bottomOffset, animated: true)
+    }
+    
     
     
     override func viewWillLayoutSubviews() {
@@ -305,10 +310,9 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         }
         
         /*Add new tableView height + all subView height + 200(white space)*/
-        let secondViewHeight = tableView.contentSize.height + height + 300
+        secondViewHeight = tableView.contentSize.height + height + 300
         /* Dynamiclly set the height of secondView*/
         secondViewHeightConstraint.constant = secondViewHeight
-        
         /*Get the table view current Y position*/
         tableViewPositionY = Double(tableView.frame.origin.y)
         
