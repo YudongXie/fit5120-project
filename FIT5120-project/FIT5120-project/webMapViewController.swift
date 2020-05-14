@@ -17,9 +17,7 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
     var webData: String!
     @IBOutlet weak var oriTextField: UITextField!
     @IBOutlet weak var desTextField: UITextField!
-    @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var segementControl: UISegmentedControl!
-    @IBOutlet weak var scrollView: UIScrollView!
     
     var currentlocation:CLLocation!
     var originLat : NSNumber = 0
@@ -33,8 +31,20 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         oriTextField.delegate = self
         desTextField.delegate = self
-        segementControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-        segementControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+        segementControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.blue], for: .normal)
+        segementControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        
+        oriTextField.leftViewMode = UITextField.ViewMode.always
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let image = UIImage(named: "new-icons8-circle-30")
+        imageView.image = image
+        oriTextField.leftView = imageView
+        
+        desTextField.leftViewMode = UITextField.ViewMode.always
+        let imageView2 = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let image2 = UIImage(named: "new-icons8-marker-30")
+        imageView2.image = image2
+        desTextField.leftView = imageView2
         
     }
     

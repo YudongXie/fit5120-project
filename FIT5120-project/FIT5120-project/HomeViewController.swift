@@ -19,6 +19,9 @@ class HomeViewController: UIViewController,DatabaseListener{
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var purposeButton: UIButton!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    
     
     var listenerType = ListenerType.all
     weak var databaseController: DatabaseProtocol?
@@ -47,6 +50,10 @@ class HomeViewController: UIViewController,DatabaseListener{
         
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.contentView.insertSubview(backgroundImage, at: 0)
+        
+        visualEffectView.layer.cornerRadius = 15
+        visualEffectView.clipsToBounds = true
+        
       
         /* resize the background image to fit in scroll view*/
         backgroundImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
@@ -55,6 +62,16 @@ class HomeViewController: UIViewController,DatabaseListener{
         self.tipsTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.randomTips), userInfo: nil, repeats: true)
         /*Put tips label on the top*/
         tipsLabel.layer.zPosition = 1
+        
+//        purposeButton.setImage(UIImage(named: "icons8-about-50"), for: .normal)
+//        purposeButton.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1.0)
+//        // Shadow and Radius
+//        purposeButton.layer.shadowColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 0.4).cgColor
+//        purposeButton.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+//        purposeButton.layer.shadowOpacity = 1
+//        purposeButton.layer.shadowRadius = 0.0
+//        purposeButton.layer.masksToBounds = false
+//        purposeButton.layer.cornerRadius = 5.0
     }
     
     /*Passing values to next controller*/
@@ -168,7 +185,7 @@ class HomeViewController: UIViewController,DatabaseListener{
                 self.imageData = data!
                 self.weatherImg.image = UIImage(data: data!)
                 self.weatherImg.transform = CGAffineTransform(scaleX:1.0, y:1.0)
-                self.weatherImg.trailingAnchor.constraint(equalTo: self.view.superview!.trailingAnchor, constant: 10).isActive = true
+                self.weatherImg.trailingAnchor.constraint(equalTo: self.visualEffectView!.trailingAnchor, constant: 0).isActive = true
                 self.animationImage()
             }
         }

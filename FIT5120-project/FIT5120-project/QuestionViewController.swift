@@ -19,6 +19,9 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var secondViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
     
     /*Set defaul questions*/
@@ -32,15 +35,16 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     weak var databaseController: DatabaseProtocol?
     var tempValue = ""
     var answerVar = [Bool]()
+    var secondViewHeight : CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
-        
+ 
         submitButton.layer.cornerRadius = 10
         submitButton.layer.borderWidth = 2
-        submitButton.layer.borderColor = UIColor.white.cgColor
+        submitButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
         /*Set the background image for table view*/
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "testBg4"))
         
@@ -52,6 +56,19 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
         appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
         UINavigationBar.appearance().standardAppearance = appearance
+    }
+    
+    override func viewWillLayoutSubviews() {
+        var height:CGFloat = 0
+        for view in self.secondView.subviews {
+            if(type(of:view) != UIImageView.self && type(of:view) != UITableView.self){
+                height = height + view.bounds.size.height
+            }
+        }
+        
+        secondViewHeight = tableView.contentSize.height + height + 300
+        /* Dynamiclly set the height of secondView*/
+        secondViewHeightConstraint.constant = secondViewHeight
     }
     
     /*Next button action*/
@@ -199,6 +216,74 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         sender.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
 
         databaseController?.updateQuestion(checkList: allVar[0], questionChanged: true, order: currentQuestionIndex)
+        
+        if(currentQuestionIndex < 4){
+            currentQuestionIndex += 1
+        }else if(currentQuestionIndex == 4){
+            /*Scroll to bottom*/
+            let bottomOffset = CGPoint(x: 0, y:scrollView.contentSize.height - scrollView.bounds.size.height)
+            scrollView.setContentOffset(bottomOffset, animated: true)
+        }
+        
+        questionLabel.fadeTransition(0.9)
+//        questionLabel.text = questionList[currentQuestionIndex]
+//        questionLabel.text = "Question \(currentQuestionIndex+1): \(questionList[currentQuestionIndex])"
+        
+        /*getting the BOOL value from coredata, and set it to check or uncheck image for buttons*/
+        switch currentQuestionIndex {
+        case 0:
+            if(allVar[0].questionOne == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 1:
+            if(allVar[0].questionTwo == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 2:
+            if(allVar[0].questionThree == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 3:
+            if(allVar[0].questionFour == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 4:
+            if(allVar[0].questionFive == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        default:
+            break;
+        }
+        
+        /*Selected row is changed when the next button is clicked*/
+        let indexPath = IndexPath(row: currentQuestionIndex, section: 0)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+        tableView.delegate?.tableView!(tableView, didSelectRowAt: indexPath)
 
     }
     
@@ -208,6 +293,73 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         sender.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
         
         databaseController?.updateQuestion(checkList: allVar[0], questionChanged: false, order: currentQuestionIndex)
+        
+        if(currentQuestionIndex < 4){
+            currentQuestionIndex += 1
+        }else if(currentQuestionIndex == 4){
+            /*Scroll to bottom*/
+            let bottomOffset = CGPoint(x: 0, y:scrollView.contentSize.height - scrollView.bounds.size.height)
+            scrollView.setContentOffset(bottomOffset, animated: true)
+        }
+ 
+        questionLabel.fadeTransition(0.9)
+        //questionLabel.text = "Question \(currentQuestionIndex+1): \(questionList[currentQuestionIndex])"
+        
+        /*getting the BOOL value from coredata, and set it to check or uncheck image for buttons*/
+        switch currentQuestionIndex {
+        case 0:
+            if(allVar[0].questionOne == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 1:
+            if(allVar[0].questionTwo == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 2:
+            if(allVar[0].questionThree == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 3:
+            if(allVar[0].questionFour == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        case 4:
+            if(allVar[0].questionFive == true){
+                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
+            }else{
+                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
+                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
+            }
+            break;
+        default:
+            break;
+        }
+        
+        /*Selected row is changed when the next button is clicked*/
+        let indexPath = IndexPath(row: currentQuestionIndex, section: 0)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+        tableView.delegate?.tableView!(tableView, didSelectRowAt: indexPath)
     }
     
     @IBAction func submitAction(_ sender: UIButton) {
@@ -220,7 +372,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         /*Before the view appeared, set the default question index and text, also add the listenter for this view controller*/
         currentQuestionIndex = 0
-        questionLabel.text = questionList[currentQuestionIndex]
+        questionLabel.text = "Question \(currentQuestionIndex+1): \n \(questionList[currentQuestionIndex])"
         databaseController?.addListener(listener: self)
     }
     
@@ -259,7 +411,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questionList.count
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -267,7 +419,26 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath)
         
         /*Cell text setting*/
-        cell.textLabel!.text = questionList[indexPath.row]
+        switch indexPath.row {
+        case 0:
+            cell.textLabel!.text = "Questionaires - Question One"
+            break
+        case 1:
+            cell.textLabel!.text = "Questionaires - Question Two"
+            break
+        case 2:
+            cell.textLabel!.text = "Questionaires - Question Three"
+            break
+        case 3:
+            cell.textLabel!.text = "Questionaires - Question Four"
+            break
+        case 4:
+            cell.textLabel!.text = "Questionaires - Question Five"
+            break
+        default:
+            break
+        }
+//        cell.textLabel!.text = questionList[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel!.font = UIFont(name:"LexendGiga-Regular", size:15)
         
@@ -325,7 +496,8 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         
         /*Add the animation for question label*/
         questionLabel.fadeTransition(0.9)
-        questionLabel.text = questionList[indexPath.row]
+       // questionLabel.text = questionList[indexPath.row]
+        questionLabel.text = "Question \(currentQuestionIndex+1): \n \(questionList[currentQuestionIndex])"
         
         switch indexPath.row {
             

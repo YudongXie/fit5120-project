@@ -62,11 +62,12 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         /*Set confirmbutton and viewConclusionButton radius and border*/
         confirmButton.layer.cornerRadius = 10
         confirmButton.layer.borderWidth = 2
-        confirmButton.layer.borderColor = UIColor.white.cgColor
+        confirmButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
+        
         
         viewConclusionButton.layer.cornerRadius = 10
         viewConclusionButton.layer.borderWidth = 2
-        viewConclusionButton.layer.borderColor = UIColor.white.cgColor
+        viewConclusionButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
         
         /*Table View adds background image*/
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "testBg4"))
