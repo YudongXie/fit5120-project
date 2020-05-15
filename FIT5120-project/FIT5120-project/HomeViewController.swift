@@ -21,6 +21,8 @@ class HomeViewController: UIViewController,DatabaseListener{
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var purposeButton: UIButton!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
+    
     
     
     var listenerType = ListenerType.all
@@ -31,9 +33,10 @@ class HomeViewController: UIViewController,DatabaseListener{
     var stringIcon : String!
     var tipsTimer: Timer!
     var originX : CGFloat = 0.0
+    var contentHeight : CGFloat = 0.0
     var imageData : Data!
     var temp = ""
-    var tipsArray = ["Get a good night's sleep before heading off on a long trip","don't travel for more than eight to ten hours a day","take regular breaks – at least every two hours","share the driving wherever possible","don't travel at times when you'd usually be sleeping","take a 15 minute powernap if you feel yourself becoming drowsy","don't drink alcohol before your trip."]
+    var tipsArray = ["Get a good night's sleep before heading off on a long trip.","Don't travel for more than eight to ten hours a day.","Take regular breaks – at least every two hours.","Share the driving wherever possible.","Don't travel at times when you'd usually be sleeping.","Take a 15 minute powernap if you feel yourself becoming drowsy.","Don't drink alcohol before your trip."]
     
     
     override func viewDidLoad() {
@@ -92,7 +95,6 @@ class HomeViewController: UIViewController,DatabaseListener{
         callWeatherAPI()
         getVideo()
         randomTips()
-        
         databaseController?.addListener(listener: self)
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GeneralReportViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,DatabaseListener{
+class GeneralReportViewController: UIViewController,DatabaseListener{
     
     
     
@@ -23,6 +23,18 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     @IBOutlet weak var secondViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var fatigueLevelLabel: UILabel!
+    @IBOutlet weak var Q1Label: UILabel!
+    @IBOutlet weak var Q2Label: UILabel!
+    @IBOutlet weak var Q3Label: UILabel!
+    @IBOutlet weak var Q4Label: UILabel!
+    @IBOutlet weak var Q5Label: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var swipeView: UIView!
+    
     
     
     var listenerType = ListenerType.all
@@ -35,6 +47,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     var yesArray = [0,0,0,0,0]
     var noArray = [0,0,0,0,0]
     var secondViewHeight : CGFloat = 0.0
+    var currentPage = 0
     let yesArrayStr = ["you have enough sleeping time almost every day","you always drive less than two hours last week, It is good for your health","you avoid drink coffee before driving","you taken regular breaks during driving, you are a healthy driver","you try to avoid longtime driving"]
     let noArrayStr = ["you should get plenty of sleep before your drive, which is incredibly important for your health","you may fatigue driving. Please remember to find a place and have a rest every two hours","coffee has badly affected driving. You will experience serious lapses in concentration and slower reaction times","Long-time driving will cause fatigue and increase your risk of traffic accident. You should plan your rest stop","you much more likely to be fat and inactive than other people in their age group"]
     let dateFormatter = DateFormatter()
@@ -45,13 +58,12 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
         
-        
         datePicker.datePickerMode = .date
         
-        /*Set table view delegate*/
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        visualEffectView.layer.cornerRadius = 10
+        visualEffectView.layer.borderWidth = 1
+        visualEffectView.clipsToBounds = true
+
         /*Set default date format*/
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
@@ -69,8 +81,6 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         viewConclusionButton.layer.borderWidth = 2
         viewConclusionButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
         
-        /*Table View adds background image*/
-        self.tableView.backgroundView = UIImageView(image: UIImage(named: "testBg4"))
         
         /*View adds background image*/
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -87,13 +97,15 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
         appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
         UINavigationBar.appearance().standardAppearance = appearance
-        
+    
     }
     
     func onCheckListChange(change: DatabaseChange, checkList: [CheckList]) {
         getLast7Days()
         /*Check the date whether exsits in LastSevenDays Array*/
         
+        allVar = []
+        noTodayArray = []
         for index in checkList{
             if sevenDays.contains(index.time!){
                 allVar.append(index)
@@ -103,9 +115,12 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             }
         }
         
+        existDays = []
         for index in allVar{
             existDays.append(index.time!)
         }
+        
+        pageControl.numberOfPages = existDays.count
         
         let minDateStr = existDays[0]
         let maxDateStr = existDays[existDays.count-1]
@@ -118,6 +133,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         datePicker.minimumDate = minDate
         datePicker.maximumDate = maxDate
         
+        changeLabels(currentPage: currentPage)
         computeConclusion()
     }
     
@@ -258,6 +274,75 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         
     }
     
+    
+    @IBAction func backToHome(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    /*Swipe right and change page control*/
+    @IBAction func swipeActionRight(_ sender: UISwipeGestureRecognizer) {
+        if(currentPage == existDays.count - 1){
+            currentPage = 0
+        }else{
+            currentPage += 1
+        }
+        changeLabels(currentPage: currentPage)
+        pageControl.currentPage = currentPage
+    }
+    
+    /*Swipe left and change page control*/
+    @IBAction func swipeActionLeft(_ sender: UISwipeGestureRecognizer) {
+        if(currentPage == 0){
+            currentPage = existDays.count-1
+        }else{
+            currentPage -= 1
+        }
+        changeLabels(currentPage: currentPage)
+        pageControl.currentPage = currentPage
+    }
+    
+    /*Page Control changed*/
+    @IBAction func pageControl(_ sender: UIPageControl) {
+        currentPage = sender.currentPage
+        changeLabels(currentPage: currentPage)
+    }
+    
+    /*Function for set text*/
+    func changeLabels(currentPage: Int){
+        dateLabel.text = allVar[currentPage].time
+        ratingLabel.text = "Rating: \(String(allVar[currentPage].rating)) ⭐"
+        fatigueLevelLabel.text = "Fatigue Level:  \(allVar[currentPage].fatigueLevel!)"
+        if(allVar[currentPage].questionOne){
+            Q1Label.text = "Q1.Yes"
+        }else{
+            Q1Label.text = "Q1.No"
+        }
+        
+        if(allVar[currentPage].questionTwo){
+            Q2Label.text = "Q2.Yes"
+        }else{
+            Q2Label.text = "Q2.No"
+        }
+        
+        if(allVar[currentPage].questionThree){
+            Q3Label.text = "Q3.Yes"
+        }else{
+            Q3Label.text = "Q3.No"
+        }
+        
+        if(allVar[currentPage].questionFour){
+            Q4Label.text = "Q4.Yes"
+        }else{
+            Q4Label.text = "Q4.No"
+        }
+        
+        if(allVar[currentPage].questionFive){
+            Q5Label.text = "Q5.Yes"
+        }else{
+            Q5Label.text = "Q5.No"
+        }
+    }
+    
     @IBAction func confirmButton(_ sender: UIButton) {
         /*The datePicker date is "UTC", so set the time zone to AEST*/
         dateFormatter.timeZone = TimeZone(abbreviation: "AEST")
@@ -266,12 +351,14 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         
         let indexOfDate = existDays.firstIndex(of: somedateString)
         if(indexOfDate != nil){
-            let indexPath = IndexPath(row: indexOfDate!, section: 0)
-            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
-            
-            let position = 205 * indexPath.row
-           // scrollView.contentOffset = CGPoint(x: 0, y: position)
-            scrollView.setContentOffset(CGPoint(x: 0, y: position), animated: true)
+            currentPage = indexOfDate!
+            changeLabels(currentPage: currentPage)
+            pageControl.currentPage = currentPage
+//            let indexPath = IndexPath(row: indexOfDate!, section: 0)
+//            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+//
+//            let position = 205 * indexPath.row
+//            scrollView.setContentOffset(CGPoint(x: 0, y: position), animated: true)
         }else{
             /*Pop up window for no date found in table*/
             let title = "No this date found!"
@@ -295,8 +382,6 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        /*Resize the table view height according to the content*/
-        tableViewHeightConstarint.constant = tableView.contentSize.height
         
         /* Set default height = 0 */
         var height:CGFloat = 0
@@ -305,17 +390,16 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
          the highe will not be counted (tableView height is dynamical, imageView is fixed (equal to secondView original height 2200)
          */
         for view in self.secondView.subviews {
-            if(type(of:view) != UIImageView.self && type(of:view) != UITableView.self){
+            if(type(of:view) != UIImageView.self){
                 height = height + view.bounds.size.height
             }
         }
         
         /*Add new tableView height + all subView height + 200(white space)*/
-        secondViewHeight = tableView.contentSize.height + height + 300
+        secondViewHeight = height + 300
         /* Dynamiclly set the height of secondView*/
         secondViewHeightConstraint.constant = secondViewHeight
         /*Get the table view current Y position*/
-        tableViewPositionY = Double(tableView.frame.origin.y)
         
     }
     
@@ -331,6 +415,7 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
             let newdate = cal.date(byAdding: .day, value: -i, to: date)!
             let str = dateFormatter.string(from: newdate)
             sevenDays.append(str)
+            print(str)
         }
     }
     
@@ -351,62 +436,62 @@ class GeneralReportViewController: UIViewController,UITableViewDelegate, UITable
         UINavigationBar.appearance().standardAppearance = appearance
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allVar.count
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return allVar.count
+//    }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        /*Get cell ID*/
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reportViewCell", for: indexPath) as! ReportTableViewCell
-        cell.dateLabel.text = allVar[indexPath.row].time
-        
-        /*Set the cell value*/
-        if(allVar[indexPath.row].questionOne){
-            cell.questionOneLabel.text = "Q1.Yes"
-        }else{
-            cell.questionOneLabel.text = "Q1.No"
-        }
-        
-        if(allVar[indexPath.row].questionTwo){
-            cell.questionTwoLabel.text = "Q2.Yes"
-        }else{
-            cell.questionTwoLabel.text = "Q2.No"
-        }
-        
-        if(allVar[indexPath.row].questionThree){
-            cell.questionThreeLabel.text = "Q3.Yes"
-        }else{
-            cell.questionThreeLabel.text = "Q3.No"
-        }
-        
-        if(allVar[indexPath.row].questionFour){
-            cell.questionFourLabel.text = "Q4.Yes"
-        }else{
-            cell.questionFourLabel.text = "Q4.No"
-        }
-        
-        if(allVar[indexPath.row].questionFive){
-            cell.questionFiveLabel.text = "Q5.Yes"
-        }else{
-            cell.questionFiveLabel.text = "Q5.No"
-        }
-        
-        cell.levelLabel.text = "Fatigue Level: \(allVar[indexPath.row].fatigueLevel!)"
-        cell.ratingLabel.text = "Rating: \(String(allVar[indexPath.row].rating)) ⭐"
-        cell.tempLabel.text = "Temp: \(allVar[indexPath.row].weatherTemp!)"
-        return cell
-    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        /*Get cell ID*/
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "reportViewCell", for: indexPath) as! ReportTableViewCell
+//        cell.dateLabel.text = allVar[indexPath.row].time
+//
+//        /*Set the cell value*/
+//        if(allVar[indexPath.row].questionOne){
+//            cell.questionOneLabel.text = "Q1.Yes"
+//        }else{
+//            cell.questionOneLabel.text = "Q1.No"
+//        }
+//
+//        if(allVar[indexPath.row].questionTwo){
+//            cell.questionTwoLabel.text = "Q2.Yes"
+//        }else{
+//            cell.questionTwoLabel.text = "Q2.No"
+//        }
+//
+//        if(allVar[indexPath.row].questionThree){
+//            cell.questionThreeLabel.text = "Q3.Yes"
+//        }else{
+//            cell.questionThreeLabel.text = "Q3.No"
+//        }
+//
+//        if(allVar[indexPath.row].questionFour){
+//            cell.questionFourLabel.text = "Q4.Yes"
+//        }else{
+//            cell.questionFourLabel.text = "Q4.No"
+//        }
+//
+//        if(allVar[indexPath.row].questionFive){
+//            cell.questionFiveLabel.text = "Q5.Yes"
+//        }else{
+//            cell.questionFiveLabel.text = "Q5.No"
+//        }
+//
+//        cell.levelLabel.text = "Fatigue Level: \(allVar[indexPath.row].fatigueLevel!)"
+//        cell.ratingLabel.text = "Rating: \(String(allVar[indexPath.row].rating)) ⭐"
+//        cell.tempLabel.text = "Temp: \(allVar[indexPath.row].weatherTemp!)"
+//        return cell
+//    }
     
     /*Set cell height*/
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 205
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 205
+//    }
     
     
 }
