@@ -34,7 +34,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     var timeArray = [String]()
     var responseArray = [Double]()
     var randomTimeArray = [Int]()
-    var second = 30
+    var second = 90
     var displayedSecond = 0.0
     var progressBarTimer: Timer!
     var GameTimer: Timer!
@@ -184,7 +184,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
         Start.isEnabled = false
         /*First game started*/
-        randomNumber = Int.random(in: 1...1)
+        randomNumber = Int.random(in: 4...6)
         self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
         Test.isEnabled = true
 
@@ -222,7 +222,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             displayTimer.invalidate()
             secondString = ""
             displayedSecond = 0.0
-            second = 30
+            second = 90
             earlyClick = 0
             count = 0
             Test.backgroundColor = UIColor(red: 97/255, green: 204/255, blue: 200/255, alpha: 0.1)
@@ -263,7 +263,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
                 displayTimer.invalidate()
             }
             
-            randomNumber = Int.random(in: 1...1)
+            randomNumber = Int.random(in: 4...6)
             displayedTime.text = "waiting"
             tapMeLabel.isHidden = true
             
@@ -306,7 +306,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             /*Set displayedSecond to 0*/
             displayedSecond = 0.0
             /*Random second before display MS*/
-            randomNumber = Int.random(in: 1...1)
+            randomNumber = Int.random(in: 4...6)
             displayedTime.text = "waiting"
             tapMeLabel.isHidden = true
             self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
@@ -318,7 +318,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func updateProgressView(){
         /*Updating progress bar*/
-        progressView.progress += 1/5;
+        progressView.progress += 1/90;
         second = second - 1;
         timeLeft.fadeTransition(0.7)
         timeLeft.text = String(second);
@@ -338,7 +338,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             if(displayTimer != nil){
                 displayTimer.invalidate()
             }
-            second = 30
+            second = 90
             count = 0
             earlyClick = 0
             Test.backgroundColor = UIColor(red: 97/255, green: 204/255, blue: 200/255, alpha: 0.1)

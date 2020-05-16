@@ -48,6 +48,16 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         /*Set the background image for table view*/
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "testBg4"))
         
+        
+        /*Set the background image and fit it to screen*/
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "testBg4")
+        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
+        self.secondView.insertSubview(backgroundImage, at: 0)
+        
+        /* Resize the background image to fit in scroll view*/
+        backgroundImage.anchor(top: secondView.topAnchor, left: secondView.leftAnchor, bottom: secondView.bottomAnchor, right: secondView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -71,144 +81,6 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         secondViewHeightConstraint.constant = secondViewHeight
     }
     
-    /*Next button action*/
-    @IBAction func nextAction(_ sender: UIButton) {
-        /* If the current question is the last one, then set the index to zero
-         if the current question is the first one, then set the index to the last one
-         */
-        if(currentQuestionIndex == 4){
-            currentQuestionIndex = 0
-        }else{
-            currentQuestionIndex += 1
-        }
-        questionLabel.text = questionList[currentQuestionIndex]
-        
-        /*getting the BOOL value from coredata, and set it to check or uncheck image for buttons*/
-        switch currentQuestionIndex {
-        case 0:
-            if(allVar[0].questionOne == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 1:
-            if(allVar[0].questionTwo == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 2:
-            if(allVar[0].questionThree == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 3:
-            if(allVar[0].questionFour == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 4:
-            if(allVar[0].questionFive == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        default:
-            break;
-        }
-        
-        /*Selected row is changed when the next button is clicked*/
-        let indexPath = IndexPath(row: currentQuestionIndex, section: 0)
-        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-        tableView.delegate?.tableView!(tableView, didSelectRowAt: indexPath)
-    }
-    
-    @IBAction func previousAction(_ sender: UIButton) {
-        
-        /* If the current question is the last one, then set the index to zero
-         if the current question is the first one, then set the index to the last one
-         */
-        if(currentQuestionIndex == 0){
-            currentQuestionIndex = 4
-        }else{
-            currentQuestionIndex -= 1
-        }
-        questionLabel.fadeTransition(0.9)
-        questionLabel.text = questionList[currentQuestionIndex]
-        
-        /*getting the BOOL value from coredata, and set it to check or uncheck image for buttons*/
-        switch currentQuestionIndex {
-        case 0:
-            if(allVar[0].questionOne == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 1:
-            if(allVar[0].questionTwo == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 2:
-            if(allVar[0].questionThree == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 3:
-            if(allVar[0].questionFour == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        case 4:
-            if(allVar[0].questionFive == true){
-                noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-            }else{
-                noButton.setImage(UIImage(named:"red-icons8-close-window-50"), for: .normal)
-                yesButton.setImage(UIImage(named:"green-icons8-unchecked-checkbox-50"), for: .normal)
-            }
-            break;
-        default:
-            break;
-        }
-        
-        /*Selected row is changed when the next button is clicked*/
-        let indexPath = IndexPath(row: currentQuestionIndex, section: 0)
-        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-        tableView.delegate?.tableView!(tableView, didSelectRowAt: indexPath)
-    }
     
     @IBAction func yesAction(_ sender: UIButton) {
         /*If the yes button is clicked, set yes button background image to checked and no button background image to unchecked*/

@@ -31,7 +31,7 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         oriTextField.delegate = self
         desTextField.delegate = self
-        segementControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.blue], for: .normal)
+        segementControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
         segementControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         
         oriTextField.leftViewMode = UITextField.ViewMode.always
@@ -232,7 +232,7 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
             
                 DispatchQueue.main.async {
                     /*Disclamier pop up window*/
-                    let title = "All routes are calculated based on Victoria accidents open data,traffic data is not real time"
+                    let title = "All routes are calculated based on Victoria accidents open data,traffic data are not real time"
                     let message = ""
                     let alert = UIAlertController(title: title, message: message, preferredStyle:
                         UIAlertController.Style.alert)
