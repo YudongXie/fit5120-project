@@ -26,6 +26,9 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
     var desLong : NSNumber = 0
     var currentTag = "safest"
     var currentTextField : UITextField!
+    var currentLat : CLLocationDegrees = 0
+    var currentLong : CLLocationDegrees = 0
+    var noLocationTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +65,10 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func viewWillAppear(_ animated: Bool) {
         (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .landscapeLeft
-        
+        userLocation()
+    }
+    
+    func userLocation(){
         /*Get locationManager value from AppDelegate*/
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let locationManager = appDelegate.locationManager
@@ -70,69 +76,73 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
         /*Check the currentlocation whether null or not*/
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() == .authorizedAlways) {
+            locationManager.startUpdatingLocation()
             currentlocation = locationManager.location
         }
-        /*If the current location is not null, then post lat/long to back end to get the Map html*/
-        if(currentlocation != nil){
-            let nullValue : String?
-            nullValue = nil
-            let json: [String : Any] = [
-                "origin":[
-                    "qry_type": "latLon",
-                    "query":[
-                        "lat": currentlocation.coordinate.latitude,
-                        "lon": currentlocation.coordinate.longitude,
-                        "address":nullValue
-                    ]
-                ],
-                "dest":nullValue
-            ]
-            
-            
-            let jsonData = try? JSONSerialization.data(withJSONObject: json,options: [])
-            let url = URL(string: "https://fit5120.herokuapp.com/map")!
-            var request = URLRequest(url: url)
-            
-            request.httpMethod = "POST"
-            
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            /*insert json data to the request*/
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No data")
-                    return
-                }
-                let str = String(decoding: data, as: UTF8.self)
-                self.webData = str
-                DispatchQueue.main.async {
-                    /*Set rotation value*/
-                    let value = UIInterfaceOrientation.landscapeLeft.rawValue
-                    UIDevice.current.setValue(value, forKey: "orientation")
-                    self.webView.loadHTMLString(self.webData, baseURL: nil)
-                }
-                
-            }
-            
-            task.resume()
+        /*If not allowed locate GPS*/
+        if(CLLocationManager.authorizationStatus() == .denied){
+            currentlocation = nil
         }
-        else{
-            /*Pop up window for no permission*/
-            let title = "We are unable to locate your location👻"
-            let message = "Make sure your location permission is truned on"
+        
+        /*If GPS not turned on*/
+        if(currentlocation == nil){
+            currentLat = -37.817522
+            currentLong = 144.967549
+            let title = "We are unable to locate your location👻 "
+            let message = "Please make sure your GPS is turned on \n User current location will be system default location"
             let alert = UIAlertController(title: title, message: message, preferredStyle:
                 UIAlertController.Style.alert)
-            let OKAction = UIAlertAction(title: "Return to Home Page", style: UIAlertAction.Style.default, handler: {
-                (_)in
-                self.tabBarController?.selectedIndex = 0
-            })
-            alert.addAction(OKAction)
             self.present(alert, animated: true, completion: nil)
+            self.noLocationTimer = Timer.scheduledTimer(timeInterval: 3.5, target: self, selector: #selector(self.dismissAlert), userInfo: nil, repeats: false)
         }
+        else{
+            currentLat = currentlocation.coordinate.latitude
+            currentLong = currentlocation.coordinate.longitude
+        }
+        
+        /*Send location to backedn to get map html*/
+        let nullValue : String?
+        nullValue = nil
+        let json: [String : Any] = [
+            "origin":[
+                "qry_type": "latLon",
+                "query":[
+                    "lat": currentLat,
+                    "lon": currentLong,
+                    "address":nullValue
+                ]
+            ],
+            "dest":nullValue
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json,options: [])
+        let url = URL(string: "https://fit5120.herokuapp.com/map")!
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        /*insert json data to the request*/
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let str = String(decoding: data, as: UTF8.self)
+            self.webData = str
+            DispatchQueue.main.async {
+                /*Set rotation value*/
+                let value = UIInterfaceOrientation.landscapeLeft.rawValue
+                UIDevice.current.setValue(value, forKey: "orientation")
+                self.webView.loadHTMLString(self.webData, baseURL: nil)
+            }
+            
+        }
+        
+        task.resume()
     }
-    
-    
     
     @IBAction func originTap(_ sender: Any) {
         autocompleteClicked(oriTextField)
@@ -140,6 +150,10 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBAction func destinationTap(_ sender: Any) {
         autocompleteClicked(desTextField)
+    }
+    
+    @IBAction func locateCurrentLocation(_ sender: UIButton) {
+        userLocation()
     }
     
     
@@ -229,16 +243,23 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
                 }
                 let str = String(decoding: data, as: UTF8.self)
                 self.webData = str
-            
                 DispatchQueue.main.async {
                     /*Disclamier pop up window*/
-                    let title = "All routes are calculated based on Victoria accidents open data,traffic data are not real time"
-                    let message = ""
-                    let alert = UIAlertController(title: title, message: message, preferredStyle:
-                        UIAlertController.Style.alert)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                    Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.dismissAlert), userInfo: nil, repeats: false)
+                    if(self.currentTag == "safest"){
+                        let title = ""
+                        let message = "Safest: Based on total number of accidents on the route between 2011 and 2019. \n Source: VicRoads"
+                        let alert = UIAlertController(title: title, message: message, preferredStyle:
+                            UIAlertController.Style.alert)
+                        self.present(alert, animated: true, completion: nil)
+                    }else if(self.currentTag == "fastest"){
+                        let title = ""
+                        let message = "Fastest: Based on traffic conditions and distance. \n Source: Google transit APIs"
+                        let alert = UIAlertController(title: title, message: message, preferredStyle:
+                            UIAlertController.Style.alert)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                        Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.dismissAlert), userInfo: nil, repeats: false)
+
                     self.webView.loadHTMLString(self.webData, baseURL: nil)
                 }
                 
@@ -278,7 +299,7 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
         originLong = swapValueDesLong
         
         desLat = swapValueOriLat
-        desLong = swapValueDesLong
+        desLong = swapValueOriLong
     }
     
 }

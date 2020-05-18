@@ -22,7 +22,8 @@ class HomeViewController: UIViewController,DatabaseListener{
     @IBOutlet weak var purposeButton: UIButton!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var reportButton: UIButton!
+    @IBOutlet weak var testButton: UIButton!
     
     
     var listenerType = ListenerType.all
@@ -65,16 +66,20 @@ class HomeViewController: UIViewController,DatabaseListener{
         self.tipsTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.randomTips), userInfo: nil, repeats: true)
         /*Put tips label on the top*/
         tipsLabel.layer.zPosition = 1
+
+        /*Set border for three buttons*/
+        purposeButton.layer.cornerRadius = 5
+        purposeButton.layer.borderWidth = 2
+        purposeButton.layer.borderColor = UIColor.white.cgColor
         
-//        purposeButton.setImage(UIImage(named: "icons8-about-50"), for: .normal)
-//        purposeButton.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1.0)
-//        // Shadow and Radius
-//        purposeButton.layer.shadowColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 0.4).cgColor
-//        purposeButton.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
-//        purposeButton.layer.shadowOpacity = 1
-//        purposeButton.layer.shadowRadius = 0.0
-//        purposeButton.layer.masksToBounds = false
-//        purposeButton.layer.cornerRadius = 5.0
+        reportButton.layer.cornerRadius = 5
+        reportButton.layer.borderWidth = 2
+        reportButton.layer.borderColor = UIColor.white.cgColor
+        
+        testButton.layer.cornerRadius = 5
+        testButton.layer.borderWidth = 2
+        testButton.layer.borderColor = UIColor.white.cgColor
+        
     }
     
     /*Passing values to next controller*/

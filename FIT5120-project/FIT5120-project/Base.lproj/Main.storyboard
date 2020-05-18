@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o9M-R3-IYA">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,23 +17,23 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" id="BYZ-38-t0r" customClass="PvtTestViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" indicatorStyle="white" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnG-Wv-pal">
-                                <rect key="frame" x="0.0" y="52" width="414" height="790"/>
+                                <rect key="frame" x="0.0" y="52" width="568" height="319"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVS-FC-K19">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total time left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQB-zq-pBI">
-                                                <rect key="frame" x="127" y="25" width="160" height="21.666666666666671"/>
+                                                <rect key="frame" x="204" y="25" width="160" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="38e-wW-WNA">
-                                                <rect key="frame" x="163.66666666666666" y="304.66666666666669" width="87" height="48"/>
+                                                <rect key="frame" x="240.5" y="304.5" width="87" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="3Pb-sB-NGq"/>
                                                     <constraint firstAttribute="width" constant="87" id="tFc-bU-531"/>
@@ -49,7 +49,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-B0-mbS">
-                                                <rect key="frame" x="137" y="134.66666666666666" width="140" height="139.99999999999997"/>
+                                                <rect key="frame" x="214" y="134.5" width="140" height="140"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="QOj-Ae-uEN"/>
@@ -61,7 +61,7 @@
                                                 </connections>
                                             </button>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vhp-h7-bev">
-                                                <rect key="frame" x="132" y="66.666666666666671" width="150" height="2"/>
+                                                <rect key="frame" x="209" y="66.5" width="150" height="2"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="An2-ei-TmR"/>
                                                     <constraint firstAttribute="height" constant="2" id="yof-be-3Tt"/>
@@ -70,27 +70,27 @@
                                                 <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </progressView>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQl-cG-ocf">
-                                                <rect key="frame" x="0.0" y="377.66666666666669" width="414" height="19"/>
+                                                <rect key="frame" x="0.0" y="377.5" width="568" height="19"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚗🚗🚗" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNA-Zo-cN5">
-                                                <rect key="frame" x="0.0" y="83.666666666666657" width="414" height="21"/>
+                                                <rect key="frame" x="0.0" y="83.5" width="568" height="21"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="7" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ewd-QR-ASn">
-                                                <rect key="frame" x="0.0" y="436.66666666666669" width="414" height="563.33333333333326"/>
+                                                <rect key="frame" x="0.0" y="436.5" width="568" height="563.5"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationLevel="-1" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="44" id="jJr-nM-Pcf">
-                                                        <rect key="frame" x="20" y="55.333332061767578" width="374" height="44"/>
+                                                        <rect key="frame" x="15" y="55.5" width="538" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jJr-nM-Pcf" id="gV8-mU-M56">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="538" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,13 +98,13 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="waiting" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ad-Ur-Yne">
-                                                <rect key="frame" x="165.66666666666666" y="191.66666666666666" width="83" height="21.333333333333343"/>
+                                                <rect key="frame" x="242.5" y="191.5" width="83" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Me !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJF-k8-O9a">
-                                                <rect key="frame" x="175" y="220" width="64" height="19"/>
+                                                <rect key="frame" x="252" y="220" width="64" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="9GO-Eu-Mdm"/>
                                                     <constraint firstAttribute="width" constant="64" id="beq-Ai-TOA"/>
@@ -156,7 +156,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="IU4-Pk-haF"/>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTM-PM-JxP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                                 <items>
                                     <navigationItem title="Reaction Test" id="TP3-He-mUU">
                                         <barButtonItem key="leftBarButtonItem" image="icons8-back-30" id="hMb-jA-Tfe">
@@ -213,11 +213,11 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="I7M-X9-bED" customClass="GeneralReportViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8cK-fu-ZVR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBw-jN-PJE">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                                 <items>
                                     <navigationItem title="Historical Report" id="plH-3H-FDC">
                                         <barButtonItem key="leftBarButtonItem" image="icons8-back-30" id="kkg-8T-wVs">
@@ -230,55 +230,55 @@
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okO-4G-zFN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="32" width="568" height="322"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA5-eI-44b">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="2200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. In last 24 hours, do you have at least 8 hours sleeping time?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hn-jy-YHL">
-                                                <rect key="frame" x="0.0" y="52.666666666666657" width="414" height="42.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="52.5" width="568" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. You do not drink coffee before you start driving today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2H-Yn-dLe">
-                                                <rect key="frame" x="0.0" y="148" width="414" height="42.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="147.5" width="568" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Have you taken regular breaks at least every two hours today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBm-GI-84E">
-                                                <rect key="frame" x="0.0" y="195.66666666666669" width="414" height="42.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="195" width="568" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. Is your journey less than 8 hours today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvI-Wa-Pyb">
-                                                <rect key="frame" x="0.0" y="243.33333333333329" width="414" height="42.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="242.5" width="568" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Is your driving going to be less than 2 hours today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxL-iH-Lbe">
-                                                <rect key="frame" x="0.0" y="100.33333333333334" width="414" height="42.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="100" width="568" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbf-oy-gV4">
-                                                <rect key="frame" x="0.0" y="10.000000000000002" width="414" height="27.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="10" width="568" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="X5d-eq-HhR">
-                                                <rect key="frame" x="0.0" y="301" width="414" height="89"/>
+                                                <rect key="frame" x="0.0" y="279" width="568" height="89"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="89" id="F2m-7K-dwd"/>
                                                 </constraints>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juw-rk-1Gv">
-                                                <rect key="frame" x="93.666666666666686" y="410" width="227" height="30"/>
+                                                <rect key="frame" x="170.5" y="388" width="227" height="30"/>
                                                 <color key="backgroundColor" red="0.23921568630000001" green="0.52156862749999999" blue="0.89019607840000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="DN0-Ok-RBn"/>
@@ -294,7 +294,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u65-fq-PW3">
-                                                <rect key="frame" x="124.66666666666669" y="450.66666666666663" width="165" height="30"/>
+                                                <rect key="frame" x="201.5" y="449.5" width="165" height="30"/>
                                                 <color key="backgroundColor" red="0.23921568630000001" green="0.52156862749999999" blue="0.89019607840000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="165" id="Mmh-aO-mIM"/>
@@ -310,31 +310,31 @@
                                                 </connections>
                                             </button>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UrT-j0-YbW">
-                                                <rect key="frame" x="20" y="515.66666666666663" width="374" height="200"/>
+                                                <rect key="frame" x="20" y="524.5" width="528" height="200"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BmP-70-wZB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="528" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMJ-Xz-h86">
-                                                            <rect key="frame" x="0.0" y="8.0000000000000018" width="374" height="27.666666666666671"/>
+                                                            <rect key="frame" x="0.0" y="8" width="528" height="27.5"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="22"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnL-jX-7mW">
-                                                            <rect key="frame" x="0.0" y="43.666666666666742" width="374" height="20"/>
+                                                            <rect key="frame" x="0.0" y="43.5" width="528" height="20"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fatigue Level" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGQ-3z-Shu">
-                                                            <rect key="frame" x="0.0" y="71.666666666666742" width="374" height="20"/>
+                                                            <rect key="frame" x="0.0" y="71.5" width="528" height="20"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7c-RH-dvb">
-                                                            <rect key="frame" x="56" y="113.66666666666674" width="82" height="20"/>
+                                                            <rect key="frame" x="133" y="113.5" width="82" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="82" id="Cav-Gg-yAZ"/>
                                                                 <constraint firstAttribute="height" constant="20" id="h4q-Ug-nEU"/>
@@ -344,7 +344,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q2:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIv-45-q5t">
-                                                            <rect key="frame" x="146" y="113.66666666666674" width="82" height="20"/>
+                                                            <rect key="frame" x="223" y="113.5" width="82" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="6HC-sN-Gef"/>
                                                                 <constraint firstAttribute="width" constant="82" id="mZ2-Zl-zma"/>
@@ -354,7 +354,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q3:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi5-Gh-bug">
-                                                            <rect key="frame" x="236" y="113.66666666666674" width="82" height="20"/>
+                                                            <rect key="frame" x="313" y="113.5" width="82" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="82" id="7Vi-Ik-faM"/>
                                                                 <constraint firstAttribute="height" constant="20" id="pZc-Dq-cJF"/>
@@ -364,7 +364,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q4:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-ck-z2t">
-                                                            <rect key="frame" x="56" y="148.66666666666674" width="82" height="20"/>
+                                                            <rect key="frame" x="133" y="148.5" width="82" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="82" id="cWb-TT-0KW"/>
                                                                 <constraint firstAttribute="height" constant="20" id="q0i-Se-zyt"/>
@@ -374,7 +374,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q5:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUY-LZ-ZgR">
-                                                            <rect key="frame" x="146" y="148.66666666666674" width="82" height="20"/>
+                                                            <rect key="frame" x="223" y="148.5" width="82" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="gwa-Pe-Fie"/>
                                                                 <constraint firstAttribute="width" constant="82" id="yeL-ej-bom"/>
@@ -417,13 +417,13 @@
                                                 </connections>
                                             </visualEffectView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK4-r8-iKU">
-                                                <rect key="frame" x="20" y="772.66666666666663" width="374" height="21.333333333333371"/>
+                                                <rect key="frame" x="20" y="781.5" width="528" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="k9Q-1o-Dwl">
-                                                <rect key="frame" x="0.0" y="723.66666666666663" width="414" height="37"/>
+                                                <rect key="frame" x="0.0" y="732.5" width="568" height="37"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="37" id="Vl8-EJ-vbm"/>
                                                 </constraints>
@@ -431,6 +431,18 @@
                                                     <action selector="pageControl:" destination="I7M-X9-bED" eventType="valueChanged" id="eYN-ya-CCN"/>
                                                 </connections>
                                             </pageControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Swipe card right/left to view different records" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQS-05-xa7">
+                                                <rect key="frame" x="10" y="489.5" width="548" height="12"/>
+                                                <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="9"/>
+                                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Select a data to view a card quickly" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsI-Xp-mcj">
+                                                <rect key="frame" x="10" y="428" width="548" height="11.5"/>
+                                                <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="9"/>
+                                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.20392156862745098" green="0.27843137254901962" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -438,41 +450,48 @@
                                             <constraint firstAttribute="trailing" secondItem="UrT-j0-YbW" secondAttribute="trailing" constant="20" id="297-Bf-jTg"/>
                                             <constraint firstItem="zK4-r8-iKU" firstAttribute="top" secondItem="k9Q-1o-Dwl" secondAttribute="bottom" constant="12" id="33k-iS-Q2D"/>
                                             <constraint firstItem="k2H-Yn-dLe" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="5CU-dD-yuX"/>
-                                            <constraint firstItem="UrT-j0-YbW" firstAttribute="top" secondItem="u65-fq-PW3" secondAttribute="bottom" constant="35" id="8pw-G7-w5V"/>
+                                            <constraint firstItem="UrT-j0-YbW" firstAttribute="top" secondItem="u65-fq-PW3" secondAttribute="bottom" constant="45" id="8pw-G7-w5V"/>
                                             <constraint firstAttribute="trailing" secondItem="wbf-oy-gV4" secondAttribute="trailing" id="8xl-8B-Qez"/>
                                             <constraint firstItem="FBm-GI-84E" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="9me-Cj-tUc"/>
+                                            <constraint firstItem="GsI-Xp-mcj" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="10" id="A3y-pz-zoe"/>
                                             <constraint firstItem="gxL-iH-Lbe" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="AiF-PL-Ofr"/>
                                             <constraint firstItem="k9Q-1o-Dwl" firstAttribute="centerX" secondItem="WA5-eI-44b" secondAttribute="centerX" id="C4g-kh-hdt"/>
                                             <constraint firstItem="juw-rk-1Gv" firstAttribute="top" secondItem="X5d-eq-HhR" secondAttribute="bottom" constant="20" id="CYc-EL-pfs"/>
                                             <constraint firstAttribute="trailing" secondItem="gxL-iH-Lbe" secondAttribute="trailing" id="EwY-Gh-76F"/>
                                             <constraint firstItem="UrT-j0-YbW" firstAttribute="centerX" secondItem="WA5-eI-44b" secondAttribute="centerX" id="GyM-qC-ojx"/>
                                             <constraint firstItem="FBm-GI-84E" firstAttribute="top" secondItem="k2H-Yn-dLe" secondAttribute="bottom" constant="5" id="I5j-Tg-WcR"/>
+                                            <constraint firstItem="u65-fq-PW3" firstAttribute="top" secondItem="GsI-Xp-mcj" secondAttribute="bottom" constant="10" id="IEj-N9-2vd"/>
                                             <constraint firstItem="wbf-oy-gV4" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="J4a-Gs-Ik5"/>
                                             <constraint firstAttribute="trailing" secondItem="k2H-Yn-dLe" secondAttribute="trailing" id="JQj-mV-FOn"/>
                                             <constraint firstItem="u65-fq-PW3" firstAttribute="centerX" secondItem="WA5-eI-44b" secondAttribute="centerX" id="My2-kL-X5W"/>
                                             <constraint firstItem="wbf-oy-gV4" firstAttribute="top" secondItem="WA5-eI-44b" secondAttribute="top" constant="10" id="Ngl-gb-tzw"/>
+                                            <constraint firstAttribute="trailing" secondItem="GsI-Xp-mcj" secondAttribute="trailing" constant="10" id="PYe-bx-Saj"/>
                                             <constraint firstItem="gxL-iH-Lbe" firstAttribute="top" secondItem="1hn-jy-YHL" secondAttribute="bottom" constant="5" id="RYh-PC-Eug"/>
                                             <constraint firstItem="zK4-r8-iKU" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="20" id="T8e-sj-WE3"/>
                                             <constraint firstItem="FvI-Wa-Pyb" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="URu-qE-WWb"/>
                                             <constraint firstItem="X5d-eq-HhR" firstAttribute="top" secondItem="FvI-Wa-Pyb" secondAttribute="bottom" constant="15" id="Utw-IW-R0q"/>
                                             <constraint firstItem="1hn-jy-YHL" firstAttribute="top" secondItem="wbf-oy-gV4" secondAttribute="bottom" constant="15" id="VLD-v9-lRK"/>
+                                            <constraint firstItem="UrT-j0-YbW" firstAttribute="top" secondItem="oQS-05-xa7" secondAttribute="bottom" constant="23" id="XnY-fj-BSm"/>
                                             <constraint firstAttribute="trailing" secondItem="1hn-jy-YHL" secondAttribute="trailing" id="Xxz-Lv-Pfj"/>
                                             <constraint firstItem="UrT-j0-YbW" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="20" id="aM9-Xl-VZd"/>
                                             <constraint firstItem="k2H-Yn-dLe" firstAttribute="top" secondItem="gxL-iH-Lbe" secondAttribute="bottom" constant="5" id="dcl-lC-9g1"/>
                                             <constraint firstItem="zK4-r8-iKU" firstAttribute="centerX" secondItem="WA5-eI-44b" secondAttribute="centerX" id="iYb-1i-m0S"/>
+                                            <constraint firstItem="GsI-Xp-mcj" firstAttribute="top" secondItem="juw-rk-1Gv" secondAttribute="bottom" constant="10" id="jFz-KN-rKj"/>
                                             <constraint firstItem="wbf-oy-gV4" firstAttribute="centerX" secondItem="WA5-eI-44b" secondAttribute="centerX" id="kB1-Jt-GwX"/>
                                             <constraint firstAttribute="trailing" secondItem="FvI-Wa-Pyb" secondAttribute="trailing" id="kUu-0q-jAE"/>
                                             <constraint firstAttribute="trailing" secondItem="FBm-GI-84E" secondAttribute="trailing" id="mTn-xJ-Ddx"/>
+                                            <constraint firstAttribute="trailing" secondItem="oQS-05-xa7" secondAttribute="trailing" constant="10" id="mdN-b2-51M"/>
                                             <constraint firstItem="juw-rk-1Gv" firstAttribute="centerX" secondItem="WA5-eI-44b" secondAttribute="centerX" id="oIt-kN-PCd"/>
+                                            <constraint firstItem="oQS-05-xa7" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="10" id="oQV-X0-BTs"/>
                                             <constraint firstItem="X5d-eq-HhR" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="p6B-iX-VUd"/>
                                             <constraint firstAttribute="trailing" secondItem="X5d-eq-HhR" secondAttribute="trailing" id="rRv-Xs-BGv"/>
                                             <constraint firstAttribute="trailing" secondItem="zK4-r8-iKU" secondAttribute="trailing" constant="20" id="rfq-bK-60C"/>
                                             <constraint firstItem="FvI-Wa-Pyb" firstAttribute="top" secondItem="FBm-GI-84E" secondAttribute="bottom" constant="5" id="rlG-2m-nYe"/>
                                             <constraint firstAttribute="trailing" secondItem="k9Q-1o-Dwl" secondAttribute="trailing" id="t9d-3j-Osi"/>
                                             <constraint firstItem="k9Q-1o-Dwl" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="taU-oH-wIi"/>
-                                            <constraint firstItem="u65-fq-PW3" firstAttribute="top" secondItem="juw-rk-1Gv" secondAttribute="bottom" constant="10.5" id="ttJ-jf-MMo"/>
                                             <constraint firstAttribute="height" constant="2200" id="wBK-1v-D5W"/>
                                             <constraint firstItem="1hn-jy-YHL" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="xlD-gM-ENA"/>
+                                            <constraint firstItem="oQS-05-xa7" firstAttribute="top" secondItem="u65-fq-PW3" secondAttribute="bottom" constant="10" id="zOu-ql-aPG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -540,11 +559,11 @@
             <objects>
                 <viewController storyboardIdentifier="ReactionResultSegue" id="qYk-8z-bs2" customClass="ReactionResultViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dgX-Kx-nI5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhc-zP-wJA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
                                 <items>
                                     <navigationItem title="Reaction Test Report" id="doL-mq-yE3">
                                         <barButtonItem key="leftBarButtonItem" image="icons8-back-30" id="Uz9-YQ-u2n">
@@ -568,14 +587,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-s9-zSK">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-e3-ZUE">
-                                                <rect key="frame" x="0.0" y="30" width="320" height="27.666666666666671"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Result" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-e3-ZUE">
+                                                <rect key="frame" x="0.0" y="30" width="320" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4X-yb-A7j">
-                                                <rect key="frame" x="0.0" y="72.666666666666657" width="320" height="21.333333333333329"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Score" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4X-yb-A7j">
+                                                <rect key="frame" x="0.0" y="72.5" width="320" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -616,13 +635,13 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8y-fe-I4c">
-                                                <rect key="frame" x="0.0" y="196" width="320" height="21.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="196" width="320" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level of fatigue:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-Qe-fqu">
-                                                <rect key="frame" x="62.666666666666657" y="267.33333333333331" width="194.99999999999997" height="22.666666666666686"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level of fatigue:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-Qe-fqu">
+                                                <rect key="frame" x="62.5" y="267.5" width="195.5" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -647,8 +666,8 @@
                                                 <viewLayoutGuide key="contentLayoutGuide" id="FTO-7b-f1j"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="5Im-ng-rpq"/>
                                             </scrollView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJj-hX-RJg">
-                                                <rect key="frame" x="0.0" y="297.33333333333331" width="320" height="21.666666666666686"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJj-hX-RJg">
+                                                <rect key="frame" x="0.0" y="297.5" width="320" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -738,29 +757,29 @@
             <objects>
                 <viewController id="cKW-lR-evU" customClass="AboutUsViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fXe-F3-6mS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chr-aZ-4Nu">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                                 <items>
                                     <navigationItem title="😋About us😋" id="FgM-TJ-qpE"/>
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" indicatorStyle="white" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfO-Rw-CQV">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="32" width="568" height="256"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot2-37-61S">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-Js-Ier">
-                                                <rect key="frame" x="0.0" y="30" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="30" width="568" height="30"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPs-e9-zgQ">
-                                                <rect key="frame" x="10" y="89.999999999999972" width="394" height="451.33333333333326"/>
+                                                <rect key="frame" x="10" y="90" width="548" height="309"/>
                                                 <string key="text">In transit is a team that consists of members from different nationalities working remotely aiming to use technical power to prevent safety for our clients. The science will help us to make the world a better place.  Our team consists of 4 members with a strong IT background with expertise in data analytics, visualization, mobile application development, and project management. We are a dedicated, hardworking and results-driven team. We ensuring that what we build helps create the best possible world.</string>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -819,11 +838,11 @@
             <objects>
                 <viewController id="H1B-uM-L1T" customClass="webMapViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5PT-VI-FhV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPx-bN-6Ak">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="288"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -831,7 +850,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Starting point" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TYZ-ed-Ih3">
-                                <rect key="frame" x="13" y="56" width="150" height="34"/>
+                                <rect key="frame" x="90" y="12" width="150" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="AgQ-f6-O3i"/>
                                     <constraint firstAttribute="height" constant="34" id="kZt-Bd-Iio"/>
@@ -843,7 +862,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xwJ-Fj-dhp">
-                                <rect key="frame" x="251" y="56" width="150" height="34"/>
+                                <rect key="frame" x="328" y="12" width="150" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="SjA-cw-5e8"/>
                                     <constraint firstAttribute="height" constant="34" id="mD3-ke-979"/>
@@ -855,7 +874,7 @@
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-JE-Klj">
-                                <rect key="frame" x="98" y="110" width="218" height="35"/>
+                                <rect key="frame" x="175" y="66" width="218" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="7bJ-dw-UJP"/>
@@ -872,7 +891,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5Y-wa-b4D" userLabel="Swap">
-                                <rect key="frame" x="192" y="58" width="30" height="30"/>
+                                <rect key="frame" x="269" y="14" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Xqg-NT-XKj"/>
                                     <constraint firstAttribute="height" constant="30" id="zPk-Gz-enI"/>
@@ -883,7 +902,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVi-Ko-o98">
-                                <rect key="frame" x="316" y="107" width="85" height="40"/>
+                                <rect key="frame" x="393" y="63" width="85" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="AzF-Sk-RC5"/>
                                     <constraint firstAttribute="height" constant="40" id="QX7-8u-YDE"/>
@@ -898,6 +917,17 @@
                                     <action selector="routeButton:" destination="H1B-uM-L1T" eventType="touchUpInside" id="C8w-08-mBo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ups-H5-6Mw">
+                                <rect key="frame" x="15" y="233" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Fs8-TI-6mk"/>
+                                    <constraint firstAttribute="height" constant="35" id="NmK-5P-hgS"/>
+                                </constraints>
+                                <state key="normal" image="icons8-location-35"/>
+                                <connections>
+                                    <action selector="locateCurrentLocation:" destination="H1B-uM-L1T" eventType="touchUpInside" id="pSt-iH-Yzn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21568627450980393" green="0.27843137254901962" blue="0.40000000000000002" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
@@ -906,7 +936,9 @@
                             <constraint firstItem="YVi-Ko-o98" firstAttribute="centerY" secondItem="DPI-JE-Klj" secondAttribute="centerY" id="8lD-sD-vKK"/>
                             <constraint firstItem="J5Y-wa-b4D" firstAttribute="leading" secondItem="TYZ-ed-Ih3" secondAttribute="trailing" constant="29" id="HQi-Ae-Rzz"/>
                             <constraint firstItem="YVi-Ko-o98" firstAttribute="leading" secondItem="DPI-JE-Klj" secondAttribute="trailing" id="Ie5-aM-pla"/>
+                            <constraint firstItem="N7N-W7-PZp" firstAttribute="bottom" secondItem="Ups-H5-6Mw" secondAttribute="bottom" constant="20" id="L05-8q-Owj"/>
                             <constraint firstItem="CPx-bN-6Ak" firstAttribute="top" secondItem="5PT-VI-FhV" secondAttribute="top" id="NdR-so-NYv"/>
+                            <constraint firstItem="Ups-H5-6Mw" firstAttribute="leading" secondItem="N7N-W7-PZp" secondAttribute="leading" constant="15" id="QdQ-Jl-R30"/>
                             <constraint firstItem="CPx-bN-6Ak" firstAttribute="trailing" secondItem="N7N-W7-PZp" secondAttribute="trailing" id="VCD-sf-6wR"/>
                             <constraint firstAttribute="bottom" secondItem="CPx-bN-6Ak" secondAttribute="bottom" id="Vve-kR-iFU"/>
                             <constraint firstItem="J5Y-wa-b4D" firstAttribute="centerY" secondItem="TYZ-ed-Ih3" secondAttribute="centerY" id="dND-wQ-T3p"/>
@@ -946,35 +978,35 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="zad-fm-wVw" customClass="PurposeViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ukY-o3-NOE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLp-z5-sZr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="32" width="568" height="288"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7x-Kl-g4R">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="800"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WE HOPE to reduce the number of traffic accidents and potential injuries." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwR-xU-O8M">
-                                                <rect key="frame" x="20" y="40" width="374" height="64"/>
+                                                <rect key="frame" x="20" y="40" width="528" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WE DO OUR BEST to provide drivers with the risk level of accidents around their location." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhB-Sl-3If">
-                                                <rect key="frame" x="20" y="124" width="374" height="64"/>
+                                                <rect key="frame" x="20" y="102.5" width="528" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WE HOPE to reduce the number of traffic accidents and potential injuries." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGd-sg-qHG">
-                                                <rect key="frame" x="20" y="208" width="374" height="64"/>
+                                                <rect key="frame" x="20" y="165" width="528" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purposeBg" translatesAutoresizingMaskIntoConstraints="NO" id="2KD-sT-35T">
-                                                <rect key="frame" x="0.0" y="312" width="414" height="400"/>
+                                                <rect key="frame" x="0.0" y="247.5" width="568" height="400"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="cOz-KH-JMW"/>
                                                 </constraints>
@@ -1009,7 +1041,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Wzl-zb-Uhh"/>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSe-1P-vO9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                                 <color key="barTintColor" red="0.34901960780000002" green="0.50196078430000002" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
                                 <items>
                                     <navigationItem title="Our Purpose" id="21O-vk-WD0">
@@ -1046,17 +1078,17 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="Q07-QR-cc7" customClass="QuestionViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RoH-cd-z5u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hek-1U-ed8">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="32" width="568" height="288"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QkU-xN-F0t">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXZ-HB-bA3">
-                                                <rect key="frame" x="25" y="105" width="364" height="160"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXZ-HB-bA3">
+                                                <rect key="frame" x="25" y="105" width="518" height="160"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="160" id="vHR-GU-Sr3"/>
                                                 </constraints>
@@ -1065,20 +1097,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-faq-70" translatesAutoresizingMaskIntoConstraints="NO" id="FwR-Sd-Z9h">
-                                                <rect key="frame" x="76" y="15" width="262" height="70"/>
+                                                <rect key="frame" x="76" y="15" width="416" height="70"/>
                                             </imageView>
                                             <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OuL-Xf-QwT">
-                                                <rect key="frame" x="0.0" y="374" width="414" height="230"/>
+                                                <rect key="frame" x="0.0" y="374" width="568" height="230"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="230" id="YGP-Zb-Inw"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="69" translatesAutoresizingMaskIntoConstraints="NO" id="dFb-la-DBc">
-                                                        <rect key="frame" x="0.0" y="28" width="414" height="69"/>
+                                                        <rect key="frame" x="0.0" y="28" width="568" height="69"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFb-la-DBc" id="mV5-ho-ueO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="69"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="529" height="69"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1104,13 +1136,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubb-5S-f7U">
-                                                <rect key="frame" x="303.66666666666669" y="324.66666666666669" width="31" height="17.666666666666686"/>
+                                                <rect key="frame" x="457.5" y="324.5" width="31" height="18"/>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="14"/>
                                                 <color key="textColor" red="0.1803921568627451" green="0.80000000000000004" blue="0.34509803921568627" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQf-5t-k2G" userLabel="yesButton">
-                                                <rect key="frame" x="294" y="273" width="50" height="50"/>
+                                                <rect key="frame" x="448" y="273" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3S9-u6-rXa"/>
                                                     <constraint firstAttribute="width" constant="50" id="xjT-9w-X8I"/>
@@ -1121,7 +1153,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-aA-fcm">
-                                                <rect key="frame" x="165" y="624" width="84" height="30"/>
+                                                <rect key="frame" x="242" y="624" width="84" height="30"/>
                                                 <color key="backgroundColor" red="0.23921568627450979" green="0.52156862745098043" blue="0.8901960784313725" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="84" id="jql-it-8Kr"/>
@@ -1138,7 +1170,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5co-or-qth">
-                                                <rect key="frame" x="30" y="664" width="354" height="34"/>
+                                                <rect key="frame" x="30" y="664" width="508" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="uFb-u4-xiQ"/>
                                                 </constraints>
@@ -1189,7 +1221,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="JfH-yr-Nk2"/>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIv-9P-bqJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Questionaires" id="Ylk-MU-bNA">
@@ -1237,26 +1269,26 @@
             <objects>
                 <viewController id="99O-gc-a7l" customClass="RulesViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pQE-Ss-6cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4h-0i-N0D">
-                                <rect key="frame" x="0.0" y="57" width="414" height="751"/>
+                                <rect key="frame" x="0.0" y="57" width="568" height="263"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tN-0B-ZzU">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="1000"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fullRulesBg" translatesAutoresizingMaskIntoConstraints="NO" id="GPi-ps-xiR">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="568" height="1000"/>
                                             </imageView>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSR-SY-d59">
-                                                <rect key="frame" x="15" y="25" width="384" height="50"/>
+                                                <rect key="frame" x="15" y="25" width="538" height="50"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vm7-n1-4FO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="538" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Test Time : 1.5 minutes" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZn-aG-PHS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="538" height="50"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1275,50 +1307,50 @@
                                                 <blurEffect style="systemUltraThinMaterialDark"/>
                                             </visualEffectView>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWk-8H-SSR">
-                                                <rect key="frame" x="20" y="95" width="374" height="625.33333333333337"/>
+                                                <rect key="frame" x="20" y="95" width="528" height="606.5"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IT0-HH-zyp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="625.33333333333337"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="528" height="606.5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Tap the circle when it starts timing ⏱️" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvL-W4-xBs">
-                                                            <rect key="frame" x="0.0" y="19.999999999999996" width="374" height="37.666666666666657"/>
+                                                            <rect key="frame" x="0.0" y="20" width="528" height="19"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tapCircle2" translatesAutoresizingMaskIntoConstraints="NO" id="MQF-dW-zDF">
-                                                            <rect key="frame" x="126" y="87.666666666666657" width="126" height="180.99999999999997"/>
+                                                            <rect key="frame" x="203" y="69" width="126" height="181"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="126" id="MsJ-JQ-E1U"/>
                                                                 <constraint firstAttribute="height" constant="181" id="oZk-zj-qwC"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Tap the circle when the it starts timing ⌛" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPi-eq-j1H">
-                                                            <rect key="frame" x="0.0" y="298.66666666666669" width="374" height="37.666666666666686"/>
+                                                            <rect key="frame" x="0.0" y="280" width="528" height="19"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Early tap will result in waiting time reset 💡" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-Oz-YSc">
-                                                            <rect key="frame" x="0.0" y="356.33333333333331" width="374" height="37.666666666666686"/>
+                                                            <rect key="frame" x="0.0" y="319" width="528" height="19"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. The time of each tap will be recorded ✨" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-48-1l6">
-                                                            <rect key="frame" x="0.0" y="414" width="374" height="37.666666666666686"/>
+                                                            <rect key="frame" x="0.0" y="358" width="528" height="19"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. No tap within 30s after the timing started, the test will be over 😭" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-GR-eWM">
-                                                            <rect key="frame" x="0.0" y="471.66666666666663" width="374" height="37.666666666666686"/>
+                                                            <rect key="frame" x="0.0" y="397" width="528" height="37.5"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6. The report will be generated after test finished 💯" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gky-DJ-P1e">
-                                                            <rect key="frame" x="0.0" y="529.33333333333337" width="374" height="37.666666666666629"/>
+                                                            <rect key="frame" x="0.0" y="454.5" width="528" height="19"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1353,9 +1385,9 @@
                                                 <blurEffect style="systemUltraThinMaterialDark"/>
                                             </visualEffectView>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOf-IS-GAI">
-                                                <rect key="frame" x="147.66666666666666" y="745.33333333333337" width="118.99999999999997" height="52"/>
+                                                <rect key="frame" x="224.5" y="726.5" width="119" height="52"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MmM-iG-FIb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="118.99999999999997" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="119" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-Co-gML">
@@ -1411,7 +1443,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="g1j-e5-jkp"/>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XD5-bd-DIz">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="57"/>
                                 <items>
                                     <navigationItem title="📖 Reaction Test Rules 📖" id="VKc-1K-QJq">
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="icons8-back-30" id="Ljb-Vg-YGz">
@@ -1454,114 +1486,6 @@
             </objects>
             <point key="canvasLocation" x="4130.625" y="-1301.25"/>
         </scene>
-        <!--Second Lanuch View Controller-->
-        <scene sceneID="6iP-BU-OnT">
-            <objects>
-                <viewController id="Oyr-HG-NM0" customClass="secondLanuchViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iMa-jV-goe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch2" translatesAutoresizingMaskIntoConstraints="NO" id="f8D-gO-Erh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="f8D-gO-Erh" firstAttribute="trailing" secondItem="fmn-Ks-lhy" secondAttribute="trailing" id="Q0u-sp-3ha"/>
-                            <constraint firstItem="f8D-gO-Erh" firstAttribute="leading" secondItem="fmn-Ks-lhy" secondAttribute="leading" id="nh3-Wv-3Oi"/>
-                            <constraint firstItem="f8D-gO-Erh" firstAttribute="bottom" secondItem="fmn-Ks-lhy" secondAttribute="bottom" constant="34" id="pJI-uJ-XuO"/>
-                            <constraint firstItem="f8D-gO-Erh" firstAttribute="top" secondItem="fmn-Ks-lhy" secondAttribute="top" constant="-44" id="v2s-NL-Zfl"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fmn-Ks-lhy"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="RTz-Y6-Npn"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sHL-d0-NJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1236" y="-416"/>
-        </scene>
-        <!--Password View Controller-->
-        <scene sceneID="iID-Dp-QqR">
-            <objects>
-                <viewController storyboardIdentifier="passwordController" id="GZy-RL-ptW" customClass="passwordViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VDG-I0-YxF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="NjM-yA-Q7j">
-                                <rect key="frame" x="0.0" y="64" width="414" height="203"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="203" id="Pf2-PA-zNT"/>
-                                    <constraint firstAttribute="width" constant="320" id="jsF-6l-1ce"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZzR-bh-egy">
-                                <rect key="frame" x="132" y="346" width="150" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="H7q-Zz-yaE"/>
-                                    <constraint firstAttribute="width" constant="150" id="uIk-UI-Clc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="aa:" destination="tSv-6C-4up" eventType="editingDidEndOnExit" id="Fdf-u5-ZLl"/>
-                                    <action selector="action:" destination="tSv-6C-4up" eventType="editingDidEnd" id="bBZ-QV-ofG"/>
-                                    <action selector="passwordAction:" destination="tSv-6C-4up" eventType="editingDidEnd" id="V68-uK-o5J"/>
-                                    <action selector="passwordTextField:" destination="tSv-6C-4up" eventType="editingDidEnd" id="D44-8S-psJ"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zie-Hg-i39">
-                                <rect key="frame" x="0.0" y="287" width="414" height="32.666666666666686"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPq-ct-MG7">
-                                <rect key="frame" x="162" y="400" width="90" height="45"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Confirm">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <font key="NSFont" size="25" name="MarkerFelt-Wide"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="button:" destination="tSv-6C-4up" eventType="touchUpInside" id="B3W-Om-RLN"/>
-                                    <action selector="button:" destination="GZy-RL-ptW" eventType="touchUpInside" id="O5G-fe-ZHm"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="oPq-ct-MG7" firstAttribute="top" secondItem="ZzR-bh-egy" secondAttribute="bottom" constant="20" id="9bW-eh-4au"/>
-                            <constraint firstItem="NjM-yA-Q7j" firstAttribute="centerX" secondItem="VDG-I0-YxF" secondAttribute="centerX" id="AIL-CT-v5z"/>
-                            <constraint firstItem="Zie-Hg-i39" firstAttribute="leading" secondItem="guz-Hq-Stx" secondAttribute="leading" id="OON-wn-kyb"/>
-                            <constraint firstItem="ZzR-bh-egy" firstAttribute="top" secondItem="Zie-Hg-i39" secondAttribute="bottom" constant="26.5" id="XoF-LH-fy7"/>
-                            <constraint firstItem="NjM-yA-Q7j" firstAttribute="leading" secondItem="guz-Hq-Stx" secondAttribute="leading" id="ZDV-Wo-bsw"/>
-                            <constraint firstItem="oPq-ct-MG7" firstAttribute="centerX" secondItem="VDG-I0-YxF" secondAttribute="centerX" id="fc6-bp-21a"/>
-                            <constraint firstItem="ZzR-bh-egy" firstAttribute="centerX" secondItem="VDG-I0-YxF" secondAttribute="centerX" id="rin-Bl-Qmc"/>
-                            <constraint firstAttribute="trailing" secondItem="Zie-Hg-i39" secondAttribute="trailing" id="s74-cb-mGs"/>
-                            <constraint firstItem="Zie-Hg-i39" firstAttribute="top" secondItem="NjM-yA-Q7j" secondAttribute="bottom" constant="20" id="us5-x9-KR9"/>
-                            <constraint firstItem="NjM-yA-Q7j" firstAttribute="top" secondItem="guz-Hq-Stx" secondAttribute="top" constant="20" id="vmA-vH-3kd"/>
-                            <constraint firstItem="NjM-yA-Q7j" firstAttribute="trailing" secondItem="guz-Hq-Stx" secondAttribute="trailing" id="xk0-Gj-NcC"/>
-                            <constraint firstItem="Zie-Hg-i39" firstAttribute="centerX" secondItem="VDG-I0-YxF" secondAttribute="centerX" id="yWa-ZL-8lE"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="guz-Hq-Stx"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eQ3-d5-5mG"/>
-                    <connections>
-                        <outlet property="textField" destination="ZzR-bh-egy" id="rzt-Ql-ivv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IRe-qh-CpA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="tSv-6C-4up" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-204.375" y="-417.5"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3uS-6W-KJ6">
             <objects>
@@ -1597,17 +1521,17 @@
             <objects>
                 <viewController id="lhj-iG-hY7" customClass="HomeViewController" customModule="SafetyDriving" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5VI-B1-MCE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" indicatorStyle="white" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg1-i8-7mj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="32" width="568" height="256"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xi-vJ-itg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Get a good night's sleep before heading off on a long trip" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTB-ST-Dfo">
-                                                <rect key="frame" x="0.0" y="282" width="414" height="170"/>
+                                                <rect key="frame" x="0.0" y="282" width="568" height="170"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="170" id="xed-nG-jhV"/>
                                                 </constraints>
@@ -1616,31 +1540,31 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3R-TP-Y10">
-                                                <rect key="frame" x="8" y="8" width="398" height="131"/>
+                                                <rect key="frame" x="8" y="8" width="552" height="131"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="snQ-Y6-vLd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="131"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="552" height="131"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="weather" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3za-aR-TRM">
-                                                            <rect key="frame" x="5" y="8" width="194.66666666666666" height="24"/>
+                                                            <rect key="frame" x="5" y="8" width="195" height="24"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="19"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="humidity" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5r-Wo-YQ6">
-                                                            <rect key="frame" x="5" y="87" width="280" height="24"/>
+                                                            <rect key="frame" x="5" y="87" width="434" height="24"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="19"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="currentTemp" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-Qw-qcp">
-                                                            <rect key="frame" x="5" y="48" width="159.66666666666666" height="24"/>
+                                                            <rect key="frame" x="5" y="48" width="160" height="24"/>
                                                             <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="19"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="law-fD-qbI">
-                                                            <rect key="frame" x="199.66666666666666" y="20" width="84.999999999999972" height="67"/>
+                                                            <rect key="frame" x="200" y="20" width="85" height="67"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="85" id="YoG-qW-eIE"/>
                                                                 <constraint firstAttribute="height" constant="67" id="ych-XC-UFK"/>
@@ -1666,13 +1590,14 @@
                                                 <blurEffect style="regular"/>
                                             </visualEffectView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-3f-Mc8">
-                                                <rect key="frame" x="54" y="174" width="87" height="73"/>
+                                                <rect key="frame" x="134.5" y="174" width="93" height="82"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="73" id="FHd-gP-zqb"/>
-                                                    <constraint firstAttribute="width" constant="87" id="fI9-u9-ryY"/>
+                                                    <constraint firstAttribute="height" constant="82" id="FHd-gP-zqb"/>
+                                                    <constraint firstAttribute="width" constant="93" id="fI9-u9-ryY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
-                                                <inset key="titleEdgeInsets" minX="-45" minY="73" maxX="0.0" maxY="0.0"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="-21" maxX="0.0" maxY="0.0"/>
+                                                <inset key="titleEdgeInsets" minX="-45" minY="73" maxX="5" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="23" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Purpose" image="icons8-about-50"/>
                                                 <connections>
@@ -1680,21 +1605,22 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VL1-ay-0HY">
-                                                <rect key="frame" x="171" y="174" width="72" height="73"/>
+                                                <rect key="frame" x="237.5" y="174" width="93" height="82"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="73" id="PTZ-HM-i1o"/>
-                                                    <constraint firstAttribute="width" constant="72" id="r4h-Zf-VA7"/>
+                                                    <constraint firstAttribute="height" constant="82" id="PTZ-HM-i1o"/>
+                                                    <constraint firstAttribute="width" constant="93" id="r4h-Zf-VA7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
-                                                <inset key="titleEdgeInsets" minX="-50" minY="73" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="-21" maxX="0.0" maxY="0.0"/>
+                                                <inset key="titleEdgeInsets" minX="-48" minY="73" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Report" image="icons8-business-report-50"/>
                                                 <connections>
                                                     <segue destination="I7M-X9-bED" kind="show" id="ZKj-OI-ijN"/>
                                                 </connections>
                                             </button>
                                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7y-kd-ggq">
-                                                <rect key="frame" x="10" y="467" width="394" height="300"/>
+                                                <rect key="frame" x="10" y="467" width="548" height="300"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="ItY-BB-daF"/>
@@ -1705,14 +1631,15 @@
                                                 </wkWebViewConfiguration>
                                             </wkWebView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ4-DM-87A">
-                                                <rect key="frame" x="273" y="174" width="51" height="92"/>
+                                                <rect key="frame" x="340.5" y="174" width="93" height="82"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="51" id="2qu-mq-qEA"/>
-                                                    <constraint firstAttribute="height" constant="92" id="X5D-D3-SVQ"/>
+                                                    <constraint firstAttribute="width" constant="93" id="2qu-mq-qEA"/>
+                                                    <constraint firstAttribute="height" constant="82" id="X5D-D3-SVQ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
-                                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="18"/>
-                                                <inset key="titleEdgeInsets" minX="-49" minY="73" maxX="0.0" maxY="0.0"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="-4" maxX="0.0" maxY="18"/>
+                                                <inset key="titleEdgeInsets" minX="-50" minY="75" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="21" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Test" image="icons8-pass-fail-50">
                                                     <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </state>
@@ -1723,7 +1650,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="WZ4-DM-87A" firstAttribute="leading" secondItem="VL1-ay-0HY" secondAttribute="trailing" constant="30" id="273-Ys-3bV"/>
+                                            <constraint firstItem="WZ4-DM-87A" firstAttribute="leading" secondItem="VL1-ay-0HY" secondAttribute="trailing" constant="10" id="273-Ys-3bV"/>
                                             <constraint firstItem="S7y-kd-ggq" firstAttribute="leading" secondItem="3Xi-vJ-itg" secondAttribute="leading" constant="10" id="2ae-Tf-Sp5"/>
                                             <constraint firstItem="I3R-TP-Y10" firstAttribute="top" secondItem="3Xi-vJ-itg" secondAttribute="top" constant="8" id="3zG-Eu-gBQ"/>
                                             <constraint firstItem="VL1-ay-0HY" firstAttribute="centerX" secondItem="3Xi-vJ-itg" secondAttribute="centerX" id="EJ2-Gq-i1f"/>
@@ -1731,11 +1658,11 @@
                                             <constraint firstAttribute="trailing" secondItem="S7y-kd-ggq" secondAttribute="trailing" constant="10" id="Qmf-Dt-ju7"/>
                                             <constraint firstAttribute="height" constant="1000" id="Vz4-1m-r0z"/>
                                             <constraint firstItem="WZ4-DM-87A" firstAttribute="top" secondItem="i4D-3f-Mc8" secondAttribute="top" id="X6Y-yZ-3Sg"/>
-                                            <constraint firstItem="VL1-ay-0HY" firstAttribute="leading" secondItem="i4D-3f-Mc8" secondAttribute="trailing" constant="30" id="ZGq-kz-PiF"/>
+                                            <constraint firstItem="VL1-ay-0HY" firstAttribute="leading" secondItem="i4D-3f-Mc8" secondAttribute="trailing" constant="10" id="ZGq-kz-PiF"/>
                                             <constraint firstAttribute="trailing" secondItem="DTB-ST-Dfo" secondAttribute="trailing" id="bn6-oy-vB5"/>
                                             <constraint firstItem="VL1-ay-0HY" firstAttribute="top" secondItem="i4D-3f-Mc8" secondAttribute="top" id="jVl-0n-Rn4"/>
                                             <constraint firstItem="i4D-3f-Mc8" firstAttribute="top" secondItem="I3R-TP-Y10" secondAttribute="bottom" constant="35" id="jh2-an-3Fe"/>
-                                            <constraint firstItem="DTB-ST-Dfo" firstAttribute="top" secondItem="WZ4-DM-87A" secondAttribute="bottom" constant="16" id="qPt-Rt-wZB"/>
+                                            <constraint firstItem="DTB-ST-Dfo" firstAttribute="top" secondItem="WZ4-DM-87A" secondAttribute="bottom" constant="26" id="qPt-Rt-wZB"/>
                                             <constraint firstItem="I3R-TP-Y10" firstAttribute="leading" secondItem="3Xi-vJ-itg" secondAttribute="leading" constant="8" id="ubf-Cy-Q0R"/>
                                             <constraint firstItem="S7y-kd-ggq" firstAttribute="top" secondItem="DTB-ST-Dfo" secondAttribute="bottom" constant="15" id="vRd-g4-29I"/>
                                             <constraint firstAttribute="trailing" secondItem="I3R-TP-Y10" secondAttribute="trailing" constant="8" id="yHj-Pd-FZg"/>
@@ -1754,7 +1681,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="5nL-AU-p9l"/>
                             </scrollView>
                             <navigationBar opaque="NO" tag="1" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="HH8-Cp-eQh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                                 <color key="barTintColor" red="0.2156862745" green="0.2784313725" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="LexendGiga-Regular" family="Lexend Giga" pointSize="15"/>
@@ -1787,7 +1714,9 @@
                         <outlet property="currentTempLabel" destination="c2c-Qw-qcp" id="NxO-FH-bK6"/>
                         <outlet property="humidityLabel" destination="G5r-Wo-YQ6" id="BGw-Iy-JFW"/>
                         <outlet property="purposeButton" destination="i4D-3f-Mc8" id="CU2-aX-av6"/>
+                        <outlet property="reportButton" destination="VL1-ay-0HY" id="0Gd-uC-A1r"/>
                         <outlet property="scrollView" destination="Dg1-i8-7mj" id="f1P-uS-18h"/>
+                        <outlet property="testButton" destination="WZ4-DM-87A" id="6gt-Ge-QIH"/>
                         <outlet property="tipsLabel" destination="DTB-ST-Dfo" id="cGT-Df-Ckx"/>
                         <outlet property="visualEffectView" destination="I3R-TP-Y10" id="vNH-Gu-Thk"/>
                         <outlet property="weatherImg" destination="law-fD-qbI" id="OO3-DI-0A3"/>
@@ -1797,7 +1726,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50c-O6-4BR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="-442"/>
+            <point key="canvasLocation" x="1443.4782608695652" y="-442.63392857142856"/>
         </scene>
     </scenes>
     <resources>
@@ -1811,11 +1740,10 @@
         <image name="icons8-faq-70" width="70" height="70"/>
         <image name="icons8-home-50_meitu_2" width="30" height="30"/>
         <image name="icons8-info-30" width="30" height="30"/>
+        <image name="icons8-location-35" width="35" height="35"/>
         <image name="icons8-pass-fail-50" width="50" height="50"/>
         <image name="icons8-start-48" width="48" height="48"/>
         <image name="icons8-test-35" width="35" height="35"/>
-        <image name="launch2" width="370" height="800"/>
-        <image name="logo1" width="648" height="648"/>
         <image name="new-icons8-data-transfer-30" width="30" height="30"/>
         <image name="new-icons8-navigation-30" width="40" height="40"/>
         <image name="purposeBg" width="612" height="612"/>

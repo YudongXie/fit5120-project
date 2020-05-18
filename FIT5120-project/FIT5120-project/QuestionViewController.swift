@@ -98,9 +98,6 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         questionLabel.fadeTransition(0.9)
-//        questionLabel.text = questionList[currentQuestionIndex]
-//        questionLabel.text = "Question \(currentQuestionIndex+1): \(questionList[currentQuestionIndex])"
-        
         /*getting the BOOL value from coredata, and set it to check or uncheck image for buttons*/
         switch currentQuestionIndex {
         case 0:
@@ -310,7 +307,6 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         default:
             break
         }
-//        cell.textLabel!.text = questionList[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel!.font = UIFont(name:"LexendGiga-Regular", size:15)
         

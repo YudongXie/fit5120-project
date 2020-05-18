@@ -48,8 +48,10 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
     var noArray = [0,0,0,0,0]
     var secondViewHeight : CGFloat = 0.0
     var currentPage = 0
-    let yesArrayStr = ["you have enough sleeping time almost every day","you always drive less than two hours last week, It is good for your health","you avoid drink coffee before driving","you taken regular breaks during driving, you are a healthy driver","you try to avoid longtime driving"]
+    
+    let yesArrayStr = ["you have enough sleeping time almost every day","you always drive less than two hours last week, it is good for your health","you avoid drink coffee before driving","you taken regular breaks during driving, you are a healthy driver","you try to avoid longtime driving"]
     let noArrayStr = ["you should get plenty of sleep before your drive, which is incredibly important for your health","you may fatigue driving. Please remember to find a place and have a rest every two hours","coffee has badly affected driving. You will experience serious lapses in concentration and slower reaction times","Long-time driving will cause fatigue and increase your risk of traffic accident. You should plan your rest stop","you much more likely to be fat and inactive than other people in their age group"]
+
     let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
@@ -59,11 +61,11 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         databaseController = appDelegate.databaseController
         
         datePicker.datePickerMode = .date
-        
+        /*Set border to visual effect view*/
         visualEffectView.layer.cornerRadius = 10
         visualEffectView.layer.borderWidth = 1
         visualEffectView.clipsToBounds = true
-
+        
         /*Set default date format*/
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
@@ -97,7 +99,7 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
         appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
         UINavigationBar.appearance().standardAppearance = appearance
-    
+        
     }
     
     func onCheckListChange(change: DatabaseChange, checkList: [CheckList]) {
@@ -119,7 +121,7 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         for index in allVar{
             existDays.append(index.time!)
         }
-        
+        /*Set page control page number*/
         pageControl.numberOfPages = existDays.count
         
         let minDateStr = existDays[0]
@@ -174,8 +176,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         /*Init variable for yes*/
         var yesMoreThanFour = 0
         var filterYes = [QuestionObject]()
-//        yesArray = [4,4,3,3,3]
-//        noArray = [3,3,4,4,4]
         if(yesArray[0] + noArray[0] == 7){
             /*Find the count is more than or equal to 4 and append to filterYes Array*/
             for i in 0..<yesArray.count{
@@ -191,7 +191,7 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
             /*Init variable for no*/
             var noValueCount = 0
             var filterNo = [QuestionObject]()
-            
+
             
             /*Count for no */
             for i in 0..<noArray.count{
@@ -206,23 +206,28 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
             
             var yesStr_1 = ""
             var yesStr_2 = ""
-            
+
             /*Find highest count number and set output string*/
+            var checkObjectForYesOne = QuestionObject()
+            var checkObjectForYesTwo = QuestionObject()
             if(yesMoreThanFour >= 2){
                 var yesMax = 0
-                var checkObjectForYes = QuestionObject()
                 for x in filterYes{
                     if(x.count > yesMax){
                         yesMax = x.count
                         yesStr_1 = yesArrayStr[x.index]
-                        checkObjectForYes = x
+                        checkObjectForYesOne = x
                     }
                 }
                 
+                yesMax = 0
                 for y in filterYes{
-                    if(checkObjectForYes != y){
-                        yesMax = y.count
-                        yesStr_2 = yesArrayStr[y.index]
+                    if(checkObjectForYesOne != y){
+                        if(y.count > yesMax){
+                            yesMax = y.count
+                            yesStr_2 = yesArrayStr[y.index]
+                            checkObjectForYesTwo = y
+                        }
                     }
                 }
             }else if(yesMoreThanFour == 1){
@@ -238,17 +243,20 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
                 var noMax = 0
                 var checkObjectForNo = QuestionObject()
                 for x in filterNo{
-                    if(x.count > noMax){
+                    if(x.count > noMax && x.index != checkObjectForYesOne.index && x.index != checkObjectForYesTwo.index){
                         noMax = x.count
                         noStr_1 = noArrayStr[x.index]
                         checkObjectForNo = x
                     }
                 }
                 
+                noMax = 0
                 for y in filterNo{
                     if(checkObjectForNo != y){
-                        noMax = y.count
-                        noStr_2 = noArrayStr[y.index]
+                        if(y.count > noMax && y.index != checkObjectForYesOne.index && y.index != checkObjectForYesTwo.index){
+                            noMax = y.count
+                            noStr_2 = noArrayStr[y.index]
+                        }
                     }
                 }
             }else if(noValueCount == 1){
@@ -354,11 +362,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
             currentPage = indexOfDate!
             changeLabels(currentPage: currentPage)
             pageControl.currentPage = currentPage
-//            let indexPath = IndexPath(row: indexOfDate!, section: 0)
-//            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
-//
-//            let position = 205 * indexPath.row
-//            scrollView.setContentOffset(CGPoint(x: 0, y: position), animated: true)
         }else{
             /*Pop up window for no date found in table*/
             let title = "No this date found!"
@@ -415,7 +418,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
             let newdate = cal.date(byAdding: .day, value: -i, to: date)!
             let str = dateFormatter.string(from: newdate)
             sevenDays.append(str)
-            print(str)
         }
     }
     
@@ -436,62 +438,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         UINavigationBar.appearance().standardAppearance = appearance
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return allVar.count
-//    }
-    
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        /*Get cell ID*/
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reportViewCell", for: indexPath) as! ReportTableViewCell
-//        cell.dateLabel.text = allVar[indexPath.row].time
-//
-//        /*Set the cell value*/
-//        if(allVar[indexPath.row].questionOne){
-//            cell.questionOneLabel.text = "Q1.Yes"
-//        }else{
-//            cell.questionOneLabel.text = "Q1.No"
-//        }
-//
-//        if(allVar[indexPath.row].questionTwo){
-//            cell.questionTwoLabel.text = "Q2.Yes"
-//        }else{
-//            cell.questionTwoLabel.text = "Q2.No"
-//        }
-//
-//        if(allVar[indexPath.row].questionThree){
-//            cell.questionThreeLabel.text = "Q3.Yes"
-//        }else{
-//            cell.questionThreeLabel.text = "Q3.No"
-//        }
-//
-//        if(allVar[indexPath.row].questionFour){
-//            cell.questionFourLabel.text = "Q4.Yes"
-//        }else{
-//            cell.questionFourLabel.text = "Q4.No"
-//        }
-//
-//        if(allVar[indexPath.row].questionFive){
-//            cell.questionFiveLabel.text = "Q5.Yes"
-//        }else{
-//            cell.questionFiveLabel.text = "Q5.No"
-//        }
-//
-//        cell.levelLabel.text = "Fatigue Level: \(allVar[indexPath.row].fatigueLevel!)"
-//        cell.ratingLabel.text = "Rating: \(String(allVar[indexPath.row].rating)) ⭐"
-//        cell.tempLabel.text = "Temp: \(allVar[indexPath.row].weatherTemp!)"
-//        return cell
-//    }
-    
-    /*Set cell height*/
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 205
-//    }
     
     
 }

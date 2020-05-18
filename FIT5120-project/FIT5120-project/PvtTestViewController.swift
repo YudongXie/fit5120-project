@@ -107,7 +107,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidAppear(_ animated: Bool) {
         tableView.delegate = self
         tableView.dataSource = self
-        
+        /*Set enable for test button*/
         if(GameTimer == nil && displayTimer == nil && progressBarTimer == nil){
             Test.isEnabled = false
         }else{
@@ -435,9 +435,9 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         /*Pop up window*/
         let title = "Generating a report...👻"
         let message = "Please wait for few seconds...👻"
-               let alert = UIAlertController(title: title, message: "", preferredStyle:
-                   UIAlertController.Style.alert)
-               self.present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: title, message: "", preferredStyle:
+            UIAlertController.Style.alert)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
