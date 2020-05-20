@@ -89,16 +89,10 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         backgroundImage.image = UIImage(named: "testBg4")
         
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.secondView.insertSubview(backgroundImage, at: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
         /* resize the background image to fit in scroll view*/
-        backgroundImage.anchor(top: secondView.topAnchor, left: secondView.leftAnchor, bottom: secondView.bottomAnchor, right: secondView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
-        /*Set the color and font of Nav bar*/
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
-        appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
-        UINavigationBar.appearance().standardAppearance = appearance
+        backgroundImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
     }
     
@@ -176,6 +170,8 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         /*Init variable for yes*/
         var yesMoreThanFour = 0
         var filterYes = [QuestionObject]()
+        print(yesArray[0])
+        print(noArray[0])
         if(yesArray[0] + noArray[0] == 7){
             /*Find the count is more than or equal to 4 and append to filterYes Array*/
             for i in 0..<yesArray.count{
@@ -282,11 +278,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         
     }
     
-    
-    @IBAction func backToHome(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     /*Swipe right and change page control*/
     @IBAction func swipeActionRight(_ sender: UISwipeGestureRecognizer) {
         if(currentPage == existDays.count - 1){
@@ -317,8 +308,27 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
     
     /*Function for set text*/
     func changeLabels(currentPage: Int){
-        dateLabel.text = allVar[currentPage].time
-        ratingLabel.text = "Rating: \(String(allVar[currentPage].rating)) ⭐"
+       
+        /*Animation for labels*/
+        dateLabel.fadeTransition(0.7)
+        fatigueLevelLabel.fadeTransition(0.7)
+        ratingLabel.fadeTransition(0.7)
+        Q1Label.fadeTransition(0.7)
+        Q2Label.fadeTransition(0.7)
+        Q3Label.fadeTransition(0.7)
+        Q4Label.fadeTransition(0.7)
+        Q5Label.fadeTransition(0.7)
+        
+         /*Change format of date*/
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        let date = dateFormatter.date(from: allVar[currentPage].time!)
+        dateFormatter.dateFormat = "MMM-dd-YYYY"
+        let goodDate = dateFormatter.string(from: date!)
+        
+        dateLabel.text = goodDate
+        ratingLabel.text = "Rating: \(String(allVar[currentPage].rating))/5"
         fatigueLevelLabel.text = "Fatigue Level:  \(allVar[currentPage].fatigueLevel!)"
         if(allVar[currentPage].questionOne){
             Q1Label.text = "Q1.Yes"
@@ -427,15 +437,10 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         databaseController?.addListener(listener: self)
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         databaseController?.removeListener(listener: self)
-        /*Set nav bar color and font size*/
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
-        appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
-        UINavigationBar.appearance().standardAppearance = appearance
+    
     }
     
     

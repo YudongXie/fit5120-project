@@ -18,6 +18,9 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet weak var oriTextField: UITextField!
     @IBOutlet weak var desTextField: UITextField!
     @IBOutlet weak var segementControl: UISegmentedControl!
+    @IBOutlet weak var navigatieButton: UIButton!
+    
+    @IBOutlet weak var currentLocationButton: UIButton!
     
     var currentlocation:CLLocation!
     var originLat : NSNumber = 0
@@ -48,6 +51,9 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
         let image2 = UIImage(named: "new-icons8-marker-30")
         imageView2.image = image2
         desTextField.leftView = imageView2
+        
+        navigatieButton.layer.cornerRadius = 5
+        currentLocationButton.layer.cornerRadius = 5
         
     }
     
@@ -88,7 +94,7 @@ class webMapViewController: UIViewController, UINavigationControllerDelegate, UI
         if(currentlocation == nil){
             currentLat = -37.817522
             currentLong = 144.967549
-            let title = "We are unable to locate your location👻 "
+            let title = "We are unable to locate your location "
             let message = "Please make sure your GPS is turned on \n User current location will be system default location"
             let alert = UIAlertController(title: title, message: message, preferredStyle:
                 UIAlertController.Style.alert)

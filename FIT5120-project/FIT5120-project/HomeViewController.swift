@@ -18,12 +18,7 @@ class HomeViewController: UIViewController,DatabaseListener{
     @IBOutlet weak var tipsLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var purposeButton: UIButton!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
-    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var reportButton: UIButton!
-    @IBOutlet weak var testButton: UIButton!
     
     
     var listenerType = ListenerType.all
@@ -34,7 +29,6 @@ class HomeViewController: UIViewController,DatabaseListener{
     var stringIcon : String!
     var tipsTimer: Timer!
     var originX : CGFloat = 0.0
-    var contentHeight : CGFloat = 0.0
     var imageData : Data!
     var temp = ""
     var tipsArray = ["Get a good night's sleep before heading off on a long trip.","Don't travel for more than eight to ten hours a day.","Take regular breaks – at least every two hours.","Share the driving wherever possible.","Don't travel at times when you'd usually be sleeping.","Take a 15 minute powernap if you feel yourself becoming drowsy.","Don't drink alcohol before your trip."]
@@ -50,35 +44,22 @@ class HomeViewController: UIViewController,DatabaseListener{
         originX = weatherImg.frame.origin.x
         /*Set the background image and fit it to screen*/
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "newHomeBg")
+        backgroundImage.image = UIImage(named: "testBg4")
         
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.contentView.insertSubview(backgroundImage, at: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
         visualEffectView.layer.cornerRadius = 15
         visualEffectView.clipsToBounds = true
         
-      
+        
         /* resize the background image to fit in scroll view*/
-        backgroundImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-                
-                
+        backgroundImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
+        
         self.tipsTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.randomTips), userInfo: nil, repeats: true)
         /*Put tips label on the top*/
         tipsLabel.layer.zPosition = 1
-
-        /*Set border for three buttons*/
-        purposeButton.layer.cornerRadius = 5
-        purposeButton.layer.borderWidth = 2
-        purposeButton.layer.borderColor = UIColor.white.cgColor
-        
-        reportButton.layer.cornerRadius = 5
-        reportButton.layer.borderWidth = 2
-        reportButton.layer.borderColor = UIColor.white.cgColor
-        
-        testButton.layer.cornerRadius = 5
-        testButton.layer.borderWidth = 2
-        testButton.layer.borderColor = UIColor.white.cgColor
         
     }
     
@@ -98,10 +79,10 @@ class HomeViewController: UIViewController,DatabaseListener{
         self.humidityLabel.isHidden = true
         self.currentTempLabel.isHidden = true
         callWeatherAPI()
-        getVideo()
         randomTips()
         databaseController?.addListener(listener: self)
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         /*Remove listener*/
@@ -114,39 +95,32 @@ class HomeViewController: UIViewController,DatabaseListener{
     }
     
     func onCheckListChange(change: DatabaseChange, checkList: [CheckList]) {
-           /*Get the array from coredata and pass it to current view array
-            Also set the date formate
-            */
-           let date = Date()
-           let formatter = DateFormatter()
-           formatter.dateFormat = "yyyy-MM-dd"
-           let currentDate = formatter.string(from: date)
-           var recordChecker = 0
+        /*Get the array from coredata and pass it to current view array
+         Also set the date formate
+         */
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let currentDate = formatter.string(from: date)
+        var recordChecker = 0
         
-           for index in checkList{
-               if(index.time == currentDate){
-                   recordChecker += 1
-               }
-           }
+        for index in checkList{
+            if(index.time == currentDate){
+                recordChecker += 1
+            }
+        }
         /*If today has no record for test and questions, then create a new record*/
-           if(recordChecker == 0){
-               let _ = databaseController?.addCheckList(questionOne: false, questionTwo: false, questionThree: false, questionFour: false, questionFive: false, time: currentDate, fatigueLevel: "Reaction Test Not done", rating: 0, weatherTemp: "no record")
-           }
-
-       }
+        if(recordChecker == 0){
+            let _ = databaseController?.addCheckList(questionOne: false, questionTwo: false, questionThree: false, questionFour: false, questionFive: false, time: currentDate, fatigueLevel: "Reaction Test Not done", rating: 0, weatherTemp: "no record")
+        }
+        
+    }
     
     @objc func randomTips(){
         /*Random tips and set the changing animation*/
         let randomTipsString = tipsArray.randomElement()
         tipsLabel.fadeTransition(0.7)
         tipsLabel.text = "DO YOU KNOW how to beat driver fatigue? \n \(randomTipsString!)"
-    }
-    
-    func getVideo(){
-        /*Call Video URlL and display*/
-        let serviceURL = "https://www.youtube.com/embed/e4uU47k_UKw?playsinline=1"
-        let url = URL(string:serviceURL)
-        webView.load(URLRequest(url:url!))
     }
     
     /*Call weather api to get today's weather information*/
@@ -206,7 +180,7 @@ class HomeViewController: UIViewController,DatabaseListener{
             self.weatherImg.alpha = 0
             self.weatherImg.transform = CGAffineTransform(scaleX:1.5, y:1.5)
         })
-       
+        
         /*After animation, set alpha back to 1*/
         weatherImg.alpha = 1
         /*After animation set position back to origin*/
@@ -227,44 +201,44 @@ extension UIView {
     }
     /*Background Image fit function*/
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat) {
-
+        
         translatesAutoresizingMaskIntoConstraints = false
-
+        
         if let top = top {
             topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
         }
-
+        
         if let left = left {
             leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
         }
-
+        
         if let bottom = bottom {
             bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
         }
-
+        
         if let right = right {
             rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
         }
-
+        
         if width != 0 {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-
+        
         if height != 0 {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
-
-    func center(x: NSLayoutXAxisAnchor?, y: NSLayoutYAxisAnchor? ) {
-
-        translatesAutoresizingMaskIntoConstraints = false
-
-        if let x = x {
-            centerXAnchor.constraint(equalTo: x).isActive = true
+        
+        func center(x: NSLayoutXAxisAnchor?, y: NSLayoutYAxisAnchor? ) {
+            
+            translatesAutoresizingMaskIntoConstraints = false
+            
+            if let x = x {
+                centerXAnchor.constraint(equalTo: x).isActive = true
+            }
+            
+            if let y = y {
+                centerYAnchor.constraint(equalTo: y).isActive = true
+            }
         }
-
-        if let y = y {
-            centerYAnchor.constraint(equalTo: y).isActive = true
-        }
-    }
     }
 }

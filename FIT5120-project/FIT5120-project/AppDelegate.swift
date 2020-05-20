@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         Thread.sleep(forTimeInterval: 2.0)
         //Change bar title color
         let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
-        appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
+        appearance.titleTextAttributes = [NSAttributedString.Key.font:UIFont.preferredFont(forTextStyle: .headline),.foregroundColor:UIColor.white]
+         appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
         UINavigationBar.appearance().standardAppearance = appearance
 
         //Set the tab bar color to white

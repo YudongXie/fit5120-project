@@ -41,7 +41,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
- 
+        
         submitButton.layer.cornerRadius = 10
         submitButton.layer.borderWidth = 2
         submitButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
@@ -53,19 +53,14 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "testBg4")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.secondView.insertSubview(backgroundImage, at: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
         /* Resize the background image to fit in scroll view*/
-        backgroundImage.anchor(top: secondView.topAnchor, left: secondView.leftAnchor, bottom: secondView.bottomAnchor, right: secondView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        backgroundImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        /*Set the nav color and font size*/
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
-        appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
-        UINavigationBar.appearance().standardAppearance = appearance
     }
     
     override func viewWillLayoutSubviews() {
@@ -86,7 +81,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         /*If the yes button is clicked, set yes button background image to checked and no button background image to unchecked*/
         noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
         sender.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
-
+        
         databaseController?.updateQuestion(checkList: allVar[0], questionChanged: true, order: currentQuestionIndex)
         
         if(currentQuestionIndex < 4){
@@ -153,8 +148,13 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         let indexPath = IndexPath(row: currentQuestionIndex, section: 0)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
         tableView.delegate?.tableView!(tableView, didSelectRowAt: indexPath)
-
+        
     }
+    
+    @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func noAction(_ sender: UIButton) {
         /*If the no button is clicked, set no button background image to checked and yes button background image to unchecked*/
@@ -170,7 +170,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
             let bottomOffset = CGPoint(x: 0, y:scrollView.contentSize.height - scrollView.bounds.size.height)
             scrollView.setContentOffset(bottomOffset, animated: true)
         }
- 
+        
         questionLabel.fadeTransition(0.9)
         //questionLabel.text = "Question \(currentQuestionIndex+1): \(questionList[currentQuestionIndex])"
         
@@ -234,6 +234,8 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func submitAction(_ sender: UIButton) {
         /*set all temp to the same when submit button is clicked*/
         databaseController?.update(checkList: allVar[0], questionOne: allVar[0].questionOne, questionTwo: allVar[0].questionTwo, questionThree: allVar[0].questionThree, questionFour: allVar[0].questionFour, questionFive: allVar[0].questionFive, fatigueLevel: allVar[0].fatigueLevel!, rating: Int(allVar[0].rating), weatherTemp: tempValue)
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -256,11 +258,6 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewWillDisappear(animated)
         /*Remove listener*/
         databaseController?.removeListener(listener: self)
-        /*Set nav bar color and font size*/
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
-        appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
-        UINavigationBar.appearance().standardAppearance = appearance
     }
     
     func onCheckListChange(change: DatabaseChange, checkList: [CheckList]) {
@@ -308,7 +305,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
             break
         }
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel!.font = UIFont(name:"LexendGiga-Regular", size:15)
+        cell.textLabel!.font = UIFont.preferredFont(forTextStyle: .headline)
         
         /*If the question answer is Yes, then set the checkmark for that speicial cell*/
         switch indexPath.row {
@@ -364,12 +361,12 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         
         /*Add the animation for question label*/
         questionLabel.fadeTransition(0.9)
-       // questionLabel.text = questionList[indexPath.row]
+        // questionLabel.text = questionList[indexPath.row]
         questionLabel.text = "Question \(currentQuestionIndex+1): \n \(questionList[currentQuestionIndex])"
         
         switch indexPath.row {
             
-      case 0:
+        case 0:
             if(allVar[0].questionOne == true){
                 noButton.setImage(UIImage(named:"red-icons8-unchecked-checkbox-50"), for: .normal)
                 yesButton.setImage(UIImage(named:"green-icons8-checked-checkbox-50"), for: .normal)
@@ -420,9 +417,6 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
     
 }

@@ -66,9 +66,9 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "testBg4")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.contentView.insertSubview(backgroundImage, at: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         /*Fir image background for view*/
-        backgroundImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        backgroundImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         /*Set Test button radius and border width */
         Test.layer.cornerRadius = 15
@@ -90,12 +90,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         displayedTime.layer.zPosition = 1
         tapMeLabel.layer.zPosition = 1
         tapMeLabel.isHidden = true
-        
-        /*set the nav bar color and font size*/
-        let appearance = UINavigationBarAppearance()
-               appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
-               appearance.backgroundColor = UIColor.init(red: 89/255, green: 128/255, blue: 169/255, alpha: 1.0)
-               UINavigationBar.appearance().standardAppearance = appearance
+
         
     }
     
@@ -122,11 +117,6 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         var window : UIWindow
         super.viewWillDisappear(animated)
         databaseController?.removeListener(listener: self)
-        /*Change nav bar color and font size*/
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "LexendGiga-Regular", size: 12)!,.foregroundColor:UIColor.white]
-        appearance.backgroundColor = UIColor(red: 52/255, green: 71/255, blue: 102/255, alpha: 1)
-        UINavigationBar.appearance().standardAppearance = appearance
         if let tabBarController = self.view.window!.rootViewController as? UITabBarController {
             /*Change the selected index to the one you want (starts from 0)*/
             tabBarController.selectedIndex = 0
@@ -163,7 +153,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         cell.textLabel!.text = timeArray[indexPath.row]
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel!.font = UIFont(name:"LexendGiga-Regular", size:15)
+        cell.textLabel!.font = UIFont.preferredFont(forTextStyle: .headline)
         return cell
     }
     
@@ -433,8 +423,8 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         task2.resume()
         /*Pop up window*/
-        let title = "Generating a report...👻"
-        let message = "Please wait for few seconds...👻"
+        let title = "Generating a report..."
+        let message = "Please wait for few seconds..."
         let alert = UIAlertController(title: title, message: "", preferredStyle:
             UIAlertController.Style.alert)
         self.present(alert, animated: true, completion: nil)
