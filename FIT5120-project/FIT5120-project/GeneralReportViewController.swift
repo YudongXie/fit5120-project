@@ -135,6 +135,8 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
     
     func computeConclusion(){
         /*For loop to count number of yes/no for each question in past 7 days*/
+        yesArray = [0,0,0,0,0]
+        noArray = [0,0,0,0,0]
         for index in noTodayArray{
             if(index.questionOne == true){
                 yesArray[0]+=1
@@ -170,8 +172,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         /*Init variable for yes*/
         var yesMoreThanFour = 0
         var filterYes = [QuestionObject]()
-        print(yesArray[0])
-        print(noArray[0])
         if(yesArray[0] + noArray[0] == 7){
             /*Find the count is more than or equal to 4 and append to filterYes Array*/
             for i in 0..<yesArray.count{
@@ -412,7 +412,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         secondViewHeight = height + 300
         /* Dynamiclly set the height of secondView*/
         secondViewHeightConstraint.constant = secondViewHeight
-        /*Get the table view current Y position*/
         
     }
     
@@ -422,12 +421,17 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         /*Set the format of dates*/
         let cal = Calendar.current
         let date = cal.startOfDay(for: Date())
-        
+
         /*Append last 8 existDays to array list*/
         for i in 0 ... 7 {
+            
             let newdate = cal.date(byAdding: .day, value: -i, to: date)!
+            print(newdate)
+            /*Keep the date format as AEST*/
+            dateFormatter.timeZone = TimeZone(abbreviation: "AEST")
             let str = dateFormatter.string(from: newdate)
             sevenDays.append(str)
+            
         }
     }
     

@@ -25,6 +25,7 @@
 		A05CEDEB243C52C9002C4FDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05CEDE9243C52C9002C4FDF /* Main.storyboard */; };
 		A05CEDED243C52CC002C4FDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05CEDEC243C52CC002C4FDF /* Assets.xcassets */; };
 		A05CEDF8243C532B002C4FDF /* PvtTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05CEDF7243C532B002C4FDF /* PvtTestViewController.swift */; };
+		A0776BC52475590700A4251B /* testMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0776BC42475590700A4251B /* testMainScreenViewController.swift */; };
 		A07D10BE245AA14900AAE395 /* webMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D10BD245AA14900AAE395 /* webMapViewController.swift */; };
 		A07D10C1245AA42F00AAE395 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D10C0245AA42F00AAE395 /* WebKit.framework */; };
 		A07D10C3245AA43400AAE395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D10C2245AA43400AAE395 /* MapKit.framework */; };
@@ -61,6 +62,7 @@
 		A05CEDEC243C52CC002C4FDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A05CEDF1243C52CC002C4FDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A05CEDF7243C532B002C4FDF /* PvtTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PvtTestViewController.swift; sourceTree = "<group>"; };
+		A0776BC42475590700A4251B /* testMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testMainScreenViewController.swift; sourceTree = "<group>"; };
 		A07D10BD245AA14900AAE395 /* webMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webMapViewController.swift; sourceTree = "<group>"; };
 		A07D10C0245AA42F00AAE395 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A07D10C2245AA43400AAE395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -160,6 +162,7 @@
 				A0DA04F12463DA7E001F9F55 /* GeneralReportViewController.swift */,
 				A0DA04F32463E2B2001F9F55 /* ReportTableViewCell.swift */,
 				A0F42F30246AE28400724322 /* QuestionObject.swift */,
+				A0776BC42475590700A4251B /* testMainScreenViewController.swift */,
 				A05CEDE9243C52C9002C4FDF /* Main.storyboard */,
 				A05CEDEC243C52CC002C4FDF /* Assets.xcassets */,
 				A05CEDF1243C52CC002C4FDF /* Info.plist */,
@@ -312,6 +315,7 @@
 				A04CC9FC2462C145008AF4E9 /* RulesViewController.swift in Sources */,
 				A0DA04FC2463F7CF001F9F55 /* CheckList+CoreDataProperties.swift in Sources */,
 				A04F14E02460320A008ED224 /* dataModel.xcdatamodeld in Sources */,
+				A0776BC52475590700A4251B /* testMainScreenViewController.swift in Sources */,
 				A04F14D9246031BE008ED224 /* CoreDataController.swift in Sources */,
 				A05CEDE4243C52C9002C4FDF /* AppDelegate.swift in Sources */,
 				A047D6F22445EDBA000FE1F0 /* weatherApi.swift in Sources */,
