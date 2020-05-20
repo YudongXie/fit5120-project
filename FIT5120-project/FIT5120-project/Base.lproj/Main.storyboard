@@ -1020,7 +1020,7 @@
                                                     <constraint firstAttribute="height" constant="230" id="YGP-Zb-Inw"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="69" translatesAutoresizingMaskIntoConstraints="NO" id="dFb-la-DBc">
+                                                    <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="69" translatesAutoresizingMaskIntoConstraints="NO" id="dFb-la-DBc">
                                                         <rect key="frame" x="0.0" y="28" width="320" height="69"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFb-la-DBc" id="mV5-ho-ueO">
@@ -1082,13 +1082,11 @@
                                                     <action selector="submitAction:" destination="Q07-QR-cc7" eventType="touchUpInside" id="s0J-0y-g9r"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5co-or-qth">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Question answers are saved automatically and can be reviewed in Personal Report" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5co-or-qth">
                                                 <rect key="frame" x="35" y="654" width="250" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="uFb-u4-xiQ"/>
                                                 </constraints>
-                                                <string key="text">*Question answers are saved automatically and can be reviewed in Personal Report
-*Submit answers for doing reaction test</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
