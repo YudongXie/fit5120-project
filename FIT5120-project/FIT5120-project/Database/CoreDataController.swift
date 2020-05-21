@@ -41,7 +41,7 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let currentDate = formatter.string(from: date)
-        let _ = addCheckList(questionOne: false, questionTwo: false, questionThree: false, questionFour: false, questionFive: false, time: currentDate, fatigueLevel: "Reaction Test Not done", rating: 0, weatherTemp: "no record")
+        let _ = addCheckList(questionOne: false, questionTwo: false, questionThree: false, questionFour: false, questionFive: false, time: currentDate, fatigueLevel: "Reaction Test Not Done", rating: 0, weatherTemp: "no record")
     }
     
     func saveContext() {

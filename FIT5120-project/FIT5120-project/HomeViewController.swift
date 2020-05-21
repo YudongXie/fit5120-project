@@ -111,7 +111,7 @@ class HomeViewController: UIViewController,DatabaseListener{
         }
         /*If today has no record for test and questions, then create a new record*/
         if(recordChecker == 0){
-            let _ = databaseController?.addCheckList(questionOne: false, questionTwo: false, questionThree: false, questionFour: false, questionFive: false, time: currentDate, fatigueLevel: "Reaction Test Not done", rating: 0, weatherTemp: "no record")
+            let _ = databaseController?.addCheckList(questionOne: false, questionTwo: false, questionThree: false, questionFour: false, questionFive: false, time: currentDate, fatigueLevel: "Reaction Test Not Done", rating: 0, weatherTemp: "no record")
         }
         
     }

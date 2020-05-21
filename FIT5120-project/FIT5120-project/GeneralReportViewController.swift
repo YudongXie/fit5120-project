@@ -16,10 +16,9 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
     
     @IBOutlet weak var conclusionLabel: UILabel!
     @IBOutlet weak var viewConclusionButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var tableViewHeightConstarint: NSLayoutConstraint!
+
     @IBOutlet weak var secondViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var confirmButton: UIButton!
@@ -32,7 +31,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
     @IBOutlet weak var Q4Label: UILabel!
     @IBOutlet weak var Q5Label: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var swipeView: UIView!
     
     
@@ -61,10 +59,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         databaseController = appDelegate.databaseController
         
         datePicker.datePickerMode = .date
-        /*Set border to visual effect view*/
-        visualEffectView.layer.cornerRadius = 10
-        visualEffectView.layer.borderWidth = 1
-        visualEffectView.clipsToBounds = true
         
         /*Set default date format*/
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -83,6 +77,12 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         viewConclusionButton.layer.borderWidth = 2
         viewConclusionButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
         
+        swipeView.layer.cornerRadius = 25.0
+               swipeView.layer.shadowColor = UIColor.black.cgColor
+               swipeView.layer.shadowOffset = CGSize(width: 0.0, height: 20)
+               swipeView.layer.shadowRadius = 12.0
+               swipeView.layer.shadowOpacity = 0.5
+
         
         /*View adds background image*/
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -426,7 +426,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         for i in 0 ... 7 {
             
             let newdate = cal.date(byAdding: .day, value: -i, to: date)!
-            print(newdate)
             /*Keep the date format as AEST*/
             dateFormatter.timeZone = TimeZone(abbreviation: "AEST")
             let str = dateFormatter.string(from: newdate)
