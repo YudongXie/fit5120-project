@@ -121,7 +121,7 @@ class HomeViewController: UIViewController,DatabaseListener{
                     reactionTestChecker.text = "You have not done today's test, please click the button to redirect the screen"
                     checkerButton.isHidden = false
                 }else{
-                    reactionTestChecker.text = "Well done, you have did today's test"
+                    reactionTestChecker.text = "Well done, you have done today's reaction test"
                     checkerButton.isHidden = true
                 }
             }
