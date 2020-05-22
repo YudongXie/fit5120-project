@@ -20,8 +20,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
     @IBOutlet weak var scrollView: UIScrollView!
 
     @IBOutlet weak var secondViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var fatigueLevelLabel: UILabel!
@@ -58,30 +56,19 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
         
-        datePicker.datePickerMode = .date
-        
         /*Set default date format*/
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        /*Set the datepicker text color to white*/
-        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
-        datePicker.setValue(false, forKey: "highlightsToday")
-        
-        /*Set confirmbutton and viewConclusionButton radius and border*/
-        confirmButton.layer.cornerRadius = 10
-        confirmButton.layer.borderWidth = 2
-        confirmButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
-        
         
         viewConclusionButton.layer.cornerRadius = 10
         viewConclusionButton.layer.borderWidth = 2
         viewConclusionButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
         
+        /*Card view*/
         swipeView.layer.cornerRadius = 25.0
-               swipeView.layer.shadowColor = UIColor.black.cgColor
-               swipeView.layer.shadowOffset = CGSize(width: 0.0, height: 20)
-               swipeView.layer.shadowRadius = 12.0
-               swipeView.layer.shadowOpacity = 0.5
+        swipeView.layer.shadowColor = UIColor.black.cgColor
+        swipeView.layer.shadowOffset = CGSize(width: 0.0, height: 20)
+        swipeView.layer.shadowRadius = 12.0
+        swipeView.layer.shadowOpacity = 0.5
 
         
         /*View adds background image*/
@@ -117,17 +104,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
         }
         /*Set page control page number*/
         pageControl.numberOfPages = existDays.count
-        
-        let minDateStr = existDays[0]
-        let maxDateStr = existDays[existDays.count-1]
-        /*The date that in array is currently AEST timezone, therefore it is GMT+0:00*/
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-        let minDate = dateFormatter.date(from: minDateStr)!
-        let maxDate = dateFormatter.date(from: maxDateStr)!
-        
-        /*Set the min/max date for datePicker*/
-        datePicker.minimumDate = minDate
-        datePicker.maximumDate = maxDate
         
         changeLabels(currentPage: currentPage)
         computeConclusion()
@@ -358,29 +334,6 @@ class GeneralReportViewController: UIViewController,DatabaseListener{
             Q5Label.text = "Q5.Yes"
         }else{
             Q5Label.text = "Q5.No"
-        }
-    }
-    
-    @IBAction func confirmButton(_ sender: UIButton) {
-        /*The datePicker date is "UTC", so set the time zone to AEST*/
-        dateFormatter.timeZone = TimeZone(abbreviation: "AEST")
-        
-        let somedateString = dateFormatter.string(from: datePicker.date)
-        
-        let indexOfDate = existDays.firstIndex(of: somedateString)
-        if(indexOfDate != nil){
-            currentPage = indexOfDate!
-            changeLabels(currentPage: currentPage)
-            pageControl.currentPage = currentPage
-        }else{
-            /*Pop up window for no date found in table*/
-            let title = "No this date found!"
-            let message = ""
-            let alert = UIAlertController(title: title, message: message, preferredStyle:
-                UIAlertController.Style.alert)
-            let OKAction = UIAlertAction(title: "Got It!", style: UIAlertAction.Style.default, handler: nil)
-            alert.addAction(OKAction)
-            self.present(alert, animated: true, completion: nil)
         }
     }
     

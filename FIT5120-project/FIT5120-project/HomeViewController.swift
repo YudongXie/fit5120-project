@@ -19,6 +19,10 @@ class HomeViewController: UIViewController,DatabaseListener{
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var reactionTestChecker: UILabel!
+    @IBOutlet weak var checkerButton: UIButton!
+    
     
     
     var listenerType = ListenerType.all
@@ -61,6 +65,10 @@ class HomeViewController: UIViewController,DatabaseListener{
         /*Put tips label on the top*/
         tipsLabel.layer.zPosition = 1
         
+        checkerButton.layer.cornerRadius = 10
+        checkerButton.layer.borderWidth = 2
+        checkerButton.layer.borderColor = UIColor(red: 61/255, green: 133/255, blue: 227/255, alpha: 1).cgColor
+        
     }
     
     /*Passing values to next controller*/
@@ -78,6 +86,7 @@ class HomeViewController: UIViewController,DatabaseListener{
         self.weatherLabel.isHidden = true
         self.humidityLabel.isHidden = true
         self.currentTempLabel.isHidden = true
+        self.cityLabel.isHidden = true
         callWeatherAPI()
         randomTips()
         databaseController?.addListener(listener: self)
@@ -107,13 +116,27 @@ class HomeViewController: UIViewController,DatabaseListener{
         for index in checkList{
             if(index.time == currentDate){
                 recordChecker += 1
+                
+                if(index.fatigueLevel == "Reaction Test Not Done"){
+                    reactionTestChecker.text = "You have not done today's test, please click the button to redirect the screen"
+                    checkerButton.isHidden = false
+                }else{
+                    reactionTestChecker.text = "Well done, you have did today's test"
+                    checkerButton.isHidden = true
+                }
             }
         }
         /*If today has no record for test and questions, then create a new record*/
         if(recordChecker == 0){
             let _ = databaseController?.addCheckList(questionOne: false, questionTwo: false, questionThree: false, questionFour: false, questionFive: false, time: currentDate, fatigueLevel: "Reaction Test Not Done", rating: 0, weatherTemp: "no record")
         }
-        
+
+    }
+    
+    
+    @IBAction func checkerAction(_ sender: UIButton) {
+        self.tabBarController?.selectedIndex = 1
+
     }
     
     @objc func randomTips(){
@@ -149,14 +172,15 @@ class HomeViewController: UIViewController,DatabaseListener{
                 /*Set label's text in main task*/
                 self.weatherLabel.text = "Weather: \(self.datas?.currentWeather as! String)"
                 self.temp = "\(String(Int(self.datas?.currentTemp as! Double)))°C"
-                self.currentTempLabel.text = "Now: \(String(Int(self.datas?.currentTemp as! Double)))°C"
+                self.currentTempLabel.text = " \(String(Int(self.datas?.currentTemp as! Double)))°C"
                 self.humidityLabel.text = "Humidity: \(String(Int(self.datas?.humidity as! Double)))%"
                 self.stringIcon = self.datas?.currentIcon as! String
+                self.cityLabel.text = "City: Melbourne"
                 /*Set labels visible*/
                 self.weatherLabel.isHidden = false
                 self.humidityLabel.isHidden = false
                 self.currentTempLabel.isHidden = false
-                
+                self.cityLabel.isHidden = false
                 /*Set the URL for weather image and download it from the URL*/
                 let serviceURL = "http://openweathermap.org/img/wn/\(self.stringIcon!).png"
                 
@@ -165,26 +189,9 @@ class HomeViewController: UIViewController,DatabaseListener{
                 /* Set value according to response*/
                 self.imageData = data!
                 self.weatherImg.image = UIImage(data: data!)
-                self.weatherImg.transform = CGAffineTransform(scaleX:1.0, y:1.0)
-                self.weatherImg.trailingAnchor.constraint(equalTo: self.visualEffectView!.trailingAnchor, constant: 0).isActive = true
-                self.animationImage()
             }
         }
         task.resume()
-    }
-    
-    func animationImage(){
-        /*Move the image from left to right*/
-        UIView.animate(withDuration: 3.0, animations:{
-            self.weatherImg.frame.origin.x = self.weatherImg.frame.origin.x + self.originX
-            self.weatherImg.alpha = 0
-            self.weatherImg.transform = CGAffineTransform(scaleX:1.5, y:1.5)
-        })
-        
-        /*After animation, set alpha back to 1*/
-        weatherImg.alpha = 1
-        /*After animation set position back to origin*/
-        self.weatherImg.frame.origin.x = self.originX
     }
     
 }
