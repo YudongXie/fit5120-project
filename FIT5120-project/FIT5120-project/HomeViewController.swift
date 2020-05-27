@@ -118,10 +118,10 @@ class HomeViewController: UIViewController,DatabaseListener{
                 recordChecker += 1
                 
                 if(index.fatigueLevel == "Reaction Test Not Done"){
-                    reactionTestChecker.text = "You have not done today's test, please click the button to redirect the screen"
+                    reactionTestChecker.text = "You have not done today's test, please click the button to take a test now!"
                     checkerButton.isHidden = false
                 }else{
-                    reactionTestChecker.text = "Well done, you have done today's reaction test"
+                    reactionTestChecker.text = "Well done, you have done today's reaction test."
                     checkerButton.isHidden = true
                 }
             }
@@ -143,7 +143,7 @@ class HomeViewController: UIViewController,DatabaseListener{
         /*Random tips and set the changing animation*/
         let randomTipsString = tipsArray.randomElement()
         tipsLabel.fadeTransition(0.7)
-        tipsLabel.text = "DO YOU KNOW how to beat driver fatigue? \n \(randomTipsString!)"
+        tipsLabel.text = "How to beat driver fatigue? \n Tips: \(randomTipsString!)"
     }
     
     /*Call weather api to get today's weather information*/

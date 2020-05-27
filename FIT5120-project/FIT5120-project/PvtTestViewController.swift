@@ -169,7 +169,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         /*Reset progress bar progress*/
         progressView.progress = 0
         /*Reset display time text to "waiting"*/
-        displayedTime.text = "waiting"
+        displayedTime.text = "waiting."
         /*Set progressbar updated every second*/
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
         Start.isEnabled = false
@@ -202,7 +202,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         /*Not click after 30s then reset*/
         if(Double(secondString) == 30){
 
-            timeLeft.text = "Test Finished due to 30s time out"
+            timeLeft.text = "Test finished due to 30s time out."
             displayedTime.text = ""
             tapMeLabel.isHidden = true
             Start.isEnabled = true
@@ -254,12 +254,12 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             
             randomNumber = Int.random(in: 4...6)
-            displayedTime.text = "waiting"
+            displayedTime.text = "waiting."
             tapMeLabel.isHidden = true
             
             self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
             lastTestLabel.isHidden = false
-            lastTestLabel.text = "Early Touch, new test starting..."
+            lastTestLabel.text = "Early touch will restart the current test."
         }else{
             /*Append time to arrayList*/
             displayTimer.invalidate()
@@ -268,17 +268,17 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             /*Apeend string to table*/
             switch count {
             case 1:
-                timeArray.append("The \(count)st test: " + time + " S ")
+                timeArray.append("The \(count)st test: " + time + " S .")
                 responseArray.append(Double(time)!)
             case 2:
-                timeArray.append("The \(count)nd test: " + time + " S ")
+                timeArray.append("The \(count)nd test: " + time + " S .")
                 responseArray.append(Double(time)!)
             case 3:
-                timeArray.append("The \(count)rd test: " + time + " S ")
+                timeArray.append("The \(count)rd test: " + time + " S .")
                 responseArray.append(Double(time)!)
                 
             default:
-                timeArray.append("The \(count)th test: " + time + " S ")
+                timeArray.append("The \(count)th test: " + time + " S .")
                 responseArray.append(Double(time)!)
             }
             
@@ -288,7 +288,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             randomTimeArray.append(randomNumber)
             lastTestLabel.isHidden = false
             lastTestLabel.fadeTransition(0.5)
-            lastTestLabel.text = "Last Response Time was \(time) S"
+            lastTestLabel.text = "Last Response Time was \(time) S."
             
             /*Refresh tableView Cell*/
             tableView.reloadData()
@@ -297,7 +297,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             displayedSecond = 0.0
             /*Random second before display MS*/
             randomNumber = Int.random(in: 4...6)
-            displayedTime.text = "waiting"
+            displayedTime.text = "waiting."
             tapMeLabel.isHidden = true
             self.GameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(randomNumber), target: self, selector: #selector(self.startMSTimer), userInfo: nil, repeats: false)
         }
@@ -315,8 +315,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
         
         /*If second == 0 then test finished and reset all things*/
         if(second == 0){
-            timeLeft.text = "Test finished"
-            print("early touch = \(earlyClick)")
+            timeLeft.text = "Test finished."
             displayedSecond = 0.0
             displayedTime.text = ""
             tapMeLabel.isHidden = true
@@ -338,7 +337,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             else{
                 /*No any clicks then restart test*/
                 let title = "Warning"
-                let message = "No any clicks, please re-start test"
+                let message = "No any clicks, please re-start test."
                 let alert = UIAlertController(title: title, message: message, preferredStyle:
                     UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style:
@@ -408,7 +407,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             DispatchQueue.main.async {
                     self.dismiss(animated: false) { () -> Void in
                         /*Report pop up window and able to render to another view*/
-                        let title = "Reaction Test Report Generated!"
+                        let title = "Reaction test teport generated!"
                         let message = ""
                         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                         let OKAction = UIAlertAction(title: "Report", style: UIAlertAction.Style.default, handler: {

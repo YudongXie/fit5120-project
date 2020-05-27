@@ -223,32 +223,32 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA5-eI-44b">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="2200"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. In last 24 hours, do you have at least 8 hours sleeping time?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hn-jy-YHL">
-                                                <rect key="frame" x="0.0" y="50.5" width="320" height="42.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. In last 24 hours, do you have at least 8 hours sleeping time?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hn-jy-YHL">
+                                                <rect key="frame" x="15" y="50.5" width="305" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. You do not drink coffee before you start driving today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2H-Yn-dLe">
-                                                <rect key="frame" x="0.0" y="145.5" width="320" height="42.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. You do not drink coffee before you start driving today?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2H-Yn-dLe">
+                                                <rect key="frame" x="15" y="145.5" width="305" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Have you taken regular breaks at least every two hours today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBm-GI-84E">
-                                                <rect key="frame" x="0.0" y="193" width="320" height="42.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Have you taken regular breaks at least every two hours today?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBm-GI-84E">
+                                                <rect key="frame" x="15" y="193" width="305" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. Is your journey less than 8 hours today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvI-Wa-Pyb">
-                                                <rect key="frame" x="0.0" y="240.5" width="320" height="42.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. Is your journey less than 8 hours today?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvI-Wa-Pyb">
+                                                <rect key="frame" x="15" y="240.5" width="305" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Is your driving going to be less than 2 hours today?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxL-iH-Lbe">
-                                                <rect key="frame" x="0.0" y="98" width="320" height="42.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Is your driving going to be less than 2 hours today?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxL-iH-Lbe">
+                                                <rect key="frame" x="15" y="98" width="305" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -395,18 +395,18 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="oQS-05-xa7" firstAttribute="top" secondItem="xhh-GK-WnL" secondAttribute="bottom" constant="20" id="22Q-5w-wIG"/>
-                                            <constraint firstItem="k2H-Yn-dLe" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="5CU-dD-yuX"/>
+                                            <constraint firstItem="k2H-Yn-dLe" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="15" id="5CU-dD-yuX"/>
                                             <constraint firstAttribute="trailing" secondItem="wbf-oy-gV4" secondAttribute="trailing" id="8xl-8B-Qez"/>
                                             <constraint firstItem="oQS-05-xa7" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="10" id="9QW-F0-kf2"/>
-                                            <constraint firstItem="FBm-GI-84E" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="9me-Cj-tUc"/>
-                                            <constraint firstItem="gxL-iH-Lbe" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="AiF-PL-Ofr"/>
+                                            <constraint firstItem="FBm-GI-84E" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="15" id="9me-Cj-tUc"/>
+                                            <constraint firstItem="gxL-iH-Lbe" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="15" id="AiF-PL-Ofr"/>
                                             <constraint firstAttribute="trailing" secondItem="gxL-iH-Lbe" secondAttribute="trailing" id="EwY-Gh-76F"/>
                                             <constraint firstItem="FBm-GI-84E" firstAttribute="top" secondItem="k2H-Yn-dLe" secondAttribute="bottom" constant="5" id="I5j-Tg-WcR"/>
                                             <constraint firstItem="wbf-oy-gV4" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="J4a-Gs-Ik5"/>
                                             <constraint firstAttribute="trailing" secondItem="k2H-Yn-dLe" secondAttribute="trailing" id="JQj-mV-FOn"/>
                                             <constraint firstItem="wbf-oy-gV4" firstAttribute="top" secondItem="WA5-eI-44b" secondAttribute="top" constant="10" id="Ngl-gb-tzw"/>
                                             <constraint firstItem="gxL-iH-Lbe" firstAttribute="top" secondItem="1hn-jy-YHL" secondAttribute="bottom" constant="5" id="RYh-PC-Eug"/>
-                                            <constraint firstItem="FvI-Wa-Pyb" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="URu-qE-WWb"/>
+                                            <constraint firstItem="FvI-Wa-Pyb" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="15" id="URu-qE-WWb"/>
                                             <constraint firstItem="1hn-jy-YHL" firstAttribute="top" secondItem="wbf-oy-gV4" secondAttribute="bottom" constant="15" id="VLD-v9-lRK"/>
                                             <constraint firstItem="zK4-r8-iKU" firstAttribute="top" secondItem="u65-fq-PW3" secondAttribute="bottom" constant="20" id="ViG-75-Y1N"/>
                                             <constraint firstAttribute="trailing" secondItem="zK4-r8-iKU" secondAttribute="trailing" constant="20" id="Wu9-YC-yuo"/>
@@ -427,7 +427,7 @@
                                             <constraint firstItem="FvI-Wa-Pyb" firstAttribute="top" secondItem="FBm-GI-84E" secondAttribute="bottom" constant="5" id="rlG-2m-nYe"/>
                                             <constraint firstItem="k9Q-1o-Dwl" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="t0D-SY-FyE"/>
                                             <constraint firstAttribute="height" constant="2200" id="wBK-1v-D5W"/>
-                                            <constraint firstItem="1hn-jy-YHL" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" id="xlD-gM-ENA"/>
+                                            <constraint firstItem="1hn-jy-YHL" firstAttribute="leading" secondItem="WA5-eI-44b" secondAttribute="leading" constant="15" id="xlD-gM-ENA"/>
                                             <constraint firstItem="u65-fq-PW3" firstAttribute="top" secondItem="k9Q-1o-Dwl" secondAttribute="bottom" constant="5" id="z1o-yH-aEF"/>
                                             <constraint firstAttribute="trailing" secondItem="oQS-05-xa7" secondAttribute="trailing" constant="10" id="zFc-Gw-w7a"/>
                                         </constraints>
@@ -983,7 +983,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="280" height="630"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Tap the circle when it starts timing" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvL-W4-xBs">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Tap the circle when it starts timing." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvL-W4-xBs">
                                                             <rect key="frame" x="0.0" y="20" width="280" height="42.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -996,32 +996,32 @@
                                                                 <constraint firstAttribute="height" constant="181" id="oZk-zj-qwC"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Tap the circle when the it starts timing" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPi-eq-j1H">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Tap the circle when the it starts timing." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPi-eq-j1H">
                                                             <rect key="frame" x="0.0" y="303.5" width="280" height="42.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Early tap will result in waiting time reset" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-Oz-YSc">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Early tap will result in waiting time reset." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-Oz-YSc">
                                                             <rect key="frame" x="0.0" y="366" width="280" height="42.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. The time of each tap will be recorded" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-48-1l6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. The time of each tap will be recorded." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-48-1l6">
                                                             <rect key="frame" x="0.0" y="428.5" width="280" height="42.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. No tap within 30s after the timing started, the test will be over" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-GR-eWM">
-                                                            <rect key="frame" x="0.0" y="491" width="280" height="42.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. No tap within 30s after the timing started, the test will be over." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-GR-eWM">
+                                                            <rect key="frame" x="0.0" y="491" width="280" height="64.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6. The report will be generated after test finished" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gky-DJ-P1e">
-                                                            <rect key="frame" x="0.0" y="553.5" width="280" height="42.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6. The report will be generated after test finished." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gky-DJ-P1e">
+                                                            <rect key="frame" x="0.0" y="575.5" width="280" height="42.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1063,6 +1063,7 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-Co-gML">
                                                             <rect key="frame" x="0.0" y="0.0" width="119" height="52"/>
+                                                            <color key="backgroundColor" red="0.015686274510000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <state key="normal" title="I Got It! ">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
