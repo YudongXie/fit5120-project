@@ -30,10 +30,8 @@
 		A07D10C1245AA42F00AAE395 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D10C0245AA42F00AAE395 /* WebKit.framework */; };
 		A07D10C3245AA43400AAE395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D10C2245AA43400AAE395 /* MapKit.framework */; };
 		A0B50A0E245D7BAE008D19C2 /* LexendGiga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0B50A0D245D7BAE008D19C2 /* LexendGiga-Regular.ttf */; };
-		A0B50A10245D7CC1008D19C2 /* PurposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B50A0F245D7CC1008D19C2 /* PurposeViewController.swift */; };
 		A0B7406F245F1F84009AB388 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7406E245F1F84009AB388 /* QuestionViewController.swift */; };
 		A0DA04F22463DA7E001F9F55 /* GeneralReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA04F12463DA7E001F9F55 /* GeneralReportViewController.swift */; };
-		A0DA04F42463E2B2001F9F55 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA04F32463E2B2001F9F55 /* ReportTableViewCell.swift */; };
 		A0DA04FB2463F7CF001F9F55 /* CheckList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA04F92463F7CF001F9F55 /* CheckList+CoreDataClass.swift */; };
 		A0DA04FC2463F7CF001F9F55 /* CheckList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA04FA2463F7CF001F9F55 /* CheckList+CoreDataProperties.swift */; };
 		A0E599D2246463EB004EDBA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0E599D1246463EB004EDBA9 /* LaunchScreen.storyboard */; };
@@ -67,10 +65,8 @@
 		A07D10C0245AA42F00AAE395 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A07D10C2245AA43400AAE395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A0B50A0D245D7BAE008D19C2 /* LexendGiga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendGiga-Regular.ttf"; sourceTree = "<group>"; };
-		A0B50A0F245D7CC1008D19C2 /* PurposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeViewController.swift; sourceTree = "<group>"; };
 		A0B7406E245F1F84009AB388 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		A0DA04F12463DA7E001F9F55 /* GeneralReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralReportViewController.swift; sourceTree = "<group>"; };
-		A0DA04F32463E2B2001F9F55 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		A0DA04F92463F7CF001F9F55 /* CheckList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		A0DA04FA2463F7CF001F9F55 /* CheckList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		A0E599D1246463EB004EDBA9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,27 +138,18 @@
 		A05CEDE2243C52C9002C4FDF /* FIT5120-project */ = {
 			isa = PBXGroup;
 			children = (
+				A0F6EA7C24821C0C00869FD9 /* Personal Report Page */,
+				A0F6EA7B24821BFF00869FD9 /* About Us Page */,
+				A0F6EA7A24821BF500869FD9 /* Test Page */,
+				A0F6EA7924821BDF00869FD9 /* Map Page */,
+				A0F6EA7824821B7F00869FD9 /* Home Page */,
 				A04F14D72460318B008ED224 /* Database */,
 				A04F14D62460317E008ED224 /* CoreData */,
 				A0B50A0C245D7B97008D19C2 /* fonts */,
 				A047D6F92449809F000FE1F0 /* Mel gpx.gpx */,
 				A05CEDE3243C52C9002C4FDF /* AppDelegate.swift */,
-				A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */,
 				A05CEDE5243C52C9002C4FDF /* SceneDelegate.swift */,
-				A05CEDF7243C532B002C4FDF /* PvtTestViewController.swift */,
 				A047D6F5244972B4000FE1F0 /* LocationAnnotation.swift */,
-				A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */,
-				A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */,
-				A07D10BD245AA14900AAE395 /* webMapViewController.swift */,
-				A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */,
-				A047D6F12445EDBA000FE1F0 /* weatherApi.swift */,
-				A0B50A0F245D7CC1008D19C2 /* PurposeViewController.swift */,
-				A0B7406E245F1F84009AB388 /* QuestionViewController.swift */,
-				A04CC9FB2462C145008AF4E9 /* RulesViewController.swift */,
-				A0DA04F12463DA7E001F9F55 /* GeneralReportViewController.swift */,
-				A0DA04F32463E2B2001F9F55 /* ReportTableViewCell.swift */,
-				A0F42F30246AE28400724322 /* QuestionObject.swift */,
-				A0776BC42475590700A4251B /* testMainScreenViewController.swift */,
 				A05CEDE9243C52C9002C4FDF /* Main.storyboard */,
 				A05CEDEC243C52CC002C4FDF /* Assets.xcassets */,
 				A05CEDF1243C52CC002C4FDF /* Info.plist */,
@@ -187,6 +174,53 @@
 				A0B50A0D245D7BAE008D19C2 /* LexendGiga-Regular.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		A0F6EA7824821B7F00869FD9 /* Home Page */ = {
+			isa = PBXGroup;
+			children = (
+				A047D6F12445EDBA000FE1F0 /* weatherApi.swift */,
+				A047D6EF2445E19F000FE1F0 /* HomeViewController.swift */,
+			);
+			path = "Home Page";
+			sourceTree = "<group>";
+		};
+		A0F6EA7924821BDF00869FD9 /* Map Page */ = {
+			isa = PBXGroup;
+			children = (
+				A07D10BD245AA14900AAE395 /* webMapViewController.swift */,
+			);
+			path = "Map Page";
+			sourceTree = "<group>";
+		};
+		A0F6EA7A24821BF500869FD9 /* Test Page */ = {
+			isa = PBXGroup;
+			children = (
+				A0776BC42475590700A4251B /* testMainScreenViewController.swift */,
+				A0B7406E245F1F84009AB388 /* QuestionViewController.swift */,
+				A0462FC4244CAA7F008A55C4 /* TestResultJson.swift */,
+				A0462FC6244CAFED008A55C4 /* ReactionResultViewController.swift */,
+				A05CEDF7243C532B002C4FDF /* PvtTestViewController.swift */,
+				A04CC9FB2462C145008AF4E9 /* RulesViewController.swift */,
+			);
+			path = "Test Page";
+			sourceTree = "<group>";
+		};
+		A0F6EA7B24821BFF00869FD9 /* About Us Page */ = {
+			isa = PBXGroup;
+			children = (
+				A01DCA75244C64A400F33FAE /* AboutUsViewController.swift */,
+			);
+			path = "About Us Page";
+			sourceTree = "<group>";
+		};
+		A0F6EA7C24821C0C00869FD9 /* Personal Report Page */ = {
+			isa = PBXGroup;
+			children = (
+				A0DA04F12463DA7E001F9F55 /* GeneralReportViewController.swift */,
+				A0F42F30246AE28400724322 /* QuestionObject.swift */,
+			);
+			path = "Personal Report Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,10 +340,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0DA04F42463E2B2001F9F55 /* ReportTableViewCell.swift in Sources */,
 				A047D6F02445E19F000FE1F0 /* HomeViewController.swift in Sources */,
 				A0462FC5244CAA7F008A55C4 /* TestResultJson.swift in Sources */,
-				A0B50A10245D7CC1008D19C2 /* PurposeViewController.swift in Sources */,
 				A01DCA76244C64A400F33FAE /* AboutUsViewController.swift in Sources */,
 				A0DA04FB2463F7CF001F9F55 /* CheckList+CoreDataClass.swift in Sources */,
 				A04CC9FC2462C145008AF4E9 /* RulesViewController.swift in Sources */,

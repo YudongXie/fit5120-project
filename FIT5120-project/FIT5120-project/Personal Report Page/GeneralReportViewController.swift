@@ -6,13 +6,20 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*
+ func computeConclusion() : compute the conclusion for personal report
+ func changeLabels(): change the displayed labels
+ func getLast7days(): compute last 7 days for personal report
+ func swipeActionRight(): swipe report card
+ func swipeActionLeft(): swipe report card
+ func pageControl: function for page control
+ func viewConclusion: show conclusion
+ func viewWillLayoutSubviews: resize the content view
+ */
+
 import UIKit
 
 class GeneralReportViewController: UIViewController,DatabaseListener{
-    
-    
-    
-    
     
     @IBOutlet weak var conclusionLabel: UILabel!
     @IBOutlet weak var viewConclusionButton: UIButton!

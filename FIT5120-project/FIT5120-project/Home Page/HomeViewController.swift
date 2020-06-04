@@ -6,6 +6,10 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*This file is for home page
+ func randomTips(): updating tips
+ func callWeatherAPI(): call weather api and decode json
+ */
 import UIKit
 import WebKit
 

@@ -6,6 +6,17 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*This file is for reaction test
+
+func startGame(): function for starting game
+func backToHome(): redirect page to home page
+func backToPreviousPage(): redirect page to previous one
+func displayMsecond(): display time
+func startMSTimer(): start timing
+func oneClick(): count click
+func updateProgressView(): keep updating progress bar
+func postJson(): send data to back-end
+ */
 import UIKit
 
 protocol getDataDelegate{

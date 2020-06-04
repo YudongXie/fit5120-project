@@ -5,7 +5,13 @@
 //  Created by Simon Xie on 30/4/20.
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
+/*This file is for map page
+ func userLocation(): get user current location
+ func tagValueChanged(): listener for type of routes
+ func autocompleteClicked(): functions from google places
+ func swapLocation(): swap destination and starting point
 
+ */
 import UIKit
 import GooglePlaces
 import WebKit

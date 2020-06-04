@@ -6,6 +6,10 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*This file is for about us page
+ func getVideo(): Download video from Youtube
+ */
+
 import UIKit
 import WebKit
 

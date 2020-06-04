@@ -6,6 +6,10 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*This file is for reaction result
+ func backHome(): redirect the page to home screen
+ func backToPreviousPage(): redirect the page to previous one
+ */
 import UIKit
 
 class ReactionResultViewController: UIViewController,UIScrollViewDelegate{

@@ -6,6 +6,9 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*This file is for reaction test rules
+ func backToPreviousPage(): redirect page to previous one
+ */
 import UIKit
 
 class RulesViewController: UIViewController {

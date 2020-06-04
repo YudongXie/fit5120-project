@@ -6,6 +6,8 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*This file is for tab bar - Test*/
+
 import UIKit
 
 class testMainScreenViewController: UIViewController {

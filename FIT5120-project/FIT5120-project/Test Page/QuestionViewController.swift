@@ -6,14 +6,23 @@
 //  Copyright © 2020 Simon Xie. All rights reserved.
 //
 
+/*This file is for Questionanires page
+ func changeQuestion(): change the displayed questions
+ func viewWillLayoutSubviews(): resize the content view
+ func swipeLeft(): swipe questions
+ func swipeRight(): swipe questions
+ func yesAction(): yes action for questions
+ func noAction(): no action for questions
+ func backToPrevious(): redirect page to previous one
+ func pageControl(): function for pageControl
+ func submitAction(): submit question
+ */
 
 import UIKit
 
 class QuestionViewController: UIViewController,DatabaseListener {
     
-    
-    
-    
+
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var yesButton: UIButton!
@@ -23,8 +32,6 @@ class QuestionViewController: UIViewController,DatabaseListener {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
-    
-    
     
     
     /*Set defaul questions*/

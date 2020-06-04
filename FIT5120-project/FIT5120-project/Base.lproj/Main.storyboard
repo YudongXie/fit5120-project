@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3892.5" y="-451.05633802816902"/>
+            <point key="canvasLocation" x="3939" y="-560"/>
         </scene>
         <!--Report-->
         <scene sceneID="yfZ-h4-whD">
@@ -678,7 +678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p50-BT-Q5m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4820.625" y="-432.04225352112678"/>
+            <point key="canvasLocation" x="4871" y="-561"/>
         </scene>
         <!--About us-->
         <scene sceneID="W7l-oz-vG1">
@@ -1152,7 +1152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXR-5u-UGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3386.25" y="-1287.6760563380283"/>
+            <point key="canvasLocation" x="3146" y="-559"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3uS-6W-KJ6">
@@ -1641,7 +1641,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4312.5" y="-1287.6760563380283"/>
+            <point key="canvasLocation" x="2794" y="-1257"/>
         </scene>
     </scenes>
     <resources>
