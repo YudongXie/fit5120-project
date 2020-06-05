@@ -418,7 +418,7 @@ class PvtTestViewController: UIViewController, UITableViewDataSource, UITableVie
             DispatchQueue.main.async {
                     self.dismiss(animated: false) { () -> Void in
                         /*Report pop up window and able to render to another view*/
-                        let title = "Reaction test teport generated!"
+                        let title = "Reaction test report generated!"
                         let message = ""
                         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                         let OKAction = UIAlertAction(title: "Report", style: UIAlertAction.Style.default, handler: {
